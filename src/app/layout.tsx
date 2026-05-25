@@ -18,35 +18,45 @@ const playfair = Playfair_Display({
 });
 
 const siteUrl = "https://mughalhouse.com";
+const brandShort = "MH Recruiter";
+const brandFull  = "Mughal House Manpower Consultancy";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mughal House Manpower Consultancy | Government Licensed Overseas Recruitment",
-    template: "%s | Mughal House Manpower Consultancy",
+    default: `${brandFull} (MH Recruiter) — Govt-Licensed Overseas Recruitment, West Bengal to Malaysia`,
+    template: `%s | ${brandFull} · MH Recruiter`,
   },
   description:
-    "Mughal House Manpower Consultancy — Malaysia's trusted government-licensed overseas recruitment agency. 10,000+ workers deployed across manufacturing, plantation, construction, and hospitality sectors. Ethical, efficient, reliable.",
+    `${brandFull} (MH Recruiter) — a government-licensed (RAS838225) overseas recruitment agency in Pandua, West Bengal. 10,000+ skilled Indian workers placed across Malaysia's manufacturing, plantation, construction and hospitality sectors since 2023.`,
+  applicationName: brandFull,
   keywords: [
-    "manpower consultancy",
-    "overseas recruitment Malaysia",
-    "foreign worker recruitment",
-    "plantation workers Malaysia",
-    "factory operators recruitment",
-    "construction workers overseas",
-    "government licensed recruitment agency",
-    "Malaysia manpower agency",
+    "MH Recruiter",
+    "MH Recruiter India",
+    "MH Recruiter West Bengal",
+    "MH Manpower",
     "Mughal House",
-    "ethical recruitment",
-    "overseas employment",
-    "labor export",
-    "visa processing",
+    "Mughal House Recruiter",
+    "Mughal House Manpower Consultancy",
+    "Mughal House Pandua",
+    "manpower consultancy West Bengal",
+    "manpower consultancy Hooghly",
+    "overseas recruitment India to Malaysia",
+    "Indian workers for Malaysia",
+    "skilled worker recruitment Malaysia",
+    "plantation workers Malaysia recruitment",
+    "construction workers Malaysia recruitment",
+    "factory workers Malaysia recruitment",
+    "government licensed manpower agency India",
+    "RAS838225",
+    "ethical overseas recruitment",
+    "visa processing Malaysia",
     "pre-departure orientation",
-    "manpower clearance",
+    "manpower clearance India",
   ],
-  authors: [{ name: "Mughal House Manpower Consultancy" }],
-  creator: "Mughal House Manpower Consultancy",
-  publisher: "Mughal House Manpower Consultancy",
+  authors: [{ name: brandFull }],
+  creator: brandFull,
+  publisher: brandFull,
   category: "Business",
   classification: "Recruitment & Staffing",
   robots: {
@@ -63,39 +73,45 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_MY",
+    locale: "en_IN",
+    alternateLocale: ["en_MY"],
     url: siteUrl,
-    siteName: "Mughal House Manpower Consultancy",
-    title: "Mughal House Manpower Consultancy | Trusted Overseas Recruitment Since 2023",
+    siteName: brandFull,
+    title: `${brandFull} (MH Recruiter) — Govt-Licensed Overseas Recruitment`,
     description:
-      "9,000+ workers deployed. Government-licensed. Ethical recruitment for Malaysia's manufacturing, plantation, and construction sectors.",
+      "10,000+ skilled Indian workers placed across Malaysia. Government-licensed (RAS838225), zero worker-side fees, ethical recruitment since 2023.",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Mughal House Manpower Consultancy",
+        url: "/images/team/team-group-photo.jpg",
+        width: 1264,
+        height: 842,
+        alt: "Mughal House Manpower Consultancy management team, Pandua, West Bengal",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mughal House Manpower Consultancy",
+    title: `${brandFull} (MH Recruiter)`,
     description:
-      "Government-licensed overseas recruitment agency. 10,000+ workers deployed since 2023.",
-    images: ["/og-image.jpg"],
+      "Government-licensed overseas recruitment agency in Pandua, West Bengal. 10,000+ workers placed in Malaysia since 2023.",
+    images: ["/images/team/team-group-photo.jpg"],
   },
   alternates: {
     canonical: siteUrl,
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
+  // Replace this verification value once you've added the domain to
+  // Google Search Console (Settings → Ownership verification → HTML tag).
+  // verification: { google: "your-google-verification-code" },
   other: {
-    "geo.region": "MY",
-    "geo.placename": "Malaysia",
-    "business:contact_data:locality": "Malaysia",
-    "business:contact_data:country_name": "Malaysia",
+    "geo.region":     "IN-WB",
+    "geo.placename":  "Pandua, Hooghly, West Bengal, India",
+    "geo.position":   "23.0779;88.2870",
+    "ICBM":           "23.0779, 88.2870",
+    "business:contact_data:street_address": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road",
+    "business:contact_data:locality":       "Pandua",
+    "business:contact_data:region":         "West Bengal",
+    "business:contact_data:postal_code":    "712149",
+    "business:contact_data:country_name":   "India",
   },
 };
 
@@ -106,21 +122,34 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const postalAddress = {
+  "@type": "PostalAddress",
+  streetAddress: "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road",
+  addressLocality: "Pandua",
+  addressRegion: "West Bengal",
+  postalCode: "712149",
+  addressCountry: "IN",
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${siteUrl}/#organization`,
   name: "Mughal House Manpower Consultancy",
+  alternateName: ["MH Recruiter", "MH Manpower", "Mughal House", "Mughal House Recruiter"],
   url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
+  logo: `${siteUrl}/logo.svg`,
+  image: `${siteUrl}/images/team/mughal-house-exterior.jpg`,
   description:
-    "Government-licensed overseas manpower recruitment consultancy established in 2023, specializing in connecting Malaysian employers with qualified overseas workers across manufacturing, plantation, construction, and hospitality sectors.",
+    "Government-licensed overseas recruitment consultancy (license RAS838225) based in Pandua, West Bengal. Places skilled Indian workers across Malaysia's manufacturing, plantation, construction and hospitality sectors. Established 2023.",
   foundingDate: "2023",
-  numberOfEmployees: {
-    "@type": "QuantitativeValue",
-    value: 50,
-  },
-  areaServed: ["Malaysia", "South Asia", "Southeast Asia"],
+  founders: [
+    { "@type": "Person", name: "S. Ahamed (Raju)", jobTitle: "Chairman & Founder" },
+    { "@type": "Person", name: "Hemraj Dahal",     jobTitle: "Director — Overseas Business" },
+    { "@type": "Person", name: "Firoz Ahamed",     jobTitle: "Director — India Operations" },
+  ],
+  address: postalAddress,
+  areaServed: ["Malaysia", "India", "South Asia", "Southeast Asia"],
   serviceType: [
     "Overseas Recruitment",
     "Manpower Consultancy",
@@ -129,11 +158,23 @@ const organizationSchema = {
     "Medical Examination",
     "Passport Documentation",
   ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    availableLanguage: ["English", "Malay", "Urdu"],
-  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: "+91-7811-965514",
+      email: "mhmc023@gmail.com",
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi", "Bengali", "Urdu"],
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: "+60-12-360-2080",
+      areaServed: "MY",
+      availableLanguage: ["English", "Malay", "Urdu"],
+    },
+  ],
   sameAs: [
     "https://www.facebook.com/mughalhouse",
     "https://www.linkedin.com/company/mughalhouse",
@@ -145,10 +186,16 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": `${siteUrl}/#localbusiness`,
   name: "Mughal House Manpower Consultancy",
+  alternateName: "MH Recruiter",
   description:
-    "Government-licensed overseas recruitment agency in Malaysia specializing in manpower supply for manufacturing, plantation, and construction industries.",
+    "Government-licensed overseas recruitment agency in Pandua, West Bengal. Places skilled Indian workers across Malaysian manufacturing, plantation, construction and hospitality.",
   url: siteUrl,
+  image: `${siteUrl}/images/team/mughal-house-exterior.jpg`,
+  telephone: "+91-7811-965514",
+  email: "mhmc023@gmail.com",
   priceRange: "$$",
+  address: postalAddress,
+  geo: { "@type": "GeoCoordinates", latitude: 23.0779, longitude: 88.287 },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -162,6 +209,62 @@ const localBusinessSchema = {
       opens: "09:00",
       closes: "14:00",
       description: "By appointment only",
+    },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${siteUrl}/#faq`,
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is MH Recruiter?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "MH Recruiter is the short name for Mughal House Manpower Consultancy, a government-licensed (RAS838225) overseas recruitment agency based in Pandua, West Bengal, India. We place skilled and semi-skilled Indian workers into Malaysian manufacturing, plantation, construction and hospitality roles.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Mughal House (MH Recruiter) government licensed?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Mughal House Manpower Consultancy is registered with the Government of India under license number RAS838225 and complies with all Malaysian recruitment regulations.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Where is the Mughal House office located?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road, Po & PS Pandua, Dist – Hooghly, Pin – 712149, West Bengal, India.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do workers pay any fees to MH Recruiter?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. We follow a zero-fee policy for workers. All recruitment costs are borne by the employer, with transparent written contracts on both sides.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which sectors does Mughal House recruit for?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We recruit for plantation, construction, agriculture, poultry farming, cleaning services, housekeeping, food & beverage, bar & hospitality, general manufacturing, specialised manufacturing and textile & apparel across Malaysia.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How many workers has Mughal House placed?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Mughal House Manpower Consultancy has placed over 10,000 skilled workers from India into Malaysian industries since the company was officially registered in 2023.",
+      },
     },
   ],
 };
@@ -216,6 +319,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema),
           }}
         />
       </head>

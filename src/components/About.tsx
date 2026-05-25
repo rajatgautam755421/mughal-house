@@ -48,10 +48,11 @@ export default function About() {
               </h2>
 
               <p className="mt-6 text-ink-soft text-lg leading-[1.6] text-pretty drop-cap">
-                Two decades in overseas recruitment, officially registered in 2023. From
-                Pandua, West Bengal we have placed 10,000+ skilled workers into Malaysian
-                plantation, construction, manufacturing and hospitality. Both founders sign
-                every contract personally &mdash; no call centre, no intermediary.
+                Two decades in overseas recruitment, officially registered as Mughal House
+                Manpower Consultancy <span className="text-ink font-medium">(MH Recruiter)</span> in
+                2023. From Pandua, West Bengal we have placed 10,000+ skilled workers into
+                Malaysian plantation, construction, manufacturing and hospitality. Both founders
+                sign every contract personally &mdash; no call centre, no intermediary.
               </p>
 
               <dl className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-7">

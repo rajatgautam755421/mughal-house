@@ -91,6 +91,10 @@ export default function Footer() {
               Government-licensed overseas recruitment consultancy serving Malaysian employers
               since 2023. Ethical, efficient and trusted.
             </p>
+            <p className="text-white/45 text-[12px] tracking-wide">
+              Also known as <span className="text-white/70 font-medium">MH Recruiter</span>
+              {" "}&middot; MH Manpower.
+            </p>
 
             <a
               href="/mughal-house-license.pdf"
