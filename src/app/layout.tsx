@@ -79,21 +79,13 @@ export const metadata: Metadata = {
     title: `${brandFull} (MH Recruiter) — Govt-Licensed Overseas Recruitment`,
     description:
       "10,000+ skilled Indian workers placed across Malaysia. Government-licensed (RAS838225), zero worker-side fees, ethical recruitment since 2023.",
-    images: [
-      {
-        url: "/images/team/team-group-photo.jpg",
-        width: 1264,
-        height: 842,
-        alt: "Mughal House Manpower Consultancy management team, Pandua, West Bengal",
-      },
-    ],
+    // og:image is generated dynamically by src/app/opengraph-image.tsx
   },
   twitter: {
     card: "summary_large_image",
     title: `${brandFull} (MH Recruiter)`,
     description:
       "Government-licensed overseas recruitment agency in Pandua, West Bengal. 10,000+ workers placed in Malaysia since 2023.",
-    images: ["/images/team/team-group-photo.jpg"],
   },
   alternates: {
     canonical: siteUrl,
@@ -268,6 +260,20 @@ const faqSchema = {
   ],
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${siteUrl}/#breadcrumb`,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home",     item: `${siteUrl}/`             },
+    { "@type": "ListItem", position: 2, name: "About",    item: `${siteUrl}/#about`       },
+    { "@type": "ListItem", position: 3, name: "Services", item: `${siteUrl}/#services`    },
+    { "@type": "ListItem", position: 4, name: "Process",  item: `${siteUrl}/#process`     },
+    { "@type": "ListItem", position: 5, name: "Team",     item: `${siteUrl}/#team`        },
+    { "@type": "ListItem", position: 6, name: "Contact",  item: `${siteUrl}/#contact`     },
+  ],
+};
+
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -324,6 +330,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(faqSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema),
           }}
         />
       </head>
