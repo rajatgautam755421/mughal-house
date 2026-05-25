@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import CursorEffect from "@/components/CursorEffect";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -101,7 +100,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1e52b8",
+  themeColor: "#faf8f3",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -220,95 +219,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased text-dark-50 selection:bg-gold-500 selection:text-dark-900" suppressHydrationWarning>
-
-        {/* ── Fixed atmospheric canvas ── */}
-        <div
-          aria-hidden="true"
-          style={{ position: "fixed", inset: 0, zIndex: 0, overflow: "hidden", pointerEvents: "none" }}
-        >
-          {/* Midnight base */}
-          <div style={{ position: "absolute", inset: 0, background: "#070c14" }} />
-
-          {/* Orb 1 — dominant royal-blue, upper-right */}
-          <div style={{
-            position: "absolute",
-            top: "-20%", right: "-14%",
-            width: "80vw", height: "80vw",
-            maxWidth: "1000px", maxHeight: "1000px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(30,79,156,0.38) 0%, rgba(30,79,156,0.14) 42%, transparent 68%)",
-            filter: "blur(100px)",
-          }} />
-
-          {/* Orb 2 — deep indigo, center-left */}
-          <div style={{
-            position: "absolute",
-            top: "25%", left: "-20%",
-            width: "70vw", height: "70vw",
-            maxWidth: "840px", maxHeight: "840px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(20,48,128,0.26) 0%, rgba(20,48,128,0.08) 45%, transparent 70%)",
-            filter: "blur(110px)",
-          }} />
-
-          {/* Orb 3 — center viewport — fills the mid-screen */}
-          <div style={{
-            position: "absolute",
-            top: "50%", left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "60vw", height: "60vw",
-            maxWidth: "720px", maxHeight: "720px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(14,40,100,0.14) 0%, rgba(14,40,100,0.04) 50%, transparent 70%)",
-            filter: "blur(120px)",
-          }} />
-
-          {/* Orb 4 — secondary royal-blue, lower-right */}
-          <div style={{
-            position: "absolute",
-            bottom: "10%", right: "-10%",
-            width: "52vw", height: "52vw",
-            maxWidth: "620px", maxHeight: "620px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(58,100,184,0.20) 0%, rgba(58,100,184,0.06) 50%, transparent 70%)",
-            filter: "blur(90px)",
-          }} />
-
-          {/* Orb 5 — warm gold, bottom-left */}
-          <div style={{
-            position: "absolute",
-            bottom: "-10%", left: "12%",
-            width: "44vw", height: "44vw",
-            maxWidth: "520px", maxHeight: "520px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(201,168,67,0.10) 0%, rgba(201,168,67,0.03) 50%, transparent 70%)",
-            filter: "blur(85px)",
-          }} />
-
-          {/* Edge vignette — softly darkens corners */}
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(3,5,12,0.55) 100%)",
-          }} />
-
-          {/* Noise grain texture */}
-          <div style={{
-            position: "absolute", inset: 0,
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
-            backgroundSize: "250px 250px",
-            opacity: 0.042,
-            mixBlendMode: "overlay",
-          }} />
-        </div>
-
-        {/* ── Cursor enhancement (desktop only) ── */}
-        <CursorEffect />
-
-        {/* ── Page content (above canvas) ── */}
-        <div style={{ position: "relative", zIndex: 1 }}>
-          {children}
-        </div>
+      <body className="font-sans antialiased" suppressHydrationWarning>
+        {children}
       </body>
     </html>
   );

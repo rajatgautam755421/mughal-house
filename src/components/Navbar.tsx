@@ -2,81 +2,39 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, CalendarDays } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "About Us", href: "#about" },
+  { label: "About",    href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Our Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
+  { label: "Process",  href: "#process" },
+  { label: "Team",     href: "#team" },
+  { label: "Contact",  href: "#contact" },
 ];
 
 export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
-  const [progress, setProgress] = useState(0);
 
   const handleScroll = useCallback(() => {
-    const scrollY = window.scrollY;
-    setIsScrolled(scrollY > 20);
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    setProgress(docHeight > 0 ? Math.min(scrollY / docHeight, 1) : 0);
+    setIsScrolled(window.scrollY > 12);
   }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
-
-    if (elements.length === 0) return;
-
-    const visibilityMap = new Map<string, number>();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          visibilityMap.set(entry.target.id, entry.intersectionRatio);
-        });
-        let maxRatio = 0;
-        let current = "";
-        visibilityMap.forEach((ratio, id) => {
-          if (ratio > maxRatio) { maxRatio = ratio; current = id; }
-        });
-        if (current) setActiveSection(`#${current}`);
-      },
-      { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1], rootMargin: "-60px 0px -30% 0px" }
-    );
-
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isMobileOpen]);
 
   const handleNavClick = (href: string) => {
     setIsMobileOpen(false);
-    setActiveSection(href);
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    const el = document.getElementById(href.replace("#", ""));
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -85,214 +43,140 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
         role="banner"
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          background: isScrolled
-            ? "rgba(6, 10, 20, 0.92)"
-            : "linear-gradient(to bottom, rgba(7,12,20,0.55) 0%, transparent 100%)",
-          backdropFilter: isScrolled ? "blur(24px)" : "blur(4px)",
-          WebkitBackdropFilter: isScrolled ? "blur(24px)" : "blur(4px)",
-          boxShadow: isScrolled ? "0 8px 40px rgba(0,0,0,0.40)" : "none",
-          transition: "background 0.4s ease, box-shadow 0.4s ease",
+          background: isScrolled ? "#faf8f3" : "rgba(250, 248, 243, 0.85)",
+          backdropFilter: isScrolled ? "none" : "saturate(180%) blur(10px)",
+          WebkitBackdropFilter: isScrolled ? "none" : "saturate(180%) blur(10px)",
+          borderBottom: isScrolled ? "1px solid #e6e1d6" : "1px solid transparent",
+          transition: "background 0.2s ease, border-color 0.2s ease",
         }}
       >
-        {/* Track line — full width subtle base */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            bottom: 0, left: 0,
-            height: "2px",
-            width: "100%",
-            background: "rgba(255,255,255,0.05)",
-            transformOrigin: "left center",
-            transform: isScrolled ? "scaleX(1)" : "scaleX(0)",
-            transition: "transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)",
-            pointerEvents: "none",
-          }}
-        />
-        {/* Progress fill — moves with scroll */}
-        <div
-          aria-hidden="true"
-          aria-valuenow={Math.round(progress * 100)}
-          role="progressbar"
-          aria-label="Page scroll progress"
-          style={{
-            position: "absolute",
-            bottom: 0, left: 0,
-            height: "2px",
-            width: `${progress * 100}%`,
-            background: "linear-gradient(90deg, #1e4f9c 0%, #3a64b8 40%, #c9a843 80%, #e8c054 100%)",
-            boxShadow: progress > 0 ? "0 0 8px rgba(201,168,67,0.6), 0 0 2px rgba(90,140,255,0.5)" : "none",
-            transition: "width 0.1s linear",
-            pointerEvents: "none",
-          }}
-        />
         <nav
-          className={`container-xl flex items-center justify-between transition-[height] duration-300 ease-out ${
-            isScrolled ? "h-14 lg:h-16" : "h-18 lg:h-20"
-          }`}
+          className="container-xl flex items-center justify-between h-16 lg:h-20"
           aria-label="Main navigation"
         >
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 group"
-            aria-label="Mughal House Manpower Consultancy - Home"
+            className="flex items-center gap-3 group shrink-0"
+            aria-label="Mughal House Manpower Consultancy — home"
           >
-            <div className="relative w-9 h-9 shrink-0 transition-transform duration-300 group-hover:scale-105">
-              <img src="/logo.svg" alt="" aria-hidden="true" className="w-9 h-9 drop-shadow-lg" />
-            </div>
-            <div className="hidden sm:flex flex-col">
-              <span className="font-display font-bold text-white text-[13px] leading-tight tracking-wide uppercase">
+            <img src="/logo.svg" alt="" aria-hidden="true" className="w-9 h-9" />
+            <div className="hidden sm:flex flex-col leading-none">
+              <span className="font-display font-semibold text-ink text-[15px] tracking-tight">
                 Mughal House
               </span>
-              <span className="text-gold-400 text-[9px] tracking-[0.18em] uppercase font-medium">
+              <span className="text-ink-muted text-[10px] tracking-[0.18em] uppercase mt-1">
                 Manpower Consultancy
               </span>
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center gap-0.5" role="list">
+          {/* Desktop nav */}
+          <ul className="hidden lg:flex items-center gap-8" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <button
                   onClick={() => handleNavClick(link.href)}
-                  className={`relative px-3 py-2 text-[13px] font-semibold tracking-wide rounded-lg transition-all duration-200 group ${
-                    activeSection === link.href
-                      ? "text-royal-300"
-                      : "text-white/80 hover:text-white"
-                  }`}
-                  aria-current={activeSection === link.href ? "page" : undefined}
+                  className="text-ink-soft hover:text-ink text-[13px] font-medium transition-colors duration-150 relative py-2"
                 >
-                  <span className="relative z-10">{link.label}</span>
-                  <span
-                    className="absolute inset-0 rounded-lg bg-white/8 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                  />
-                  {activeSection === link.href && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-royal-300" />
-                  )}
+                  {link.label}
                 </button>
               </li>
             ))}
           </ul>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-2">
-            <button
-              onClick={() => onOpenBooking()}
-              title="Book an appointment"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-gold-500/35 text-gold-300 text-xs font-semibold hover:border-gold-400/65 hover:bg-gold-500/8 active:scale-95 transition-all duration-200 whitespace-nowrap"
-            >
-              <CalendarDays className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-              Book
+          {/* CTAs */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button onClick={onOpenBooking} className="btn-link">
+              Book appointment
             </button>
             <button
               onClick={() => handleNavClick("#contact")}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-royal-500 text-white text-xs font-semibold tracking-wide hover:bg-royal-400 active:scale-95 transition-all duration-200 shadow-lg shadow-royal-500/25 whitespace-nowrap"
+              className="btn btn-primary"
             >
-              Free Consultation
-              <ChevronDown className="w-3 h-3 -rotate-90 shrink-0" aria-hidden="true" />
+              Free consultation
             </button>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg text-dark-200 hover:text-white hover:bg-white/5 transition-all duration-200"
+            className="lg:hidden w-10 h-10 flex items-center justify-center text-ink"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-expanded={isMobileOpen}
             aria-controls="mobile-menu"
             aria-label={isMobileOpen ? "Close menu" : "Open menu"}
           >
-            <Menu
-              className={`absolute w-5 h-5 transition-all duration-200 ${isMobileOpen ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"}`}
-              aria-hidden="true"
-            />
-            <X
-              className={`absolute w-5 h-5 transition-all duration-200 ${isMobileOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"}`}
-              aria-hidden="true"
-            />
+            {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </nav>
       </header>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       <div
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
-        aria-label="Mobile navigation menu"
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
+        aria-label="Navigation"
+        className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-200 ${
           isMobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-dark-900/90 backdrop-blur-sm"
+          className="absolute inset-0 bg-ink/40"
           onClick={() => setIsMobileOpen(false)}
           aria-hidden="true"
         />
-
-        {/* Drawer */}
         <div
-          className={`absolute top-0 right-0 bottom-0 w-[min(288px,85vw)] bg-dark-800 border-l border-gold-500/10 p-5 sm:p-6 flex flex-col transition-transform duration-300 ${
+          className={`absolute top-0 right-0 bottom-0 w-[min(320px,88vw)] bg-paper border-l border-rule p-6 flex flex-col transition-transform duration-250 ${
             isMobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex items-center justify-between mb-8 pt-4">
-            <span className="text-gold-400 text-xs tracking-[0.2em] uppercase font-medium">
-              Navigation
-            </span>
+          <div className="flex items-center justify-between mb-10 pt-2">
+            <span className="eyebrow">Navigation</span>
             <button
               onClick={() => setIsMobileOpen(false)}
-              className="w-8 h-8 flex items-center justify-center rounded-lg text-dark-300 hover:text-white hover:bg-white/5 transition-all duration-200"
+              className="w-8 h-8 flex items-center justify-center text-ink-soft"
               aria-label="Close menu"
             >
-              <X className="w-4 h-4" aria-hidden="true" />
+              <X className="w-4 h-4" />
             </button>
           </div>
 
           <ul className="flex flex-col gap-1 flex-1" role="list">
-            {navLinks.map((link, i) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <button
                   onClick={() => handleNavClick(link.href)}
-                  className="w-full text-left px-4 py-3 rounded-xl text-white/85 hover:text-white hover:bg-white/8 font-semibold transition-all duration-200 flex items-center justify-between group"
-                  style={{ animationDelay: `${i * 50}ms` }}
+                  className="w-full text-left py-3 border-b border-rule-soft text-ink font-display text-xl"
                 >
                   {link.label}
-                  <ChevronDown
-                    className="w-4 h-4 text-dark-400 group-hover:text-royal-400 -rotate-90 transition-colors duration-200"
-                    aria-hidden="true"
-                  />
                 </button>
               </li>
             ))}
           </ul>
 
-          <div className="pt-6 border-t border-white/5 flex flex-col gap-2.5">
+          <div className="flex flex-col gap-3 pt-6">
             <button
               onClick={() => { setIsMobileOpen(false); onOpenBooking(); }}
-              className="w-full py-3 rounded-full border border-gold-500/40 text-gold-300 font-semibold text-sm hover:bg-gold-500/8 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2"
+              className="btn btn-ghost justify-center"
             >
-              <CalendarDays className="w-4 h-4" aria-hidden="true" />
-              Book Appointment
+              Book appointment
             </button>
             <button
               onClick={() => handleNavClick("#contact")}
-              className="w-full py-3 rounded-full bg-royal-500 text-white font-semibold text-sm tracking-wide hover:bg-royal-400 active:scale-95 transition-all duration-200 shadow-lg shadow-royal-500/25"
+              className="btn btn-primary justify-center"
             >
-              Free Consultation
+              Free consultation
             </button>
             <a
               href="tel:+60123602080"
-              className="block text-center text-sm text-dark-400 hover:text-royal-400 transition-colors duration-200"
+              className="text-center text-ink-muted text-sm pt-2"
             >
               +60 12-360 2080
             </a>
           </div>
         </div>
       </div>
-
     </>
   );
 }

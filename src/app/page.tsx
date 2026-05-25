@@ -12,8 +12,6 @@ import OfficeVisit from "@/components/OfficeVisit";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import BookAppointmentModal from "@/components/BookAppointmentModal";
-import LiveChat from "@/components/LiveChat";
-import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -22,7 +20,7 @@ export default function Home() {
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-gold-500 focus:text-dark-900 focus:font-semibold"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-ink focus:text-paper focus:font-semibold"
       >
         Skip to main content
       </a>
@@ -39,8 +37,6 @@ export default function Home() {
       </main>
       <Footer />
       {bookingOpen && <BookAppointmentModal onClose={() => setBookingOpen(false)} />}
-      <LiveChat />
-      <ScrollProgress />
     </>
   );
 }
