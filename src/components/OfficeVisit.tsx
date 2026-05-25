@@ -28,29 +28,68 @@ function MapModal({ onClose }: { onClose: () => void }) {
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-200 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Office location">
-      <div className="absolute inset-0 bg-ink/70" onClick={onClose} aria-hidden="true" />
-      <div className="relative z-10 w-full max-w-md bg-paper border border-rule">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-rule">
-          <p className="font-display font-semibold text-ink text-lg">Registered office</p>
-          <button onClick={onClose} className="w-8 h-8 flex items-center justify-center text-ink-soft" aria-label="Close">
+    <div
+      className="fixed inset-0 z-200 flex items-end sm:items-center justify-center p-0 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="map-modal-title"
+    >
+      <div
+        className="absolute inset-0 bg-ink/55"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      <div className="relative w-full max-w-lg max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-paper border border-rule shadow-[0_24px_60px_-20px_rgba(15,30,61,0.35)]">
+
+        {/* Header */}
+        <div className="flex items-start justify-between px-7 pt-7 pb-5 border-b border-rule">
+          <div>
+            <span className="eyebrow">Mughal House Manpower Consultancy</span>
+            <h2
+              id="map-modal-title"
+              className="mt-3 font-display font-semibold text-ink text-[1.55rem] leading-tight tracking-tight"
+            >
+              Registered office
+            </h2>
+            <p className="text-ink-muted text-[13px] mt-1.5">
+              Pandua, Hooghly &middot; West Bengal, India
+            </p>
+          </div>
+          <button
+            onClick={onClose}
+            className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
+            aria-label="Close"
+          >
             <X className="w-4 h-4" />
           </button>
         </div>
-        <div className="p-6">
-          <span className="eyebrow">Address</span>
-          <address className="not-italic mt-3 text-ink text-[15px] leading-relaxed">
-            {ADDRESS_LINES.map((line) => (<span key={line} className="block">{line}</span>))}
-          </address>
+
+        {/* Body */}
+        <div className="px-7 py-6 flex flex-col gap-5">
+          <div>
+            <p className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold mb-2">
+              Address
+            </p>
+            <address className="not-italic text-ink text-[15px] leading-[1.6]">
+              {ADDRESS_LINES.map((line) => (
+                <span key={line} className="block">{line}</span>
+              ))}
+            </address>
+          </div>
+
           <a
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary justify-center w-full mt-6"
+            className="btn btn-primary justify-center w-full"
           >
             <Navigation className="w-4 h-4" aria-hidden="true" />
             Open in Google Maps
           </a>
+
+          <p className="text-center text-ink-faint text-[11px]">
+            Mon&ndash;Fri 9 AM&ndash;6 PM &middot; Sat by appointment.
+          </p>
         </div>
       </div>
     </div>
@@ -125,12 +164,12 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                 ))}
               </dl>
 
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
                 <button onClick={() => setMapOpen(true)} className="btn btn-primary">
                   Get directions
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </button>
-                <button onClick={onOpenBooking} className="btn-link">
+                <button onClick={onOpenBooking} className="btn btn-ghost">
                   <Calendar className="w-4 h-4" aria-hidden="true" />
                   Book appointment
                 </button>

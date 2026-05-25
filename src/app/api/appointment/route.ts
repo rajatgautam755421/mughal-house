@@ -17,123 +17,168 @@ function buildEmailHtml({
     timeStyle: "short",
   });
 
+  // ── Editorial palette, mirrored from src/app/globals.css ───────────────
+  const PAPER       = "#faf8f3";   // page background
+  const PAPER_SOFT  = "#f3efe6";
+  const RULE        = "#e6e1d6";
+  const INK         = "#111827";
+  const INK_SOFT    = "#3b475c";
+  const INK_MUTED   = "#6b7689";
+  const PRIMARY     = "#1e4f9c";   // royal — main logo color
+  const PRIMARY_DK  = "#13245e";
+  const NAVY_DEEP   = "#0a1e4a";
+  const GOLD        = "#b08830";
+  const GOLD_SOFT   = "#dcc079";
+
   const row = (label: string, value: string, isLink?: string) => `
     <tr>
-      <td style="padding:12px 0;border-bottom:1px solid #f0f4ff;vertical-align:top;width:130px;">
-        <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;">${label}</span>
+      <td style="padding:14px 0;border-bottom:1px solid ${RULE};vertical-align:top;width:140px;">
+        <span style="font-family:'Inter','Segoe UI',Arial,sans-serif;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:${INK_MUTED};">${label}</span>
       </td>
-      <td style="padding:12px 0;border-bottom:1px solid #f0f4ff;vertical-align:top;">
+      <td style="padding:14px 0;border-bottom:1px solid ${RULE};vertical-align:top;">
         ${isLink
-          ? `<a href="${isLink}" style="color:#1e4f9c;font-size:14px;font-weight:500;text-decoration:none;">${value}</a>`
-          : `<span style="color:#111827;font-size:14px;font-weight:500;">${value}</span>`}
+          ? `<a href="${isLink}" style="color:${PRIMARY};font-family:'Inter','Segoe UI',Arial,sans-serif;font-size:14.5px;font-weight:500;text-decoration:none;border-bottom:1px solid ${PRIMARY};padding-bottom:1px;">${value}</a>`
+          : `<span style="color:${INK};font-family:'Inter','Segoe UI',Arial,sans-serif;font-size:14.5px;font-weight:500;">${value}</span>`}
       </td>
     </tr>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>New Appointment Request</title></head>
-<body style="margin:0;padding:0;background:#f0f4ff;font-family:'Segoe UI',Arial,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4ff;padding:32px 16px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>New Appointment Request — Mughal House</title>
+</head>
+<body style="margin:0;padding:0;background:${PAPER_SOFT};font-family:'Inter','Segoe UI',Arial,sans-serif;color:${INK};">
+<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:${PAPER_SOFT};padding:36px 16px;">
   <tr><td align="center">
-    <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="max-width:620px;background:${PAPER};border:1px solid ${RULE};">
 
-      <!-- Header -->
-      <tr><td>
-        <table width="100%" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#0b1d48 0%,#1e4f9c 60%,#2563c4 100%);border-radius:16px 16px 0 0;overflow:hidden;">
-          <tr>
-            <td style="padding:32px 36px;">
-              <table cellpadding="0" cellspacing="0">
-                <tr>
-                  <td style="padding-right:16px;vertical-align:middle;">
-                    <img src="${logoSrc}" width="56" height="56" alt="Mughal House Logo" style="display:block;border-radius:50%;" />
-                  </td>
-                  <td style="vertical-align:middle;">
-                    <p style="margin:0;color:rgba(255,255,255,0.65);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;">Mughal House Manpower Consultancy</p>
-                    <p style="margin:4px 0 0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.01em;">New Appointment Request</p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- Gold accent bar -->
-          <tr><td style="height:4px;background:linear-gradient(90deg,transparent,#c9a843,#e8c054,#c9a843,transparent);"></td></tr>
-        </table>
-      </td></tr>
+      <!-- Brand ribbon: royal → gold gradient, mirrors the site nav -->
+      <tr><td style="height:3px;background:linear-gradient(90deg,${PRIMARY_DK} 0%,${PRIMARY} 45%,${GOLD} 100%);font-size:0;line-height:0;">&nbsp;</td></tr>
 
-      <!-- Alert banner -->
-      <tr><td style="background:#1e4f9c;padding:14px 36px;">
-        <table cellpadding="0" cellspacing="0" width="100%">
+      <!-- Masthead -->
+      <tr><td style="padding:30px 36px 22px 36px;border-bottom:1px solid ${RULE};">
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
-            <td>
-              <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9a843;margin-right:8px;vertical-align:middle;"></span>
-              <span style="color:#d0e4ff;font-size:13px;vertical-align:middle;">A new appointment has been requested via the website.</span>
+            <td style="vertical-align:middle;">
+              <table cellpadding="0" cellspacing="0" role="presentation"><tr>
+                <td style="padding-right:16px;vertical-align:middle;">
+                  <img src="${logoSrc}" width="48" height="48" alt="Mughal House" style="display:block;" />
+                </td>
+                <td style="vertical-align:middle;">
+                  <p style="margin:0;color:${INK_MUTED};font-size:10.5px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;">
+                    <span style="display:inline-block;width:16px;height:1px;background:${GOLD};vertical-align:middle;margin-right:8px;"></span>
+                    Mughal House Manpower Consultancy
+                  </p>
+                  <p style="margin:8px 0 0;color:${INK};font-family:'Georgia','Times New Roman',serif;font-size:24px;font-weight:600;letter-spacing:-0.01em;line-height:1.15;">
+                    New appointment request<span style="color:${GOLD};">.</span>
+                  </p>
+                </td>
+              </tr></table>
             </td>
-            <td align="right">
-              <span style="background:rgba(201,168,67,0.20);border:1px solid rgba(201,168,67,0.40);color:#e8c054;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;white-space:nowrap;">Action Required</span>
+            <td align="right" style="vertical-align:top;white-space:nowrap;">
+              <span style="display:inline-block;background:${PRIMARY};color:${PAPER};font-size:10.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;padding:5px 11px;">
+                Action Required
+              </span>
             </td>
           </tr>
         </table>
       </td></tr>
 
-      <!-- Body -->
-      <tr><td style="background:#ffffff;padding:32px 36px;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;">
+      <!-- Sub-line -->
+      <tr><td style="padding:18px 36px 10px 36px;">
+        <p style="margin:0;color:${INK_SOFT};font-size:14px;line-height:1.65;">
+          A booking has just come in via <a href="https://mhrecruiter.com" style="color:${PRIMARY};text-decoration:none;border-bottom:1px solid ${PRIMARY};">mhrecruiter.com</a>.
+          Please confirm the slot with the candidate within one working day.
+        </p>
+      </td></tr>
 
-        <!-- Section: Contact Info -->
-        <p style="margin:0 0 4px;color:#1e4f9c;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Contact Information</p>
-        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
-          ${row("Full Name", name)}
-          ${row("Email", email, `mailto:${email}`)}
-          ${row("Phone", phone, `tel:${phone}`)}
+      <!-- Contact information -->
+      <tr><td style="padding:18px 36px 6px 36px;">
+        <p style="margin:0 0 8px 0;color:${INK_MUTED};font-size:10.5px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;">
+          <span style="display:inline-block;width:16px;height:1px;background:${GOLD};vertical-align:middle;margin-right:8px;"></span>
+          Contact information
+        </p>
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+          ${row("Full name", name)}
+          ${row("Email",     email, `mailto:${email}`)}
+          ${row("Phone",     phone, `tel:${phone}`)}
         </table>
+      </td></tr>
 
-        ${(date || time) ? `
-        <!-- Section: Appointment -->
-        <p style="margin:0 0 4px;color:#1e4f9c;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Preferred Slot</p>
-        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
+      ${(date || time) ? `
+      <!-- Preferred slot -->
+      <tr><td style="padding:22px 36px 6px 36px;">
+        <p style="margin:0 0 8px 0;color:${INK_MUTED};font-size:10.5px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;">
+          <span style="display:inline-block;width:16px;height:1px;background:${GOLD};vertical-align:middle;margin-right:8px;"></span>
+          Preferred slot
+        </p>
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
           ${date ? row("Date", date) : ""}
           ${time ? row("Time", time) : ""}
-        </table>` : ""}
+        </table>
+      </td></tr>` : ""}
 
-        ${message ? `
-        <!-- Section: Message -->
-        <p style="margin:0 0 8px;color:#1e4f9c;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Message / Purpose</p>
-        <div style="background:#f8faff;border:1px solid #dce8ff;border-left:3px solid #1e4f9c;border-radius:0 8px 8px 0;padding:16px 18px;margin-bottom:28px;">
-          <p style="margin:0;color:#374151;font-size:14px;line-height:1.7;">${message.replace(/\n/g, "<br>")}</p>
-        </div>` : ""}
+      ${message ? `
+      <!-- Message / purpose -->
+      <tr><td style="padding:22px 36px 0 36px;">
+        <p style="margin:0 0 10px 0;color:${INK_MUTED};font-size:10.5px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;">
+          <span style="display:inline-block;width:16px;height:1px;background:${GOLD};vertical-align:middle;margin-right:8px;"></span>
+          Message / purpose
+        </p>
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+          <tr><td style="border-left:2px solid ${GOLD_SOFT};padding:4px 0 4px 16px;">
+            <p style="margin:0;color:${INK_SOFT};font-size:14.5px;line-height:1.7;font-style:italic;">
+              &ldquo;${message.replace(/\n/g, "<br>")}&rdquo;
+            </p>
+          </td></tr>
+        </table>
+      </td></tr>` : ""}
 
-        <!-- Reply prompt -->
-        <table width="100%" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#f0f7ff,#e8f0ff);border:1px solid #c7d9f7;border-radius:12px;overflow:hidden;">
+      <!-- Reply prompt -->
+      <tr><td style="padding:28px 36px 28px 36px;">
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:${PAPER_SOFT};border:1px solid ${RULE};">
+          <tr><td style="padding:18px 22px;">
+            <p style="margin:0 0 4px 0;color:${PRIMARY_DK};font-family:'Georgia','Times New Roman',serif;font-size:16px;font-weight:600;letter-spacing:-0.005em;">
+              Reply directly to this email
+            </p>
+            <p style="margin:0;color:${INK_SOFT};font-size:13.5px;line-height:1.6;">
+              Hit <strong style="color:${INK};">Reply</strong> &mdash; your response goes straight to
+              <strong style="color:${INK};">${name}</strong> at
+              <a href="mailto:${email}" style="color:${PRIMARY};text-decoration:none;border-bottom:1px solid ${PRIMARY};">${email}</a>.
+            </p>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <!-- Footer -->
+      <tr><td style="background:linear-gradient(180deg,${NAVY_DEEP} 0%,${PRIMARY_DK} 100%);padding:22px 36px;color:${PAPER};">
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
-            <td style="padding:18px 20px;">
-              <p style="margin:0 0 6px;color:#1e4f9c;font-size:13px;font-weight:600;">💬 Reply directly to this email</p>
-              <p style="margin:0;color:#4b6cb7;font-size:13px;line-height:1.5;">
-                Hit <strong>Reply</strong> and your response goes straight to <strong>${name}</strong> at <a href="mailto:${email}" style="color:#1e4f9c;">${email}</a>.
+            <td style="vertical-align:top;">
+              <p style="margin:0;font-family:'Georgia','Times New Roman',serif;color:${PAPER};font-size:14px;font-weight:600;letter-spacing:-0.005em;">
+                Mughal House Manpower Consultancy
+              </p>
+              <p style="margin:4px 0 0;color:rgba(250,248,243,0.62);font-size:11px;line-height:1.5;">
+                Ahmed Plaza, Pandua, Hooghly, West Bengal, India &middot;
+                License <span style="color:${GOLD_SOFT};">RAS838225</span>
+              </p>
+            </td>
+            <td align="right" style="vertical-align:top;white-space:nowrap;">
+              <p style="margin:0;color:rgba(250,248,243,0.45);font-size:10.5px;letter-spacing:0.04em;">
+                Received ${submittedAt} IST
               </p>
             </td>
           </tr>
         </table>
-
       </td></tr>
-
-      <!-- Footer -->
-      <tr><td style="background:#0d1624;border-radius:0 0 16px 16px;padding:24px 36px;border-left:1px solid #1a2a4a;border-right:1px solid #1a2a4a;border-bottom:1px solid #1a2a4a;">
-        <table width="100%" cellpadding="0" cellspacing="0">
-          <tr>
-            <td>
-              <p style="margin:0;color:#ffffff;font-size:13px;font-weight:600;">Mughal House Manpower Consultancy</p>
-              <p style="margin:4px 0 0;color:#5a7ab0;font-size:11px;">Ahmed Plaza, Pandua, Hooghly, West Bengal, India · License RAS838225</p>
-            </td>
-            <td align="right" style="white-space:nowrap;">
-              <p style="margin:0;color:#3a5a8a;font-size:11px;">Received ${submittedAt} IST</p>
-            </td>
-          </tr>
-        </table>
-      </td></tr>
-
-      <!-- Bottom padding -->
-      <tr><td style="height:24px;"></td></tr>
 
     </table>
+    <!-- Trailing brand line -->
+    <p style="margin:14px 0 0;color:${INK_MUTED};font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;">
+      mhrecruiter.com
+    </p>
   </td></tr>
 </table>
 </body>

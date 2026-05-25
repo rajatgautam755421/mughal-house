@@ -68,7 +68,15 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer style={{ background: "#0a142a", color: "#cfd5e0" }} role="contentinfo" aria-label="Site footer">
+    <footer
+      style={{
+        background:
+          "linear-gradient(180deg, #0a1e4a 0%, #0a142a 65%, #060d1d 100%)",
+        color: "#cfd5e0",
+      }}
+      role="contentinfo"
+      aria-label="Site footer"
+    >
       <div className="container-xl py-14 lg:py-20">
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">

@@ -48,7 +48,11 @@ export default function Testimonials() {
     <section
       id="testimonials"
       className="section-padding"
-      style={{ background: "#0a142a", color: "#faf8f3" }}
+      style={{
+        background:
+          "radial-gradient(ellipse at 20% 0%, #13245e 0%, #0a1e4a 40%, #0a142a 100%)",
+        color: "#faf8f3",
+      }}
       aria-labelledby="testimonials-heading"
     >
       <div className="container-xl">

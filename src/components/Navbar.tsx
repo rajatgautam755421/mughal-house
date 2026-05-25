@@ -69,13 +69,31 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
         role="banner"
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          background: isScrolled ? "#faf8f3" : "rgba(250, 248, 243, 0.85)",
-          backdropFilter: isScrolled ? "none" : "saturate(180%) blur(10px)",
-          WebkitBackdropFilter: isScrolled ? "none" : "saturate(180%) blur(10px)",
-          borderBottom: isScrolled ? "1px solid #e6e1d6" : "1px solid transparent",
-          transition: "background 0.2s ease, border-color 0.2s ease",
+          // Solid paper at the top too — the header should read as a
+          // distinct surface from the hero, not blur into it.
+          background: isScrolled
+            ? "rgba(255, 255, 255, 0.96)"
+            : "#faf8f3",
+          backdropFilter: isScrolled ? "saturate(180%) blur(14px)" : "none",
+          WebkitBackdropFilter: isScrolled ? "saturate(180%) blur(14px)" : "none",
+          borderBottom: isScrolled ? "1px solid #d9d3c6" : "1px solid #e6e1d6",
+          boxShadow: isScrolled
+            ? "0 12px 28px -20px rgba(13, 28, 74, 0.35), 0 2px 6px -2px rgba(13, 28, 74, 0.12)"
+            : "0 1px 0 rgba(13, 28, 74, 0.04), 0 6px 16px -14px rgba(13, 28, 74, 0.25)",
+          transition:
+            "background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
         }}
       >
+        {/* Brand ribbon — a royal→gold stripe that anchors the
+            header against the page below, in both states. */}
+        <div
+          aria-hidden="true"
+          style={{
+            height: "3px",
+            background:
+              "linear-gradient(90deg, #13245e 0%, #1e4f9c 45%, #b08830 100%)",
+          }}
+        />
         <nav
           className="container-xl flex items-center justify-between h-16 lg:h-20"
           aria-label="Main navigation"
@@ -124,7 +142,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
           </ul>
 
           {/* CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-7">
             <button onClick={onOpenBooking} className="btn-link">
               Book appointment
             </button>

@@ -78,10 +78,7 @@ export default function Services() {
             Custom manpower briefs &mdash; we will tailor sourcing to your project timeline,
             skill profile and quota.
           </p>
-          <a
-            href="#contact"
-            className="btn btn-primary self-start sm:self-auto"
-          >
+          <a href="#contact" className="btn-link self-start sm:self-auto">
             Discuss your requirement
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>

@@ -90,6 +90,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  // Explicit icon hints — Next.js will also auto-detect icon.tsx /
+  // apple-icon.tsx, but listing them here guarantees Google sees a
+  // canonical <link rel="icon"> in the head when it indexes mhrecruiter.com.
+  icons: {
+    icon: [
+      { url: "/icon", type: "image/png", sizes: "192x192" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/icon",
+    apple: { url: "/apple-icon", sizes: "180x180", type: "image/png" },
+  },
   // Replace this verification value once you've added the domain to
   // Google Search Console (Settings → Ownership verification → HTML tag).
   // verification: { google: "your-google-verification-code" },
@@ -107,7 +119,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#faf8f3",
+  themeColor: "#1e4f9c",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

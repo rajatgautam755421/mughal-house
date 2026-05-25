@@ -19,7 +19,7 @@ export default function Hero() {
       <section
         id="home"
         aria-label="Mughal House Manpower Consultancy"
-        className="relative pt-20 sm:pt-20 lg:pt-20 pb-0 flex flex-col"
+        className="relative pt-24 sm:pt-28 lg:pt-32 pb-0 flex flex-col"
         style={{ background: "#faf8f3", minHeight: "100svh" }}
       >
         <div className="container-xl flex-1 flex flex-col">

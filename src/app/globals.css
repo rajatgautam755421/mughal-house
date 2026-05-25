@@ -19,19 +19,31 @@
   --color-ink-muted:    #6b7689;   /* secondary / meta */
   --color-ink-faint:    #98a0b0;   /* captions */
 
-  /* Single navy accent (primary link / button) */
-  --color-navy-50:  #f0f3f9;
-  --color-navy-100: #d8e0ee;
-  --color-navy-200: #aebdd6;
-  --color-navy-300: #7990b8;
-  --color-navy-500: #1f3a6b;
-  --color-navy-600: #16294e;
-  --color-navy-700: #0f1e3d;
-  --color-navy-900: #0a142a;
+  /* Royal navy — drawn from the logo M monogram gradient.
+     primary = #1e4f9c (mid-royal). darker shades reserved for
+     hover, dark surfaces and ink-like text. */
+  --color-navy-50:  #eef3fb;
+  --color-navy-100: #d4e0f3;
+  --color-navy-200: #a8c0e5;
+  --color-navy-300: #6f93ce;
+  --color-navy-400: #3a64b8;   /* logo M top stop */
+  --color-navy-500: #1e4f9c;   /* PRIMARY — logo globe mid stop */
+  --color-navy-600: #173d7a;   /* hover */
+  --color-navy-700: #13245e;   /* logo M bottom stop */
+  --color-navy-800: #0d1c4a;
+  --color-navy-900: #0a1e4a;   /* logo globe outer stop */
 
-  /* Single gold accent — used sparingly */
-  --color-gold-100: #f3e8c8;
-  --color-gold-300: #d9b765;
+  /* Brand primary (alias) */
+  --color-primary:        #1e4f9c;
+  --color-primary-hover:  #173d7a;
+  --color-primary-deep:   #13245e;
+  --color-primary-soft:   #eef3fb;
+
+  /* Gold accent — used sparingly */
+  --color-gold-100: #f6ecd1;
+  --color-gold-200: #ecdaa6;
+  --color-gold-300: #dcc079;
+  --color-gold-400: #cba84e;
   --color-gold-500: #b08830;
   --color-gold-600: #8e6a22;
   --color-gold-700: #6f5219;
@@ -77,7 +89,7 @@
     font-feature-settings: "kern", "liga", "calt", "ss01";
   }
 
-  ::selection { background: #0f1e3d; color: #faf8f3; }
+  ::selection { background: #1e4f9c; color: #faf8f3; }
 
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: #f3efe6; }
@@ -171,18 +183,19 @@
     white-space: nowrap;
   }
   .btn-primary {
-    background: #0f1e3d;
+    background: #1e4f9c;
     color: #faf8f3;
-    border: 1px solid #0f1e3d;
+    border: 1px solid #1e4f9c;
+    box-shadow: 0 1px 0 rgba(13, 28, 74, 0.18), 0 8px 24px -14px rgba(30, 79, 156, 0.55);
   }
-  .btn-primary:hover { background: #16294e; border-color: #16294e; }
+  .btn-primary:hover { background: #173d7a; border-color: #173d7a; }
 
   .btn-ghost {
     background: transparent;
-    color: #111827;
+    color: #13245e;
     border: 1px solid #c8c2b3;
   }
-  .btn-ghost:hover { border-color: #0f1e3d; }
+  .btn-ghost:hover { border-color: #1e4f9c; color: #1e4f9c; }
 
   .btn-link {
     display: inline-flex;
@@ -190,12 +203,19 @@
     gap: 0.375rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #0f1e3d;
-    border-bottom: 1px solid #0f1e3d;
+    color: #1e4f9c;
+    border-bottom: 1px solid #1e4f9c;
     padding-bottom: 2px;
     transition: color 0.18s ease, border-color 0.18s ease;
   }
   .btn-link:hover { color: #b08830; border-bottom-color: #b08830; }
+
+  /* Brand link — used inline for prominent text links */
+  .text-brand        { color: #1e4f9c; }
+  .text-brand-deep   { color: #13245e; }
+  .bg-brand          { background-color: #1e4f9c; }
+  .bg-brand-deep     { background-color: #13245e; }
+  .border-brand      { border-color: #1e4f9c; }
 
   /* Subtle on-load fade — used once for hero only */
   .fade-in {
@@ -228,5 +248,5 @@
   font-size: 4.25rem;
   line-height: 0.85;
   padding: 0.35rem 0.5rem 0 0;
-  color: #0f1e3d;
+  color: #1e4f9c;
 }

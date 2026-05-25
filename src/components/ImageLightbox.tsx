@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 import { X } from "lucide-react";
 
 interface Props {
@@ -25,47 +24,56 @@ export default function ImageLightbox({ src, alt, caption, subcaption, onClose }
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+      className="fixed inset-0 z-100 flex items-end sm:items-center justify-center p-0 sm:p-6"
       role="dialog"
-      aria-modal
+      aria-modal="true"
       aria-label={alt}
     >
-      {/* Backdrop */}
+      {/* Backdrop — matches Book-appointment modal */}
       <div
-        className="absolute inset-0 bg-dark-900/90 backdrop-blur-md"
+        className="absolute inset-0 bg-ink/55"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center transition-all duration-200 cursor-pointer"
-        aria-label="Close"
-      >
-        <X className="w-5 h-5 text-white" />
-      </button>
+      {/* Paper panel */}
+      <div className="relative w-full max-w-3xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-paper border border-rule shadow-[0_24px_60px_-20px_rgba(15,30,61,0.35)]">
 
-      {/* Image */}
-      <div className="relative z-10 max-w-4xl w-full animate-fade-in">
-        <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60">
+        {/* Header */}
+        <div className="flex items-start justify-between px-6 sm:px-7 pt-6 sm:pt-7 pb-4 border-b border-rule">
+          <div className="min-w-0">
+            <span className="eyebrow">Mughal House &middot; Photograph</span>
+            {caption && (
+              <h2 className="mt-2.5 font-display font-semibold text-ink text-[1.35rem] leading-tight tracking-tight">
+                {caption}
+              </h2>
+            )}
+            {subcaption && (
+              <p className="text-ink-muted text-[13px] mt-1.5">{subcaption}</p>
+            )}
+          </div>
+          <button
+            onClick={onClose}
+            className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
+            aria-label="Close"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Image */}
+        <div className="px-4 sm:px-6 pt-5 pb-4">
           <img
             src={src}
             alt={alt}
-            className="w-full h-auto block rounded-2xl"
-            style={{ maxHeight: "82vh", objectFit: "contain" }}
+            className="w-full h-auto block"
+            style={{ maxHeight: "72vh", objectFit: "contain" }}
           />
         </div>
 
-        {/* Caption */}
-        {(caption || subcaption) && (
-          <div className="mt-4 text-center">
-            {caption && <p className="text-white font-semibold text-base">{caption}</p>}
-            {subcaption && <p className="text-dark-300 text-sm mt-0.5">{subcaption}</p>}
-          </div>
-        )}
-
-        <p className="text-dark-300 text-xs text-center mt-3">Press Esc or click outside to close</p>
+        <p className="text-center text-ink-faint text-[11px] pb-5 px-6">
+          Press <kbd className="font-sans">Esc</kbd> or click outside to close
+        </p>
       </div>
     </div>
   );

@@ -151,48 +151,103 @@ function MemberModal({
   }, [onClose, onPrev, onNext]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6" role="dialog" aria-modal aria-label={`Profile: ${member.name}`}>
-      <div className="absolute inset-0 bg-ink/70" onClick={onClose} aria-hidden="true" />
-      <button onClick={onPrev} className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-paper border border-rule flex items-center justify-center" aria-label="Previous">
-        <ChevronLeft className="w-5 h-5 text-ink" />
+    <div
+      className="fixed inset-0 z-100 flex items-end sm:items-center justify-center p-0 sm:p-6"
+      role="dialog"
+      aria-modal
+      aria-labelledby="member-modal-title"
+    >
+      <div
+        className="absolute inset-0 bg-ink/55"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      {/* Prev / Next chips */}
+      <button
+        onClick={onPrev}
+        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-paper border border-rule text-ink-soft hover:text-ink hover:border-ink transition-colors duration-150"
+        aria-label="Previous member"
+      >
+        <ChevronLeft className="w-4 h-4" />
       </button>
-      <button onClick={onNext} className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-paper border border-rule flex items-center justify-center" aria-label="Next">
-        <ChevronRight className="w-5 h-5 text-ink" />
+      <button
+        onClick={onNext}
+        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-paper border border-rule text-ink-soft hover:text-ink hover:border-ink transition-colors duration-150"
+        aria-label="Next member"
+      >
+        <ChevronRight className="w-4 h-4" />
       </button>
 
-      <div className="relative z-10 w-full max-w-3xl max-h-[92vh] bg-paper border border-rule flex flex-col md:flex-row overflow-hidden">
-        <button onClick={onClose} className="absolute top-3 right-3 z-20 w-9 h-9 bg-paper border border-rule flex items-center justify-center" aria-label="Close">
-          <X className="w-4 h-4 text-ink" />
-        </button>
-        <div className="relative h-56 md:h-auto md:w-72 shrink-0">
-          <Image src={member.image} alt={`${member.name}, ${member.title}`} fill className="object-cover object-top" sizes="(max-width:768px) 100vw, 288px" />
-          <div className="absolute bottom-3 left-3 bg-paper border border-rule px-2.5 py-1 text-[11px] text-ink-muted">
-            {index + 1} <span className="text-ink-faint">/</span> {members.length}
-          </div>
-        </div>
-        <div className="flex-1 flex flex-col overflow-y-auto p-7 lg:p-9">
-          <div className="flex flex-wrap items-center gap-2">
+      {/* Paper panel — matches Book-appointment modal */}
+      <div className="relative w-full max-w-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-paper border border-rule shadow-[0_24px_60px_-20px_rgba(15,30,61,0.35)]">
+
+        {/* Header */}
+        <div className="flex items-start justify-between px-7 pt-7 pb-5 border-b border-rule">
+          <div className="min-w-0">
             <span className="eyebrow">{member.department}</span>
-            {member.badge && (
-              <span className="text-ink-muted text-[11px]">· {member.badge} · {member.since}</span>
-            )}
+            <h2
+              id="member-modal-title"
+              className="mt-3 font-display font-semibold text-ink text-[1.55rem] leading-tight tracking-tight"
+            >
+              {member.name}
+            </h2>
+            <p className="text-ink-muted text-[13px] mt-1.5">
+              {member.title}
+              {member.badge && (
+                <>
+                  {" "}&middot; <span className="text-ink">{member.badge}</span>
+                  {" "}&middot; {member.since}
+                </>
+              )}
+            </p>
           </div>
-          <h3 className="mt-3 font-display font-semibold text-ink text-2xl lg:text-[2rem] leading-tight tracking-tight">{member.name}</h3>
-          <p className="text-ink-muted text-sm mt-1">{member.title}</p>
-          <div className="my-5 h-px bg-rule" />
-          <p className="text-ink-soft text-[15px] leading-[1.65]">{member.blurb}</p>
-          <div className="mt-6">
-            <p className="eyebrow">Expertise</p>
-            <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-ink-soft text-sm list-disc list-inside marker:text-gold-500">
-              {member.expertise.map((tag) => (<li key={tag}>{tag}</li>))}
-            </ul>
+          <button
+            onClick={onClose}
+            className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
+            aria-label="Close"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="px-7 py-6 flex flex-col sm:flex-row gap-6">
+          <div className="relative w-full sm:w-44 shrink-0 aspect-[3/4] sm:aspect-auto sm:h-56 overflow-hidden">
+            <Image
+              src={member.image}
+              alt={`${member.name}, ${member.title}`}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width:640px) 100vw, 176px"
+            />
+            <div className="absolute bottom-2 left-2 bg-paper border border-rule px-2 py-0.5 text-[10.5px] text-ink-muted tracking-wide">
+              {index + 1} <span className="text-ink-faint">/</span> {members.length}
+            </div>
           </div>
-          <div className="mt-auto pt-6 border-t border-rule flex items-center justify-between gap-3">
-            <a href="mailto:mhmc023@gmail.com" className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-sm">
-              <Mail className="w-4 h-4" aria-hidden="true" />
-              mhmc023@gmail.com
-            </a>
-            <span className="text-ink-faint text-[11px]">← → · Esc</span>
+
+          <div className="flex-1 flex flex-col">
+            <p className="text-ink-soft text-[14.5px] leading-[1.65]">{member.blurb}</p>
+
+            <div className="mt-5">
+              <p className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold mb-2">
+                Expertise
+              </p>
+              <ul className="flex flex-wrap gap-x-4 gap-y-1 text-ink-soft text-[13px] list-disc list-inside marker:text-gold-500">
+                {member.expertise.map((tag) => <li key={tag}>{tag}</li>)}
+              </ul>
+            </div>
+
+            <div className="mt-6 pt-5 border-t border-rule flex items-center justify-between gap-3">
+              <a
+                href="mailto:mhmc023@gmail.com"
+                className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[13px]"
+              >
+                <Mail className="w-4 h-4" aria-hidden="true" />
+                mhmc023@gmail.com
+              </a>
+              <span className="text-ink-faint text-[11px]">&larr; &rarr; &middot; Esc</span>
+            </div>
           </div>
         </div>
       </div>

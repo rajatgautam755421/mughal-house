@@ -1,7 +1,9 @@
 import { ImageResponse } from "next/og";
 
-// Google recommends a favicon at least 48x48 and a multiple of 48.
-export const size = { width: 48, height: 48 };
+// Google recommends a favicon ≥ 48×48 and a multiple of 48. We render at
+// 192×192 so Search/Discover, browser tabs, PWA installs and Android share
+// sheets all get a crisp version of the MH monogram.
+export const size = { width: 192, height: 192 };
 export const contentType = "image/png";
 
 export default function Icon() {
@@ -14,11 +16,11 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0a142a",
+          background: "linear-gradient(135deg, #0a1e4a 0%, #13245e 55%, #1e4f9c 100%)",
           color: "#faf8f3",
-          fontSize: 26,
+          fontSize: 108,
           fontWeight: 700,
-          letterSpacing: -1,
+          letterSpacing: -4,
           fontFamily: "serif",
         }}
       >
