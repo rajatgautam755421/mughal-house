@@ -91,7 +91,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
           style={{
             height: "3px",
             background:
-              "linear-gradient(90deg, #13245e 0%, #1e4f9c 45%, #b08830 100%)",
+              "linear-gradient(90deg, #13245e 0%, #1e4f9c 60%, #b08830 100%)",
           }}
         />
         <nav

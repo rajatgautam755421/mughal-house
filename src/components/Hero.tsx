@@ -53,12 +53,12 @@ export default function Hero() {
                 Malaysia&rsquo;s industries.
               </p>
 
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a href="#contact" className="btn btn-primary">
                   Book a consultation
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </a>
-                <a href="#services" className="btn-link">
+                <a href="#services" className="btn btn-ghost">
                   See what we recruit for
                 </a>
               </div>
@@ -143,11 +143,14 @@ export default function Hero() {
             {stats.map(({ value, label, meta }, i) => (
               <div
                 key={label}
-                className={`flex flex-col gap-1 py-4 lg:py-5 px-5 lg:px-6 border-rule ${
-                  i < 3 ? "lg:border-r" : ""
-                } ${i === 0 || i === 2 ? "border-r lg:border-r" : ""} ${
-                  i < 2 ? "border-b lg:border-b-0" : ""
-                }`}
+                // sm (2-col): right border on the left column (i % 2 === 0),
+                //             bottom border on the top row (i < 2).
+                // lg (4-col): right border on the first three cells; no bottom.
+                className={`flex flex-col gap-1 py-4 lg:py-5 px-5 lg:px-6 border-rule
+                  ${i % 2 === 0 ? "border-r" : ""}
+                  ${i < 2 ? "border-b" : ""}
+                  ${i < 3 ? "lg:border-r" : "lg:border-r-0"}
+                  lg:border-b-0`}
               >
                 <dd className="font-display font-semibold text-ink leading-none tracking-tight"
                     style={{ fontSize: "clamp(1.5rem, 2.1vw, 2rem)" }}>

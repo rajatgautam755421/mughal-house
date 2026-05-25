@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -13,15 +13,6 @@ function LinkedInIcon({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
       <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
     </svg>
   );
 }
@@ -53,15 +44,8 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: FacebookIcon,  label: "Facebook",  href: "#" },
-  { icon: LinkedInIcon,  label: "LinkedIn",  href: "#" },
-  { icon: InstagramIcon, label: "Instagram", href: "#" },
-];
-
-const newsBriefs = [
-  { title: "Malaysia increases foreign worker quota for 2025",            date: "May 2025"   },
-  { title: "New pre-departure requirements for construction workers",     date: "April 2025" },
-  { title: "Mughal House achieves 10,000+ placement milestone",           date: "March 2025" },
+  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/mughalhouse" },
+  { icon: LinkedInIcon, label: "LinkedIn", href: "https://www.linkedin.com/company/mughalhouse" },
 ];
 
 export default function Footer() {
@@ -179,22 +163,24 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">News brief</p>
-              <ul className="flex flex-col gap-3" role="list">
-                {newsBriefs.map(({ title, date }) => (
-                  <li key={title}>
-                    <a href="#" className="flex flex-col gap-1 group">
-                      <span className="text-white/75 text-[13px] leading-snug group-hover:text-paper transition-colors duration-150">
-                        {title}
-                      </span>
-                      <span className="text-white/40 text-[11px] inline-flex items-center gap-1.5">
-                        {date}
-                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-150" aria-hidden="true" />
-                      </span>
-                    </a>
-                  </li>
-                ))}
+              <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">Hours</p>
+              <ul className="flex flex-col gap-2 text-white/70 text-[13px] leading-snug" role="list">
+                <li className="flex items-center justify-between gap-3">
+                  <span>Mon&ndash;Fri</span>
+                  <span className="text-paper">9:00 &ndash; 18:00</span>
+                </li>
+                <li className="flex items-center justify-between gap-3">
+                  <span>Saturday</span>
+                  <span className="text-paper">9:00 &ndash; 14:00</span>
+                </li>
+                <li className="flex items-center justify-between gap-3">
+                  <span>Sunday</span>
+                  <span className="text-white/45">Closed</span>
+                </li>
               </ul>
+              <p className="mt-4 text-white/45 text-[11px] leading-relaxed">
+                Saturday by appointment only.
+              </p>
             </div>
           </div>
         </div>
@@ -203,13 +189,10 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-xl py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/45 text-[12px]">
           <p>© {currentYear} Mughal House Manpower Consultancy. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-paper transition-colors duration-150">Privacy Policy</a>
-            <span aria-hidden="true">·</span>
-            <a href="#" className="hover:text-paper transition-colors duration-150">Terms of Service</a>
-            <span aria-hidden="true">·</span>
-            <a href="#" className="hover:text-paper transition-colors duration-150">Cookie Policy</a>
-          </div>
+          <p className="text-white/55">
+            Govt. of India license{" "}
+            <span className="text-gold-300 font-medium">RAS838225</span>
+          </p>
         </div>
       </div>
     </footer>
