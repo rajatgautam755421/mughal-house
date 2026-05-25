@@ -33,14 +33,20 @@ const footerLinks = {
   ],
 };
 
-const contactInfo = [
+const contactInfo: Array<{
+  icon: typeof MapPin;
+  label: string;
+  href: string;
+  meta?: string;
+}> = [
   {
     icon: MapPin,
     label: "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,\nPo & PS Pandua, Dist – Hooghly,\nPin – 712149, West Bengal, India",
     href: "https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India",
   },
-  { icon: Phone, label: "+91 7811-965514  ·  +60 12-360 2080", href: "tel:+917811965514" },
-  { icon: Mail,  label: "mhmc023@gmail.com",                    href: "mailto:mhmc023@gmail.com" },
+  { icon: Phone, label: "+91 7811-965514", meta: "India",    href: "tel:+917811965514" },
+  { icon: Phone, label: "+60 12-360 2080", meta: "Malaysia", href: "tel:+60123602080"  },
+  { icon: Mail,  label: "mhmc023@gmail.com",                 href: "mailto:mhmc023@gmail.com" },
 ];
 
 const socialLinks = [
@@ -147,7 +153,7 @@ export default function Footer() {
             <div>
               <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">Contact</p>
               <address className="not-italic flex flex-col gap-3.5">
-                {contactInfo.map(({ icon: Icon, label, href }) => (
+                {contactInfo.map(({ icon: Icon, label, href, meta }) => (
                   <a
                     key={label}
                     href={href}
@@ -156,7 +162,14 @@ export default function Footer() {
                     className="flex gap-2.5 text-white/70 text-[13px] leading-[1.55] hover:text-paper transition-colors duration-150"
                   >
                     <Icon className="w-4 h-4 shrink-0 mt-0.5 text-white/50" aria-hidden="true" />
-                    <span className="whitespace-pre-line">{label}</span>
+                    <span className="whitespace-pre-line">
+                      {label}
+                      {meta && (
+                        <span className="ml-2 text-[10.5px] tracking-[0.18em] uppercase text-gold-300/80 font-semibold">
+                          {meta}
+                        </span>
+                      )}
+                    </span>
                   </a>
                 ))}
               </address>

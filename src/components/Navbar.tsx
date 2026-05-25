@@ -173,7 +173,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
         role="dialog"
         aria-modal="true"
         aria-label="Navigation"
-        className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-200 ${
+        className={`fixed inset-0 z-90 lg:hidden transition-opacity duration-200 ${
           isMobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -233,12 +233,26 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
             >
               Free consultation
             </button>
-            <a
-              href="tel:+60123602080"
-              className="text-center text-ink-muted text-sm pt-2"
-            >
-              +60 12-360 2080
-            </a>
+            <div className="pt-4 flex flex-col gap-2 text-sm">
+              <a
+                href="tel:+917811965514"
+                className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
+              >
+                <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
+                  India
+                </span>
+                <span className="font-medium">+91 7811-965514</span>
+              </a>
+              <a
+                href="tel:+60123602080"
+                className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
+              >
+                <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
+                  Malaysia
+                </span>
+                <span className="font-medium">+60 12-360 2080</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

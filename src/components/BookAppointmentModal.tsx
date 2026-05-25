@@ -7,10 +7,37 @@ interface Props {
   onClose: () => void;
 }
 
+type FieldErrors = Partial<Record<"name" | "email" | "phone", string>>;
+
+const EMAIL_RE   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE   = /^[+\d][\d\s()-]{6,}\d$/; // ≥ 8 digits with usual separators
+
+function validateField(field: "name" | "email" | "phone", value: string): string | undefined {
+  const v = value.trim();
+  if (field === "name") {
+    if (!v) return "Please enter your full name.";
+    if (v.length < 2) return "Name looks too short.";
+    return;
+  }
+  if (field === "email") {
+    if (!v) return "We need an email to confirm your slot.";
+    if (!EMAIL_RE.test(v)) return "That email does not look right.";
+    return;
+  }
+  if (field === "phone") {
+    if (!v) return "Please share a phone number we can reach you on.";
+    if (!PHONE_RE.test(v)) return "Use a valid international format, e.g. +91 78119 65514.";
+    return;
+  }
+  return;
+}
+
 export default function BookAppointmentModal({ onClose }: Props) {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", date: "", time: "", message: "",
   });
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const firstInputRef = useRef<HTMLInputElement>(null);
@@ -26,11 +53,36 @@ export default function BookAppointmentModal({ onClose }: Props) {
     };
   }, [onClose]);
 
-  const set = (field: string, value: string) =>
+  const set = (field: string, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+    if (touched[field] && (field === "name" || field === "email" || field === "phone")) {
+      setErrors((prev) => ({ ...prev, [field]: validateField(field, value) }));
+    }
+  };
+
+  const onBlur = (field: "name" | "email" | "phone") => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    setErrors((prev) => ({ ...prev, [field]: validateField(field, form[field]) }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const next: FieldErrors = {
+      name:  validateField("name",  form.name),
+      email: validateField("email", form.email),
+      phone: validateField("phone", form.phone),
+    };
+    setErrors(next);
+    setTouched({ name: true, email: true, phone: true });
+    if (next.name || next.email || next.phone) {
+      // Focus the first failing field for keyboard users.
+      const firstBad = (["name", "email", "phone"] as const).find((f) => next[f]);
+      if (firstBad) {
+        document.getElementById(`appt-${firstBad}`)?.focus();
+      }
+      return;
+    }
+
     setStatus("loading");
     setErrorMsg("");
     try {
@@ -48,10 +100,16 @@ export default function BookAppointmentModal({ onClose }: Props) {
     }
   };
 
-  const inputClass =
-    "w-full bg-paper border border-rule px-3.5 py-2.5 text-ink text-[14px] placeholder:text-ink-faint focus:outline-none focus:border-ink transition-colors duration-150";
+  const baseInputClass =
+    "w-full bg-paper border px-3.5 py-2.5 text-ink text-[14px] placeholder:text-ink-faint focus:outline-none transition-colors duration-150";
+  const inputClass = `${baseInputClass} border-rule focus:border-ink`;
+  const inputClassInvalid = `${baseInputClass} border-red-600 focus:border-red-700 bg-red-600/5`;
+  const fieldClass = (field: "name" | "email" | "phone") =>
+    errors[field] ? inputClassInvalid : inputClass;
   const labelClass =
     "block text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold mb-1.5";
+  const errorTextClass =
+    "mt-1.5 text-[12px] text-red-700 leading-snug";
 
   return (
     <div
@@ -125,8 +183,16 @@ export default function BookAppointmentModal({ onClose }: Props) {
                 placeholder="Your full name"
                 value={form.name}
                 onChange={(e) => set("name", e.target.value)}
-                className={inputClass}
+                onBlur={() => onBlur("name")}
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? "appt-name-error" : undefined}
+                className={fieldClass("name")}
               />
+              {errors.name && (
+                <p id="appt-name-error" className={errorTextClass} role="alert">
+                  {errors.name}
+                </p>
+              )}
             </div>
 
             {/* Email + Phone */}
@@ -142,8 +208,16 @@ export default function BookAppointmentModal({ onClose }: Props) {
                   placeholder="you@example.com"
                   value={form.email}
                   onChange={(e) => set("email", e.target.value)}
-                  className={inputClass}
+                  onBlur={() => onBlur("email")}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "appt-email-error" : undefined}
+                  className={fieldClass("email")}
                 />
+                {errors.email && (
+                  <p id="appt-email-error" className={errorTextClass} role="alert">
+                    {errors.email}
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="appt-phone" className={labelClass}>
@@ -153,11 +227,19 @@ export default function BookAppointmentModal({ onClose }: Props) {
                   id="appt-phone"
                   type="tel"
                   required
-                  placeholder="+91 or +60…"
+                  placeholder="+91 78119 65514"
                   value={form.phone}
                   onChange={(e) => set("phone", e.target.value)}
-                  className={inputClass}
+                  onBlur={() => onBlur("phone")}
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? "appt-phone-error" : undefined}
+                  className={fieldClass("phone")}
                 />
+                {errors.phone && (
+                  <p id="appt-phone-error" className={errorTextClass} role="alert">
+                    {errors.phone}
+                  </p>
+                )}
               </div>
             </div>
 

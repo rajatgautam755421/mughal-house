@@ -3,7 +3,11 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
-const sectors = [
+const sectors: Array<{
+  title: string;
+  description: string;
+  cta?: boolean;
+}> = [
   { title: "Plantation",              description: "General and experienced plantation workers." },
   { title: "Construction",            description: "Skilled tradesmen and general labourers." },
   { title: "Agriculture",             description: "Crop cultivation, farming and land maintenance." },
@@ -15,6 +19,10 @@ const sectors = [
   { title: "General manufacturing",   description: "Factory workers for production and assembly." },
   { title: "Specialised manufacturing", description: "CNC machine operators for industrial plants." },
   { title: "Textile &amp; apparel",   description: "Tailoring staff, garment workers, seamstresses." },
+  { title: "Don&rsquo;t see your sector?",
+    description: "Tell us the role and quota &mdash; we will tailor a cohort for you.",
+    cta: true,
+  },
 ];
 
 export default function Services() {
@@ -47,27 +55,52 @@ export default function Services() {
         </div>
 
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-rule" role="list" aria-label="Sectors">
-          {sectors.map(({ title, description }, i) => {
+          {sectors.map(({ title, description, cta }, i) => {
             const num = String(i + 1).padStart(2, "0");
+            const borderClass = `border-b border-rule
+              ${i % 2 === 0 ? "sm:border-r" : ""}
+              ${i % 3 !== 2 ? "lg:border-r" : "lg:border-r-0"}`;
             return (
               <li
                 key={title}
-                className={`group p-6 lg:p-7 border-b border-rule ${
-                  i % 3 !== 2 ? "lg:border-r" : ""
-                } ${i % 2 === 0 ? "sm:border-r lg:border-r" : ""} ${
-                  i % 3 === 2 ? "sm:border-r-0 lg:border-r-0" : ""
-                }`}
+                className={`group p-6 lg:p-7 ${borderClass} ${cta ? "bg-navy-50/40" : ""}`}
               >
-                <div className="flex items-baseline gap-4">
-                  <span className="font-display text-gold-500 text-sm tracking-wide">{num}</span>
-                  <div>
-                    <h3
-                      className="font-display text-ink text-xl lg:text-2xl leading-tight tracking-tight"
-                      dangerouslySetInnerHTML={{ __html: title }}
-                    />
-                    <p className="mt-2 text-ink-muted text-[14px] leading-[1.55]">{description}</p>
+                {cta ? (
+                  <a
+                    href="#contact"
+                    className="block h-full"
+                    aria-label="Discuss a custom recruitment requirement"
+                  >
+                    <div className="flex items-baseline gap-4">
+                      <span className="font-display text-gold-500 text-sm tracking-wide">12</span>
+                      <div>
+                        <h3
+                          className="font-display text-ink text-xl lg:text-2xl leading-tight tracking-tight"
+                          dangerouslySetInnerHTML={{ __html: title }}
+                        />
+                        <p
+                          className="mt-2 text-ink-muted text-[14px] leading-[1.55]"
+                          dangerouslySetInnerHTML={{ __html: description }}
+                        />
+                        <span className="mt-3 inline-flex items-center gap-1.5 text-brand text-[13px] font-semibold border-b border-brand pb-0.5 group-hover:text-gold-600 group-hover:border-gold-600 transition-colors duration-150">
+                          Tell us your requirement
+                          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-display text-gold-500 text-sm tracking-wide">{num}</span>
+                    <div>
+                      <h3
+                        className="font-display text-ink text-xl lg:text-2xl leading-tight tracking-tight"
+                        dangerouslySetInnerHTML={{ __html: title }}
+                      />
+                      <p className="mt-2 text-ink-muted text-[14px] leading-[1.55]">{description}</p>
+                    </div>
                   </div>
-                </div>
+                )}
               </li>
             );
           })}

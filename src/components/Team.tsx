@@ -383,21 +383,21 @@ export default function Team() {
           </div>
 
           {/* Connector */}
-          <div className="w-[280px] sm:w-[400px]">
+          <div className="w-[240px] sm:w-[400px]">
             <TreeConnector variant="down-to-two" />
           </div>
 
           {/* Directors */}
-          <div className="flex gap-6 sm:gap-12" role="list" aria-label="Directors">
+          <div className="flex gap-3 sm:gap-12" role="list" aria-label="Directors">
             {directors.map((d, i) => (
-              <div key={d.id} role="listitem" className="w-44 sm:w-52">
+              <div key={d.id} role="listitem" className="w-[42vw] max-w-[176px] sm:w-52">
                 <MemberCard member={d} globalIdx={i + 1} onOpen={openModal} variant="director" />
               </div>
             ))}
           </div>
 
           {/* Connector to staff */}
-          <div className="w-[280px] sm:w-[400px]">
+          <div className="w-[240px] sm:w-[400px]">
             <TreeConnector variant="two-to-many" />
           </div>
 

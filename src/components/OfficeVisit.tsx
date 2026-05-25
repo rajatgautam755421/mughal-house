@@ -108,8 +108,8 @@ const contactInfo: Array<{ icon: React.ElementType; label: string; value: string
     label: "Registered office, India",
     value: "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road, Po & PS Pandua,\nDist – Hooghly, Pin – 712149, West Bengal, India",
   },
-  { icon: Phone, label: "India mobile (WhatsApp / Telegram)", value: "+91 7811-965514", href: "tel:+917811965514" },
-  { icon: Phone, label: "Malaysia contact (Chairman)",        value: "+60 12-360 2080", href: "tel:+60123602080"  },
+  { icon: Phone, label: "India · Pandua office (WhatsApp & Telegram)", value: "+91 7811-965514", href: "tel:+917811965514" },
+  { icon: Phone, label: "Malaysia · Chairman direct",                   value: "+60 12-360 2080", href: "tel:+60123602080"  },
   { icon: Mail,  label: "Email",                              value: "mhmc023@gmail.com", href: "mailto:mhmc023@gmail.com" },
 ];
 
