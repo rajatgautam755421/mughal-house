@@ -15,6 +15,7 @@ const navLinks = [
 export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 12);
@@ -25,6 +26,31 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
+
+  // Track which section is currently in view
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.replace("#", ""));
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+    if (elements.length === 0) return;
+
+    const ratios = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => ratios.set(e.target.id, e.intersectionRatio));
+        let topId = "";
+        let topRatio = 0;
+        ratios.forEach((r, id) => {
+          if (r > topRatio) { topRatio = r; topId = id; }
+        });
+        if (topId) setActiveSection(`#${topId}`);
+      },
+      { threshold: [0, 0.15, 0.35, 0.55, 0.75], rootMargin: "-80px 0px -45% 0px" }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
@@ -73,16 +99,28 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
 
           {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-8" role="list">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <button
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-ink-soft hover:text-ink text-[13px] font-medium transition-colors duration-150 relative py-2"
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href;
+              return (
+                <li key={link.href}>
+                  <button
+                    onClick={() => handleNavClick(link.href)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`group relative py-2 text-[13px] font-medium transition-colors duration-150 ${
+                      isActive ? "text-ink" : "text-ink-soft hover:text-ink"
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute left-0 right-0 -bottom-0.5 h-[1.5px] bg-gold-500 origin-left transition-transform duration-200 ${
+                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                  </button>
+                </li>
+              );
+            })}
           </ul>
 
           {/* CTAs */}
@@ -143,16 +181,25 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
           </div>
 
           <ul className="flex flex-col gap-1 flex-1" role="list">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <button
-                  onClick={() => handleNavClick(link.href)}
-                  className="w-full text-left py-3 border-b border-rule-soft text-ink font-display text-xl"
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href;
+              return (
+                <li key={link.href}>
+                  <button
+                    onClick={() => handleNavClick(link.href)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`w-full text-left py-3 border-b border-rule-soft font-display text-xl flex items-center justify-between ${
+                      isActive ? "text-ink" : "text-ink-soft"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <span className="w-2 h-2 rounded-full bg-gold-500" aria-hidden="true" />
+                    )}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="flex flex-col gap-3 pt-6">

@@ -19,13 +19,13 @@ export default function Hero() {
       <section
         id="home"
         aria-label="Mughal House Manpower Consultancy"
-        className="relative pt-28 sm:pt-32 lg:pt-36 pb-14 lg:pb-20"
+        className="relative pt-24 sm:pt-28 lg:pt-32 pb-10 lg:pb-14"
         style={{ background: "#faf8f3" }}
       >
         <div className="container-xl">
 
           {/* Masthead rule */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 mb-10 lg:mb-14 border-b border-rule">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 mb-7 lg:mb-9 border-b border-rule">
             <span className="eyebrow">Government licensed · Insured · Trusted · Est. 2023</span>
             <span className="text-ink-faint text-[11px] tracking-[0.18em] uppercase">
               Pandua, West Bengal · Kuala Lumpur, Malaysia
@@ -134,22 +134,22 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Stats strip */}
-          <dl className="mt-16 lg:mt-24 grid grid-cols-2 lg:grid-cols-4 border-t border-rule">
+          {/* Stats strip — sits inside the hero viewport */}
+          <dl className="mt-10 lg:mt-12 grid grid-cols-2 lg:grid-cols-4 border-t border-rule">
             {stats.map(({ value, label, meta }, i) => (
               <div
                 key={label}
-                className={`flex flex-col gap-1.5 py-7 lg:py-8 px-5 lg:px-6 border-rule ${
+                className={`flex flex-col gap-1 py-4 lg:py-5 px-4 lg:px-5 border-rule ${
                   i < 3 ? "lg:border-r" : ""
-                } ${i === 0 || i === 2 ? "border-r" : ""} ${
+                } ${i === 0 || i === 2 ? "border-r lg:border-r" : ""} ${
                   i < 2 ? "border-b lg:border-b-0" : ""
                 }`}
               >
-                <dd className="font-display font-semibold text-ink text-3xl lg:text-[2.5rem] leading-none tracking-tight">
+                <dd className="font-display font-semibold text-ink text-2xl lg:text-[1.875rem] leading-none tracking-tight">
                   {value}
                 </dd>
-                <dt className="text-ink text-[13px] font-semibold mt-2">{label}</dt>
-                <p className="text-ink-muted text-[11px] tracking-wide">{meta}</p>
+                <dt className="text-ink text-[12px] font-semibold mt-1.5">{label}</dt>
+                <p className="text-ink-muted text-[10.5px] tracking-wide">{meta}</p>
               </div>
             ))}
           </dl>

@@ -200,45 +200,62 @@ function MemberModal({
   );
 }
 
-/* ── Org-tree card ── */
+/* ── Org-tree card (text only — photo lives in modal) ── */
 function MemberCard({
   member, globalIdx, onOpen, variant = "staff",
 }: {
   member: Member; globalIdx: number; onOpen: (i: number) => void; variant?: "chairman" | "director" | "staff";
 }) {
-  const surface =
-    variant === "chairman"
-      ? "bg-paper border-gold-500/60"
-      : variant === "director"
-      ? "bg-paper border-rule"
-      : "bg-paper border-rule";
+  const isChairman = variant === "chairman";
+  const isDirector = variant === "director";
 
   return (
     <button
       type="button"
       onClick={() => onOpen(globalIdx)}
-      className={`group block w-full text-left border ${surface} p-5 transition-colors duration-150 hover:border-ink`}
+      className={`group block w-full text-left bg-paper border transition-colors duration-150 hover:border-ink ${
+        isChairman ? "border-gold-500/60 p-6" : isDirector ? "border-rule p-5" : "border-rule p-4"
+      }`}
       aria-label={`View ${member.name}'s profile`}
     >
-      <div className="relative w-full mb-4" style={{ aspectRatio: "1/1" }}>
-        <Image
-          src={member.image}
-          alt={`${member.name}, ${member.title}`}
-          fill
-          className="object-cover object-top"
-          style={{ filter: "grayscale(100%)" }}
-          sizes="(max-width:640px) 50vw, 200px"
-        />
-      </div>
-      {member.badge && (
-        <span className="block text-gold-500 text-[10px] tracking-[0.2em] uppercase font-semibold mb-1.5">
-          {member.badge} · {member.since}
-        </span>
-      )}
-      <h3 className="font-display font-semibold text-ink text-[15px] leading-snug tracking-tight">
+      {/* Department label */}
+      <span
+        className={`block text-[10px] tracking-[0.2em] uppercase font-semibold mb-2 ${
+          isChairman ? "text-gold-500" : "text-ink-muted"
+        }`}
+      >
+        {member.department}
+      </span>
+
+      {/* Name */}
+      <h3
+        className={`font-display font-semibold text-ink leading-snug tracking-tight ${
+          isChairman ? "text-lg" : isDirector ? "text-[15px]" : "text-[14px]"
+        }`}
+      >
         {member.name}
       </h3>
-      <p className="text-ink-muted text-[12px] mt-1 leading-snug">{member.title}</p>
+
+      {/* Title */}
+      <p className={`text-ink-muted mt-1 leading-snug ${isChairman ? "text-[13px]" : "text-[12px]"}`}>
+        {member.title}
+      </p>
+
+      {/* Founder/Director badge meta */}
+      {member.badge && (
+        <p className="mt-3 pt-3 border-t border-rule text-ink-faint text-[10px] tracking-[0.16em] uppercase">
+          {member.badge} · {member.since}
+        </p>
+      )}
+
+      {/* "View profile" affordance */}
+      <span
+        aria-hidden="true"
+        className="mt-4 inline-flex items-center gap-1.5 text-ink-soft text-[11px] tracking-wide group-hover:text-ink transition-colors duration-150"
+      >
+        View profile
+        <span className="block w-3 h-px bg-current transition-all duration-150 group-hover:w-5" />
+      </span>
     </button>
   );
 }
