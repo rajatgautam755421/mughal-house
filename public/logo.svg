@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="globe" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#5aa6ff"/>
+      <stop offset="55%" stop-color="#1e4f9c"/>
+      <stop offset="100%" stop-color="#0a1e4a"/>
+    </radialGradient>
+    <linearGradient id="mGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a64b8"/>
+      <stop offset="100%" stop-color="#13245e"/>
+    </linearGradient>
+    <linearGradient id="mShine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.15"/>
+    </linearGradient>
+    <clipPath id="globeClip">
+      <circle cx="256" cy="256" r="230"/>
+    </clipPath>
+  </defs>
+
+  <!-- Globe sphere -->
+  <circle cx="256" cy="256" r="230" fill="url(#globe)"/>
+
+  <!-- Continents (stylized dot pattern) -->
+  <g clip-path="url(#globeClip)" fill="#ffffff" opacity="0.18">
+    <circle cx="120" cy="160" r="3"/><circle cx="132" cy="172" r="2.5"/><circle cx="148" cy="158" r="3"/>
+    <circle cx="160" cy="180" r="2"/><circle cx="180" cy="170" r="3"/><circle cx="200" cy="190" r="2.5"/>
+    <circle cx="220" cy="160" r="2"/><circle cx="240" cy="150" r="3"/><circle cx="270" cy="170" r="2.5"/>
+    <circle cx="300" cy="160" r="3"/><circle cx="330" cy="180" r="2"/><circle cx="360" cy="170" r="2.5"/>
+    <circle cx="380" cy="200" r="3"/><circle cx="110" cy="230" r="2.5"/><circle cx="140" cy="240" r="3"/>
+    <circle cx="170" cy="250" r="2"/><circle cx="200" cy="240" r="3"/><circle cx="230" cy="260" r="2.5"/>
+    <circle cx="290" cy="250" r="3"/><circle cx="320" cy="240" r="2"/><circle cx="350" cy="260" r="3"/>
+    <circle cx="380" cy="250" r="2.5"/><circle cx="400" cy="270" r="2"/><circle cx="130" cy="300" r="3"/>
+    <circle cx="160" cy="320" r="2.5"/><circle cx="190" cy="310" r="3"/><circle cx="220" cy="330" r="2"/>
+    <circle cx="290" cy="320" r="3"/><circle cx="320" cy="310" r="2.5"/><circle cx="350" cy="330" r="3"/>
+    <circle cx="150" cy="370" r="2.5"/><circle cx="180" cy="380" r="3"/><circle cx="220" cy="370" r="2"/>
+    <circle cx="260" cy="390" r="3"/><circle cx="300" cy="380" r="2.5"/><circle cx="340" cy="370" r="3"/>
+  </g>
+
+  <!-- Orbiting arcs -->
+  <g fill="none" stroke="#9ec4ff" stroke-width="2" opacity="0.85">
+    <ellipse cx="256" cy="256" rx="240" ry="90" transform="rotate(-20 256 256)"/>
+    <ellipse cx="256" cy="256" rx="240" ry="90" transform="rotate(25 256 256)"/>
+  </g>
+  <!-- Arrow tips on arcs -->
+  <g fill="#9ec4ff">
+    <polygon points="60,180 80,170 78,190"/>
+    <polygon points="450,330 432,340 434,320"/>
+  </g>
+
+  <!-- People figures (3 silhouettes) -->
+  <g fill="#ffffff">
+    <circle cx="256" cy="150" r="14"/>
+    <path d="M232 200 q24 -30 48 0 v18 h-48 z"/>
+    <circle cx="208" cy="170" r="12"/>
+    <path d="M188 215 q20 -26 40 0 v16 h-40 z"/>
+    <circle cx="304" cy="170" r="12"/>
+    <path d="M284 215 q20 -26 40 0 v16 h-40 z"/>
+  </g>
+
+  <!-- Stylized M monogram -->
+  <g>
+    <path d="M168 230 
+             L168 410 
+             L210 410 
+             L210 300 
+             L256 360 
+             L302 300 
+             L302 410 
+             L344 410 
+             L344 230 
+             L302 230 
+             L256 300 
+             L210 230 Z"
+          fill="url(#mGrad)" stroke="#0a1740" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Inner H crossbar to suggest the house/M-H mark -->
+    <rect x="225" y="335" width="62" height="14" fill="#1a3678"/>
+    <!-- Shine overlay -->
+    <path d="M168 230 L210 230 L210 300 L256 360 L302 300 L302 230 L344 230 L344 260 L256 360 L168 260 Z"
+          fill="url(#mShine)"/>
+  </g>
+
+  <!-- Globe highlight -->
+  <ellipse cx="180" cy="160" rx="70" ry="35" fill="#ffffff" opacity="0.12"/>
+</svg>
