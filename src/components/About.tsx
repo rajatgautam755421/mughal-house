@@ -62,11 +62,6 @@ export default function About() {
                   </div>
                 ))}
               </dl>
-
-              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <a href="#process" className="btn btn-primary">Read our process</a>
-                <a href="#services" className="btn-link">Sectors we recruit for</a>
-              </div>
             </div>
 
             <div className="lg:col-span-5 lg:pt-3">

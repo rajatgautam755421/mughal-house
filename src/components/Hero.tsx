@@ -19,7 +19,7 @@ export default function Hero() {
       <section
         id="home"
         aria-label="Mughal House Manpower Consultancy"
-        className="relative pt-20 sm:pt-24 lg:pt-24 pb-6 lg:pb-8"
+        className="relative pt-20 sm:pt-24 lg:pt-24 pb-0"
         style={{ background: "#faf8f3" }}
       >
         <div className="container-xl">

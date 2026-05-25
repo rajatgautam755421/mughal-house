@@ -12,6 +12,8 @@ import OfficeVisit from "@/components/OfficeVisit";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import BookAppointmentModal from "@/components/BookAppointmentModal";
+import LiveChat from "@/components/LiveChat";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -37,6 +39,8 @@ export default function Home() {
       </main>
       <Footer />
       {bookingOpen && <BookAppointmentModal onClose={() => setBookingOpen(false)} />}
+      <LiveChat />
+      <ScrollToTop />
     </>
   );
 }
