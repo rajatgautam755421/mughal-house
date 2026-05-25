@@ -172,10 +172,10 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                   onClick={() => setLightboxOpen(true)}
                   className="block w-full focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                 >
-                  <div className="relative w-full" style={{ aspectRatio: "4/5" }}>
+                  <div className="relative w-full" style={{ aspectRatio: "9/16" }}>
                     <Image
-                      src="/images/team/cofounder-mughal-sign.jpg"
-                      alt="Mughal House Manpower Consultancy office interior"
+                      src="/images/team/mughal-house-exterior.jpg"
+                      alt="Mughal House Manpower Consultancy building exterior with signage, Ahmed Plaza, Pandua, West Bengal"
                       fill
                       className="object-cover"
                       sizes="(max-width:1024px) 90vw, 460px"
@@ -207,8 +207,8 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                 </div>
 
                 <figcaption className="mt-3 text-ink-muted text-xs leading-snug">
-                  <span className="font-semibold text-ink">Our office</span> at Ahmed Plaza,
-                  Pandua &mdash; West Bengal, India.
+                  <span className="font-semibold text-ink">Mughal House</span> &mdash; the registered
+                  office at Ahmed Plaza, Pandua, West Bengal.
                 </figcaption>
               </figure>
             </div>
@@ -219,10 +219,10 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
 
       {lightboxOpen && (
         <ImageLightbox
-          src="/images/team/cofounder-mughal-sign.jpg"
-          alt="Mughal House Manpower Consultancy office"
-          caption="Our Office"
-          subcaption="Mughal House Manpower Consultancy · Ahmed Plaza, West Bengal, India"
+          src="/images/team/mughal-house-exterior.jpg"
+          alt="Mughal House Manpower Consultancy building exterior, Ahmed Plaza, Pandua"
+          caption="Mughal House"
+          subcaption="Ahmed Plaza, Pandua &middot; West Bengal, India"
           onClose={() => setLightboxOpen(false)}
         />
       )}
