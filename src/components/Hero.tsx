@@ -99,37 +99,54 @@ export default function Hero() {
               </ul>
             </div>
 
-            {/* Photo column — bigger, fills available height */}
+            {/* Photo column */}
             <div className="lg:col-span-6 fade-in flex flex-col" style={{ "--d": "120ms" } as React.CSSProperties}>
-              <figure className="m-0 relative flex-1 flex flex-col">
+              <figure className="m-0 flex-1 flex flex-col">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="block w-full flex-1 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                  className="group relative block w-full flex-1 overflow-hidden focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                   aria-label="Enlarge team photograph"
                 >
-                  <div className="relative w-full h-full min-h-[280px] sm:min-h-[320px] lg:min-h-[360px]">
+                  <div className="relative w-full h-full min-h-[300px] sm:min-h-[340px] lg:min-h-[380px]">
                     <img
                       src="/images/team/team-group-photo.jpg"
                       alt="Mughal House Manpower Consultancy management team, Pandua, West Bengal"
-                      className="absolute inset-0 w-full h-full object-cover object-top"
-                      style={{ filter: "grayscale(15%)" }}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ objectPosition: "center 30%" }}
                     />
+
+                    {/* Bottom gradient for caption legibility */}
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(10,20,42,0.78) 0%, rgba(10,20,42,0.30) 55%, transparent 100%)",
+                      }}
+                      aria-hidden="true"
+                    />
+
+                    {/* In-image caption */}
+                    <div className="absolute inset-x-5 bottom-4 flex items-end justify-between gap-3 text-paper">
+                      <div>
+                        <p className="text-paper/80 text-[10px] tracking-[0.22em] uppercase font-semibold">
+                          The Mughal House team
+                        </p>
+                        <p className="font-display text-paper text-[15px] leading-tight mt-1">
+                          Pandua, West Bengal &mdash; 2024
+                        </p>
+                      </div>
+                      <div className="text-right border-l border-paper/30 pl-4">
+                        <p className="font-display font-semibold text-paper text-[1.5rem] leading-none">
+                          10,000<span className="text-gold-300">+</span>
+                        </p>
+                        <p className="text-paper/70 text-[10px] tracking-[0.18em] uppercase font-semibold mt-1.5">
+                          Placed since 2023
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </button>
-
-                {/* Placement badge */}
-                <div
-                  className="absolute -bottom-4 left-4 sm:left-6 bg-paper border border-rule px-4 py-2.5 shadow-[0_10px_28px_-14px_rgba(15,30,61,0.30)]"
-                  aria-hidden="true"
-                >
-                  <p className="font-display font-semibold text-ink text-[1.05rem] leading-none">
-                    10,000<span className="text-gold-500">+</span>{" "}
-                    <span className="text-ink-muted text-[10px] tracking-[0.18em] uppercase font-sans font-semibold ml-1">
-                      placed since 2023
-                    </span>
-                  </p>
-                </div>
               </figure>
             </div>
           </div>
