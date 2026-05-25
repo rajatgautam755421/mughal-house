@@ -2,7 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { MapPin, Phone, Mail, ArrowRight, Calendar, X, Navigation } from "lucide-react";
+import {
+  MapPin, Clock, Phone, Mail, ArrowRight, Calendar, X,
+  Navigation, MessageCircle, Send,
+} from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
 
 const MAPS_URL =
@@ -25,11 +28,11 @@ function MapModal({ onClose }: { onClose: () => void }) {
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Office location">
+    <div className="fixed inset-0 z-200 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Office location">
       <div className="absolute inset-0 bg-ink/70" onClick={onClose} aria-hidden="true" />
       <div className="relative z-10 w-full max-w-md bg-paper border border-rule">
         <div className="flex items-center justify-between px-6 py-4 border-b border-rule">
-          <p className="font-display text-ink text-lg">Registered office</p>
+          <p className="font-display font-semibold text-ink text-lg">Registered office</p>
           <button onClick={onClose} className="w-8 h-8 flex items-center justify-center text-ink-soft" aria-label="Close">
             <X className="w-4 h-4" />
           </button>
@@ -55,9 +58,9 @@ function MapModal({ onClose }: { onClose: () => void }) {
 }
 
 const officeHours = [
-  { days: "Monday – Friday", hours: "9:00 – 18:00" },
-  { days: "Saturday",        hours: "9:00 – 14:00 (by appointment)" },
-  { days: "Sunday",          hours: "Closed" },
+  { days: "Monday – Friday", hours: "9:00 – 18:00",                  type: "Open" },
+  { days: "Saturday",        hours: "9:00 – 14:00",                  type: "By appointment" },
+  { days: "Sunday",          hours: "Closed",                        type: "Closed" },
 ];
 
 const contactInfo: Array<{ icon: React.ElementType; label: string; value: string; href?: string }> = [
@@ -86,11 +89,12 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
         <div className="container-xl">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
 
+            {/* Content column */}
             <div className="lg:col-span-7">
               <span className="eyebrow">Visit the office</span>
               <h2
                 id="contact-heading"
-                className="mt-4 font-display font-medium text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
+                className="mt-4 font-display font-semibold text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
               >
                 Walk in to where careers begin.
               </h2>
@@ -102,7 +106,7 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
               <dl className="mt-10 border-t border-rule">
                 {contactInfo.map(({ icon: Icon, label, value, href }) => (
                   <div key={label} className="flex gap-5 py-5 border-b border-rule">
-                    <div className="w-7 shrink-0 mt-1 text-ink-soft" aria-hidden="true">
+                    <div className="w-7 shrink-0 mt-1 text-gold-500" aria-hidden="true">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -131,10 +135,38 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                   Book appointment
                 </button>
               </div>
+
+              {/* Messaging */}
+              <div className="mt-10 pt-7 border-t border-rule">
+                <p className="eyebrow">Message us directly</p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <a
+                    href="https://wa.me/917811965514"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 border border-rule text-ink text-[13px] font-semibold hover:border-ink transition-colors duration-150"
+                    aria-label="Chat on WhatsApp"
+                  >
+                    <MessageCircle className="w-4 h-4 text-[#25D366]" aria-hidden="true" />
+                    WhatsApp
+                  </a>
+                  <a
+                    href="https://t.me/+917811965514"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 border border-rule text-ink text-[13px] font-semibold hover:border-ink transition-colors duration-150"
+                    aria-label="Message on Telegram"
+                  >
+                    <Send className="w-4 h-4 text-[#2AABEE]" aria-hidden="true" />
+                    Telegram
+                  </a>
+                </div>
+              </div>
             </div>
 
+            {/* Image + hours column */}
             <div className="lg:col-span-5">
-              <figure className="m-0">
+              <figure className="m-0 relative">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
@@ -150,9 +182,33 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                     />
                   </div>
                 </button>
-                <figcaption className="mt-3 text-ink-muted text-xs">
-                  <span className="font-semibold text-ink">Office hours.</span>{" "}
-                  {officeHours.map(({ days, hours }) => `${days} ${hours}`).join("  ·  ")}
+
+                {/* Office hours overlay */}
+                <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-72 bg-paper border border-rule p-5 shadow-[0_12px_32px_-12px_rgba(15,30,61,0.25)]">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Clock className="w-4 h-4 text-gold-500" aria-hidden="true" />
+                    <span className="text-ink text-[11px] tracking-[0.2em] uppercase font-semibold">
+                      Office hours
+                    </span>
+                  </div>
+                  <ul className="flex flex-col gap-2" role="list">
+                    {officeHours.map(({ days, hours, type }) => (
+                      <li key={days} className="flex items-center justify-between gap-3 text-[12px]">
+                        <span className="text-ink-muted">{days}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-ink font-medium">{hours}</span>
+                          {type === "By appointment" && (
+                            <span className="text-ink-muted text-[10px]">Appt.</span>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <figcaption className="mt-3 text-ink-muted text-xs leading-snug">
+                  <span className="font-semibold text-ink">Our office</span> at Ahmed Plaza,
+                  Pandua &mdash; West Bengal, India.
                 </figcaption>
               </figure>
             </div>

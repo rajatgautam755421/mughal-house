@@ -20,7 +20,7 @@ export default function CTA() {
             <span className="eyebrow">Get in touch</span>
             <h2
               id="cta-heading"
-              className="mt-4 font-display font-medium text-ink text-3xl sm:text-5xl lg:text-[3.75rem] leading-[1.04] tracking-[-0.02em] text-balance"
+              className="mt-4 font-display font-semibold text-ink text-3xl sm:text-5xl lg:text-[3.75rem] leading-[1.04] tracking-[-0.02em] text-balance"
             >
               Ready to build your team in Malaysia?
             </h2>

@@ -51,7 +51,7 @@ export default function Process() {
             <span className="eyebrow">Our process</span>
             <h2
               id="process-heading"
-              className="mt-4 font-display font-medium text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
+              className="mt-4 font-display font-semibold text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
             >
               Six steps from interview to boarding pass.
             </h2>

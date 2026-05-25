@@ -32,7 +32,7 @@ export default function Services() {
             <span className="eyebrow">What we recruit for</span>
             <h2
               id="services-heading"
-              className="mt-4 font-display font-medium text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
+              className="mt-4 font-display font-semibold text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
             >
               Eleven sectors. One process. End to end.
             </h2>

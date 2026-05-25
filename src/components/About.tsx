@@ -42,7 +42,7 @@ export default function About() {
             <div className="lg:col-span-7">
               <h2
                 id="about-heading"
-                className="font-display font-medium text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
+                className="font-display font-semibold text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
               >
                 A house built on trust, scaled by reputation.
               </h2>
