@@ -99,54 +99,41 @@ export default function Hero() {
               </ul>
             </div>
 
-            {/* Photo column */}
-            <div className="lg:col-span-6 fade-in flex flex-col" style={{ "--d": "120ms" } as React.CSSProperties}>
-              <figure className="m-0 flex-1 flex flex-col">
+            {/* Photo column — image shown at natural aspect, no cropping */}
+            <div className="lg:col-span-6 fade-in flex flex-col justify-center" style={{ "--d": "120ms" } as React.CSSProperties}>
+              <figure className="m-0">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="group relative block w-full flex-1 overflow-hidden focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                  className="block w-full focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                   aria-label="Enlarge team photograph"
                 >
-                  <div className="relative w-full h-full min-h-[300px] sm:min-h-[340px] lg:min-h-[380px]">
-                    <img
-                      src="/images/team/team-group-photo.jpg"
-                      alt="Mughal House Manpower Consultancy management team, Pandua, West Bengal"
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ objectPosition: "center 30%" }}
-                    />
-
-                    {/* Bottom gradient for caption legibility */}
-                    <div
-                      className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
-                      style={{
-                        background:
-                          "linear-gradient(to top, rgba(10,20,42,0.78) 0%, rgba(10,20,42,0.30) 55%, transparent 100%)",
-                      }}
-                      aria-hidden="true"
-                    />
-
-                    {/* In-image caption */}
-                    <div className="absolute inset-x-5 bottom-4 flex items-end justify-between gap-3 text-paper">
-                      <div>
-                        <p className="text-paper/80 text-[10px] tracking-[0.22em] uppercase font-semibold">
-                          The Mughal House team
-                        </p>
-                        <p className="font-display text-paper text-[15px] leading-tight mt-1">
-                          Pandua, West Bengal &mdash; 2024
-                        </p>
-                      </div>
-                      <div className="text-right border-l border-paper/30 pl-4">
-                        <p className="font-display font-semibold text-paper text-[1.5rem] leading-none">
-                          10,000<span className="text-gold-300">+</span>
-                        </p>
-                        <p className="text-paper/70 text-[10px] tracking-[0.18em] uppercase font-semibold mt-1.5">
-                          Placed since 2023
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src="/images/team/team-group-photo.jpg"
+                    alt="Mughal House Manpower Consultancy management team, Pandua, West Bengal"
+                    className="w-full h-auto block"
+                  />
                 </button>
+
+                {/* Caption row below image */}
+                <figcaption className="mt-3 flex items-end justify-between gap-4">
+                  <div>
+                    <p className="text-ink-muted text-[10px] tracking-[0.22em] uppercase font-semibold">
+                      The Mughal House team
+                    </p>
+                    <p className="text-ink text-[13px] mt-1">
+                      Pandua, West Bengal &mdash; 2024
+                    </p>
+                  </div>
+                  <div className="text-right border-l border-rule pl-4">
+                    <p className="font-display font-semibold text-ink text-[1.25rem] leading-none">
+                      10,000<span className="text-gold-500">+</span>
+                    </p>
+                    <p className="text-ink-muted text-[10px] tracking-[0.18em] uppercase font-semibold mt-1.5">
+                      Placed since 2023
+                    </p>
+                  </div>
+                </figcaption>
               </figure>
             </div>
           </div>
