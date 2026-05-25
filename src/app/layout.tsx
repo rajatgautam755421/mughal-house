@@ -17,8 +17,7 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const siteUrl = "https://mughalhouse.com";
-const brandShort = "MH Recruiter";
+const siteUrl = "https://mhrecruiter.com";
 const brandFull  = "Mughal House Manpower Consultancy";
 
 export const metadata: Metadata = {
