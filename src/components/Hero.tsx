@@ -5,10 +5,10 @@ import { ArrowRight, Shield, MapPin } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
 
 const stats = [
-  { value: "10,000+",   label: "Workers deployed",  meta: "Across Malaysia" },
-  { value: "2023",      label: "Year established",  meta: "Government licensed" },
-  { value: "RAS838225", label: "License number",    meta: "Govt. of India" },
-  { value: "15+",       label: "Industry sectors",  meta: "Mfg. to hospitality" },
+  { value: "10,000+",   label: "Workers deployed",  meta: "Placed across Malaysia" },
+  { value: "2023",      label: "Year established",  meta: "Government licensed"   },
+  { value: "RAS838225", label: "License number",    meta: "Govt. of India"         },
+  { value: "15+",       label: "Industry sectors",  meta: "Mfg. to hospitality"    },
 ];
 
 export default function Hero() {
@@ -19,26 +19,26 @@ export default function Hero() {
       <section
         id="home"
         aria-label="Mughal House Manpower Consultancy"
-        className="relative pt-20 sm:pt-24 lg:pt-24 pb-0"
-        style={{ background: "#faf8f3" }}
+        className="relative pt-20 sm:pt-20 lg:pt-20 pb-0 flex flex-col"
+        style={{ background: "#faf8f3", minHeight: "100svh" }}
       >
-        <div className="container-xl">
+        <div className="container-xl flex-1 flex flex-col">
 
           {/* Masthead rule */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 mb-5 lg:mb-6 border-b border-rule">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 mb-6 lg:mb-7 border-b border-rule">
             <span className="eyebrow">Government licensed · Insured · Trusted · Est. 2023</span>
             <span className="text-ink-faint text-[11px] tracking-[0.18em] uppercase">
               Pandua, West Bengal · Kuala Lumpur, Malaysia
             </span>
           </div>
 
-          {/* Two-column editorial */}
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Two-column editorial — columns stretch, content top-aligned within */}
+          <div className="flex-1 grid lg:grid-cols-12 gap-10 lg:gap-14 py-5 lg:py-6">
 
             {/* Lead column */}
-            <div className="lg:col-span-7 fade-in" style={{ "--d": "0ms" } as React.CSSProperties}>
+            <div className="lg:col-span-6 fade-in flex flex-col" style={{ "--d": "0ms" } as React.CSSProperties}>
               <h1
-                className="font-display font-semibold text-ink leading-[1.04] tracking-[-0.025em] text-balance"
+                className="font-display font-semibold text-ink leading-[1.02] tracking-[-0.025em] text-balance"
                 style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.85rem)" }}
               >
                 Skilled Indian workers,
@@ -63,9 +63,9 @@ export default function Hero() {
                 </a>
               </div>
 
-              {/* Credentials row */}
+              {/* Credentials */}
               <ul
-                className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2"
+                className="mt-auto pt-5 flex flex-wrap items-center gap-x-7 gap-y-2.5 border-t border-rule"
                 role="list"
                 aria-label="Credentials"
               >
@@ -74,10 +74,10 @@ export default function Hero() {
                     href="/mughal-house-license.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12px] transition-colors duration-150"
+                    className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12.5px] transition-colors duration-150"
                     aria-label="View government license RAS838225"
                   >
-                    <Shield className="w-3.5 h-3.5 text-gold-500" aria-hidden="true" />
+                    <Shield className="w-4 h-4 text-gold-500" aria-hidden="true" />
                     <span>
                       Gov. licensed &mdash;{" "}
                       <span className="text-ink font-semibold">RAS838225</span>
@@ -89,39 +89,41 @@ export default function Hero() {
                     href="https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12px] transition-colors duration-150"
+                    className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12.5px] transition-colors duration-150"
                     aria-label="View office location on Google Maps"
                   >
-                    <MapPin className="w-3.5 h-3.5 text-gold-500" aria-hidden="true" />
+                    <MapPin className="w-4 h-4 text-gold-500" aria-hidden="true" />
                     <span>Ahmed Plaza, Pandua, West Bengal</span>
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Photo column */}
-            <div className="lg:col-span-5 fade-in" style={{ "--d": "120ms" } as React.CSSProperties}>
-              <figure className="m-0 relative">
+            {/* Photo column — bigger, fills available height */}
+            <div className="lg:col-span-6 fade-in flex flex-col" style={{ "--d": "120ms" } as React.CSSProperties}>
+              <figure className="m-0 relative flex-1 flex flex-col">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="block w-full focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                  className="block w-full flex-1 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                   aria-label="Enlarge team photograph"
                 >
-                  <img
-                    src="/images/team/team-group-photo.jpg"
-                    alt="Mughal House Manpower Consultancy management team, Pandua, West Bengal"
-                    className="w-full h-auto block"
-                    style={{ aspectRatio: "4/3", objectFit: "cover", filter: "grayscale(15%)" }}
-                  />
+                  <div className="relative w-full h-full min-h-[280px] sm:min-h-[320px] lg:min-h-[360px]">
+                    <img
+                      src="/images/team/team-group-photo.jpg"
+                      alt="Mughal House Manpower Consultancy management team, Pandua, West Bengal"
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                      style={{ filter: "grayscale(15%)" }}
+                    />
+                  </div>
                 </button>
 
                 {/* Placement badge */}
                 <div
-                  className="absolute -bottom-3 left-3 sm:left-5 bg-paper border border-rule px-3.5 py-2 shadow-[0_8px_24px_-12px_rgba(15,30,61,0.25)]"
+                  className="absolute -bottom-4 left-4 sm:left-6 bg-paper border border-rule px-4 py-2.5 shadow-[0_10px_28px_-14px_rgba(15,30,61,0.30)]"
                   aria-hidden="true"
                 >
-                  <p className="font-display font-semibold text-ink text-base leading-none">
+                  <p className="font-display font-semibold text-ink text-[1.05rem] leading-none">
                     10,000<span className="text-gold-500">+</span>{" "}
                     <span className="text-ink-muted text-[10px] tracking-[0.18em] uppercase font-sans font-semibold ml-1">
                       placed since 2023
@@ -132,22 +134,23 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Stats strip — fits inside hero viewport at standard laptop sizes */}
-          <dl className="mt-6 lg:mt-8 grid grid-cols-2 lg:grid-cols-4 border-t border-rule">
+          {/* Stats strip — pronounced numerals, full hero footer */}
+          <dl className="grid grid-cols-2 lg:grid-cols-4 border-t border-rule">
             {stats.map(({ value, label, meta }, i) => (
               <div
                 key={label}
-                className={`flex flex-col gap-0.5 py-3.5 lg:py-4 px-4 lg:px-5 border-rule ${
+                className={`flex flex-col gap-1 py-4 lg:py-5 px-5 lg:px-6 border-rule ${
                   i < 3 ? "lg:border-r" : ""
                 } ${i === 0 || i === 2 ? "border-r lg:border-r" : ""} ${
                   i < 2 ? "border-b lg:border-b-0" : ""
                 }`}
               >
-                <dd className="font-display font-semibold text-ink text-xl lg:text-[1.625rem] leading-none tracking-tight">
+                <dd className="font-display font-semibold text-ink leading-none tracking-tight"
+                    style={{ fontSize: "clamp(1.5rem, 2.1vw, 2rem)" }}>
                   {value}
                 </dd>
-                <dt className="text-ink text-[11.5px] font-semibold mt-1">{label}</dt>
-                <p className="text-ink-muted text-[10px] tracking-wide">{meta}</p>
+                <dt className="text-ink text-[13px] font-semibold mt-2.5">{label}</dt>
+                <p className="text-ink-muted text-[11px] tracking-wide mt-0.5">{meta}</p>
               </div>
             ))}
           </dl>
