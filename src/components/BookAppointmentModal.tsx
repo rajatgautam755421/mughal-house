@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, Calendar, Clock, User, Mail, Phone, MessageSquare, CheckCircle, Loader2 } from "lucide-react";
+import { X, CheckCircle2, Loader2 } from "lucide-react";
 
 interface Props {
   onClose: () => void;
@@ -15,7 +15,6 @@ export default function BookAppointmentModal({ onClose }: Props) {
   const [errorMsg, setErrorMsg] = useState("");
   const firstInputRef = useRef<HTMLInputElement>(null);
 
-  // Lock body scroll + trap focus
   useEffect(() => {
     document.body.style.overflow = "hidden";
     firstInputRef.current?.focus();
@@ -50,76 +49,73 @@ export default function BookAppointmentModal({ onClose }: Props) {
   };
 
   const inputClass =
-    "w-full bg-dark-800/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-dark-400 focus:outline-none focus:border-royal-400/60 focus:bg-dark-700/60 transition-all duration-200";
-  const labelClass = "flex items-center gap-1.5 text-dark-300 text-xs font-medium mb-1.5";
+    "w-full bg-paper border border-rule px-3.5 py-2.5 text-ink text-[14px] placeholder:text-ink-faint focus:outline-none focus:border-ink transition-colors duration-150";
+  const labelClass =
+    "block text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold mb-1.5";
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4"
+      className="fixed inset-0 z-100 flex items-end sm:items-center justify-center p-0 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="appointment-modal-title"
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-dark-900/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-ink/55"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Panel */}
-      <div className="relative w-full max-w-lg max-h-[92vh] sm:max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl shadow-2xl"
-        style={{ background: "linear-gradient(145deg, rgba(17,24,40,0.98) 0%, rgba(10,15,28,0.98) 100%)", border: "1px solid rgba(255,255,255,0.08)" }}
-      >
+      <div className="relative w-full max-w-lg max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-paper border border-rule shadow-[0_24px_60px_-20px_rgba(15,30,61,0.35)]">
+
         {/* Header */}
-        <div className="flex items-start justify-between p-6 pb-0">
+        <div className="flex items-start justify-between px-7 pt-7 pb-5 border-b border-rule">
           <div>
-            <p className="text-royal-400 text-[10px] tracking-[0.25em] uppercase font-semibold mb-1">
-              Mughal House Manpower Consultancy
-            </p>
-            <h2 id="appointment-modal-title" className="font-display font-bold text-white text-xl">
-              Book an Appointment
+            <span className="eyebrow">Mughal House Manpower Consultancy</span>
+            <h2
+              id="appointment-modal-title"
+              className="mt-3 font-display font-semibold text-ink text-[1.55rem] leading-tight tracking-tight"
+            >
+              Book an appointment
             </h2>
-            <p className="text-dark-400 text-sm mt-1">
-              We&apos;ll confirm your slot within 24 hours.
+            <p className="text-ink-muted text-[13px] mt-1.5">
+              We&rsquo;ll confirm your slot within one working day.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-lg text-dark-400 hover:text-white hover:bg-white/8 transition-all duration-200 mt-1"
+            className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Gold divider */}
-        <div className="mx-6 mt-4 h-px" style={{ background: "linear-gradient(90deg, rgba(201,168,67,0.5) 0%, rgba(201,168,67,0.1) 100%)" }} />
-
         {status === "success" ? (
-          <div className="flex flex-col items-center gap-4 p-8 text-center">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-              <CheckCircle className="w-8 h-8 text-emerald-400" />
-            </div>
+          <div className="flex flex-col items-center gap-5 px-7 py-12 text-center">
+            <CheckCircle2 className="w-10 h-10 text-gold-500" aria-hidden="true" />
             <div>
-              <h3 className="text-white font-semibold text-lg mb-1">Request Sent!</h3>
-              <p className="text-dark-300 text-sm leading-relaxed">
-                We&apos;ve received your appointment request and will reach out to confirm your slot within 24 hours.
+              <h3 className="font-display font-semibold text-ink text-xl mb-2">
+                Request received.
+              </h3>
+              <p className="text-ink-soft text-sm leading-[1.6] max-w-sm">
+                We have your details. A member of our team will reach out
+                within one working day to confirm your slot.
               </p>
             </div>
-            <button
-              onClick={onClose}
-              className="mt-2 px-6 py-2.5 rounded-full bg-royal-500 text-white text-sm font-semibold hover:bg-royal-400 transition-colors duration-200"
-            >
+            <button onClick={onClose} className="btn btn-primary mt-2">
               Done
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-4" noValidate>
+          <form onSubmit={handleSubmit} className="px-7 py-6 flex flex-col gap-5" noValidate>
+
             {/* Name */}
             <div>
               <label htmlFor="appt-name" className={labelClass}>
-                <User className="w-3 h-3" aria-hidden="true" /> Full Name <span className="text-red-400">*</span>
+                Full name <span className="text-gold-600">*</span>
               </label>
               <input
                 ref={firstInputRef}
@@ -133,11 +129,11 @@ export default function BookAppointmentModal({ onClose }: Props) {
               />
             </div>
 
-            {/* Email + Phone row */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            {/* Email + Phone */}
+            <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="appt-email" className={labelClass}>
-                  <Mail className="w-3 h-3" aria-hidden="true" /> Email <span className="text-red-400">*</span>
+                  Email <span className="text-gold-600">*</span>
                 </label>
                 <input
                   id="appt-email"
@@ -151,7 +147,7 @@ export default function BookAppointmentModal({ onClose }: Props) {
               </div>
               <div>
                 <label htmlFor="appt-phone" className={labelClass}>
-                  <Phone className="w-3 h-3" aria-hidden="true" /> Phone <span className="text-red-400">*</span>
+                  Phone <span className="text-gold-600">*</span>
                 </label>
                 <input
                   id="appt-phone"
@@ -165,11 +161,11 @@ export default function BookAppointmentModal({ onClose }: Props) {
               </div>
             </div>
 
-            {/* Date + Time row */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            {/* Date + Time */}
+            <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="appt-date" className={labelClass}>
-                  <Calendar className="w-3 h-3" aria-hidden="true" /> Preferred Date
+                  Preferred date
                 </label>
                 <input
                   id="appt-date"
@@ -177,12 +173,12 @@ export default function BookAppointmentModal({ onClose }: Props) {
                   min={new Date().toISOString().split("T")[0]}
                   value={form.date}
                   onChange={(e) => set("date", e.target.value)}
-                  className={inputClass + " [color-scheme:dark]"}
+                  className={inputClass}
                 />
               </div>
               <div>
                 <label htmlFor="appt-time" className={labelClass}>
-                  <Clock className="w-3 h-3" aria-hidden="true" /> Preferred Time
+                  Preferred time
                 </label>
                 <select
                   id="appt-time"
@@ -206,20 +202,20 @@ export default function BookAppointmentModal({ onClose }: Props) {
             {/* Message */}
             <div>
               <label htmlFor="appt-message" className={labelClass}>
-                <MessageSquare className="w-3 h-3" aria-hidden="true" /> Message / Purpose
+                Message / purpose
               </label>
               <textarea
                 id="appt-message"
                 rows={3}
-                placeholder="Briefly describe what you'd like to discuss…"
+                placeholder="Briefly describe what you would like to discuss…"
                 value={form.message}
                 onChange={(e) => set("message", e.target.value)}
-                className={inputClass + " resize-none"}
+                className={`${inputClass} resize-none`}
               />
             </div>
 
             {status === "error" && (
-              <p className="text-red-400 text-xs bg-red-500/8 border border-red-500/20 rounded-lg px-3 py-2">
+              <p className="text-[13px] text-gold-700 border-l-2 border-gold-500 pl-3 py-1">
                 {errorMsg}
               </p>
             )}
@@ -227,17 +223,20 @@ export default function BookAppointmentModal({ onClose }: Props) {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-royal-500 text-white font-semibold text-sm hover:bg-royal-400 active:scale-[0.98] transition-all duration-200 shadow-lg shadow-royal-500/25 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="btn btn-primary justify-center w-full disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {status === "loading" ? (
-                <><Loader2 className="w-4 h-4 animate-spin" /> Sending…</>
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                  Sending…
+                </>
               ) : (
-                "Request Appointment"
+                "Request appointment"
               )}
             </button>
 
-            <p className="text-center text-dark-500 text-[11px]">
-              Appointments are subject to availability. Mon–Fri 9 AM–6 PM, Sat 9 AM–2 PM.
+            <p className="text-center text-ink-faint text-[11px]">
+              Appointments are subject to availability. Mon&ndash;Fri 9 AM&ndash;6 PM, Sat 9 AM&ndash;2 PM.
             </p>
           </form>
         )}

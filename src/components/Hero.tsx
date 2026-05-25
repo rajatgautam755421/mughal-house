@@ -19,13 +19,13 @@ export default function Hero() {
       <section
         id="home"
         aria-label="Mughal House Manpower Consultancy"
-        className="relative pt-24 sm:pt-28 lg:pt-32 pb-10 lg:pb-14"
+        className="relative pt-20 sm:pt-24 lg:pt-24 pb-6 lg:pb-8"
         style={{ background: "#faf8f3" }}
       >
         <div className="container-xl">
 
           {/* Masthead rule */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 mb-7 lg:mb-9 border-b border-rule">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 mb-5 lg:mb-6 border-b border-rule">
             <span className="eyebrow">Government licensed · Insured · Trusted · Est. 2023</span>
             <span className="text-ink-faint text-[11px] tracking-[0.18em] uppercase">
               Pandua, West Bengal · Kuala Lumpur, Malaysia
@@ -33,13 +33,13 @@ export default function Hero() {
           </div>
 
           {/* Two-column editorial */}
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
             {/* Lead column */}
             <div className="lg:col-span-7 fade-in" style={{ "--d": "0ms" } as React.CSSProperties}>
               <h1
-                className="font-display font-semibold text-ink leading-[1.02] tracking-[-0.025em] text-balance"
-                style={{ fontSize: "clamp(2.5rem, 5.6vw, 5.25rem)" }}
+                className="font-display font-semibold text-ink leading-[1.04] tracking-[-0.025em] text-balance"
+                style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.85rem)" }}
               >
                 Skilled Indian workers,
                 <br />
@@ -47,14 +47,13 @@ export default function Hero() {
                 <span className="text-gold-500">.</span>
               </h1>
 
-              <p className="mt-7 text-ink-soft text-lg leading-[1.6] max-w-xl text-pretty">
-                Mughal House Manpower Consultancy is a government-licensed overseas
-                recruitment agency based in Pandua, West Bengal. We place skilled and
-                semi-skilled workers into manufacturing, plantation, construction and
-                hospitality roles across Malaysia.
+              <p className="mt-5 text-ink-soft text-[15px] lg:text-base leading-[1.55] max-w-xl text-pretty">
+                A government-licensed overseas recruitment agency based in Pandua,
+                West Bengal &mdash; placing skilled and semi-skilled workers across
+                Malaysia&rsquo;s industries.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
                 <a href="#contact" className="btn btn-primary">
                   Book a consultation
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -66,7 +65,7 @@ export default function Hero() {
 
               {/* Credentials row */}
               <ul
-                className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3"
+                className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2"
                 role="list"
                 aria-label="Credentials"
               >
@@ -75,10 +74,10 @@ export default function Hero() {
                     href="/mughal-house-license.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[13px] transition-colors duration-150"
+                    className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12px] transition-colors duration-150"
                     aria-label="View government license RAS838225"
                   >
-                    <Shield className="w-4 h-4 text-gold-500" aria-hidden="true" />
+                    <Shield className="w-3.5 h-3.5 text-gold-500" aria-hidden="true" />
                     <span>
                       Gov. licensed &mdash;{" "}
                       <span className="text-ink font-semibold">RAS838225</span>
@@ -90,10 +89,10 @@ export default function Hero() {
                     href="https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[13px] transition-colors duration-150"
+                    className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12px] transition-colors duration-150"
                     aria-label="View office location on Google Maps"
                   >
-                    <MapPin className="w-4 h-4 text-gold-500" aria-hidden="true" />
+                    <MapPin className="w-3.5 h-3.5 text-gold-500" aria-hidden="true" />
                     <span>Ahmed Plaza, Pandua, West Bengal</span>
                   </a>
                 </li>
@@ -106,50 +105,49 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="block w-full focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                  className="block w-full focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                   aria-label="Enlarge team photograph"
                 >
                   <img
                     src="/images/team/team-group-photo.jpg"
                     alt="Mughal House Manpower Consultancy management team, Pandua, West Bengal"
                     className="w-full h-auto block"
-                    style={{ aspectRatio: "4/5", objectFit: "cover", filter: "grayscale(15%)" }}
+                    style={{ aspectRatio: "4/3", objectFit: "cover", filter: "grayscale(15%)" }}
                   />
                 </button>
 
-                {/* Placement badge — floating bottom-left */}
+                {/* Placement badge */}
                 <div
-                  className="absolute -bottom-4 left-4 sm:left-6 bg-paper border border-rule px-4 py-3 shadow-[0_8px_24px_-12px_rgba(15,30,61,0.25)]"
+                  className="absolute -bottom-3 left-3 sm:left-5 bg-paper border border-rule px-3.5 py-2 shadow-[0_8px_24px_-12px_rgba(15,30,61,0.25)]"
                   aria-hidden="true"
                 >
-                  <p className="font-display text-ink text-xl leading-none">10,000<span className="text-gold-500">+</span></p>
-                  <p className="text-ink-muted text-[10px] tracking-[0.18em] uppercase mt-1.5">Workers placed since 2023</p>
+                  <p className="font-display font-semibold text-ink text-base leading-none">
+                    10,000<span className="text-gold-500">+</span>{" "}
+                    <span className="text-ink-muted text-[10px] tracking-[0.18em] uppercase font-sans font-semibold ml-1">
+                      placed since 2023
+                    </span>
+                  </p>
                 </div>
-
-                <figcaption className="mt-6 text-ink-muted text-xs leading-snug">
-                  <span className="font-semibold text-ink">The Mughal House team</span> at the
-                  registered office, Ahmed Plaza, Pandua. Photograph, 2024.
-                </figcaption>
               </figure>
             </div>
           </div>
 
-          {/* Stats strip — sits inside the hero viewport */}
-          <dl className="mt-10 lg:mt-12 grid grid-cols-2 lg:grid-cols-4 border-t border-rule">
+          {/* Stats strip — fits inside hero viewport at standard laptop sizes */}
+          <dl className="mt-6 lg:mt-8 grid grid-cols-2 lg:grid-cols-4 border-t border-rule">
             {stats.map(({ value, label, meta }, i) => (
               <div
                 key={label}
-                className={`flex flex-col gap-1 py-4 lg:py-5 px-4 lg:px-5 border-rule ${
+                className={`flex flex-col gap-0.5 py-3.5 lg:py-4 px-4 lg:px-5 border-rule ${
                   i < 3 ? "lg:border-r" : ""
                 } ${i === 0 || i === 2 ? "border-r lg:border-r" : ""} ${
                   i < 2 ? "border-b lg:border-b-0" : ""
                 }`}
               >
-                <dd className="font-display font-semibold text-ink text-2xl lg:text-[1.875rem] leading-none tracking-tight">
+                <dd className="font-display font-semibold text-ink text-xl lg:text-[1.625rem] leading-none tracking-tight">
                   {value}
                 </dd>
-                <dt className="text-ink text-[12px] font-semibold mt-1.5">{label}</dt>
-                <p className="text-ink-muted text-[10.5px] tracking-wide">{meta}</p>
+                <dt className="text-ink text-[11.5px] font-semibold mt-1">{label}</dt>
+                <p className="text-ink-muted text-[10px] tracking-wide">{meta}</p>
               </div>
             ))}
           </dl>

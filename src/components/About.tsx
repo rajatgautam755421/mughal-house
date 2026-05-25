@@ -47,17 +47,11 @@ export default function About() {
                 A house built on trust, scaled by reputation.
               </h2>
 
-              <p className="mt-6 text-ink-soft text-lg leading-[1.65] text-pretty drop-cap">
-                We have worked in overseas recruitment for the past two decades, and officially
-                registered Mughal House Manpower Consultancy in 2023. From our office in Pandua,
-                Hooghly &mdash; West Bengal &mdash; we have deployed over ten thousand skilled workers
-                from India to Malaysia across plantation, construction, manufacturing and hospitality.
-              </p>
-
-              <p className="mt-5 text-ink-soft text-base leading-[1.65]">
-                Both founders are personally involved in every deployment. There is no call centre,
-                no intermediary, no commission chain. When you speak to Mughal House, you speak to
-                the people who sign your contract.
+              <p className="mt-6 text-ink-soft text-lg leading-[1.6] text-pretty drop-cap">
+                Two decades in overseas recruitment, officially registered in 2023. From
+                Pandua, West Bengal we have placed 10,000+ skilled workers into Malaysian
+                plantation, construction, manufacturing and hospitality. Both founders sign
+                every contract personally &mdash; no call centre, no intermediary.
               </p>
 
               <dl className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-7">
