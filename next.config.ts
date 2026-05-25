@@ -23,6 +23,13 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  async redirects() {
+    return [
+      // Older bots and link unfurlers still hit /favicon.ico directly.
+      // The branded icon is generated dynamically at /icon.
+      { source: "/favicon.ico", destination: "/icon", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
