@@ -138,6 +138,62 @@ export default function UnderConstruction() {
             </a>
           </div>
 
+          {/* Credentials preview */}
+          <div className="pt-5 border-t border-rule">
+            <p className="text-ink-muted text-[10.5px] tracking-[0.22em] uppercase font-semibold mb-4">
+              <span className="inline-block w-4 h-px bg-gold-500 align-middle mr-2" />
+              Credentials
+            </p>
+            <ul className="grid grid-cols-3 gap-3" role="list">
+              {[
+                {
+                  title: "India · RAS838225",
+                  pdf: "/mughal-house-license.pdf",
+                  thumb: "/images/credentials/mughal-house-license.jpg",
+                  alt: "India recruitment license RAS838225, page 1",
+                },
+                {
+                  title: "Licence C · Malaysia",
+                  pdf: "/agensi-malaysia-license.pdf",
+                  thumb: "/images/credentials/agensi-malaysia-license.jpg",
+                  alt: "Malaysia Licence C (Agensi Pekerjaan), page 1",
+                },
+                {
+                  title: "RBA / SAQ 2026",
+                  pdf: "/Corporate-SAQ-2026.pdf",
+                  thumb: "/images/credentials/Corporate-SAQ-2026.jpg",
+                  alt: "RBA SAQ 2026 status, page 1",
+                },
+              ].map((c) => (
+                <li key={c.title}>
+                  <a
+                    href={c.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block bg-paper border border-rule hover:border-ink transition-colors duration-200"
+                    aria-label={`Open ${c.title} PDF`}
+                  >
+                    <div
+                      className="relative w-full overflow-hidden bg-paper-soft"
+                      style={{ aspectRatio: "1 / 1.414" }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={c.thumb}
+                        alt={c.alt}
+                        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+                        loading="lazy"
+                      />
+                    </div>
+                    <p className="px-2.5 py-2 text-ink text-[11px] font-semibold text-center leading-tight">
+                      {c.title}
+                    </p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Address */}
           <address className="not-italic text-ink-muted text-[12.5px] leading-[1.6] pt-5 border-t border-rule">
             Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,<br />

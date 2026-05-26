@@ -108,10 +108,10 @@ export default function Footer() {
                 href="/agensi-malaysia-license.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View Malaysia recruitment agency licence (Agensi Pekerjaan, opens in new tab)"
+                aria-label="View Malaysia Licence C (Agensi Pekerjaan), opens in new tab"
                 className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
               >
-                Malaysia agency licence
+                Licence C &middot; Malaysia
               </a>
               <a
                 href="/Corporate-SAQ-2026.pdf"

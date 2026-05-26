@@ -7,6 +7,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
+import Credentials from "@/components/Credentials";
 import Team from "@/components/Team";
 import OfficeVisit from "@/components/OfficeVisit";
 import CTA from "@/components/CTA";
@@ -16,10 +17,10 @@ import LiveChat from "@/components/LiveChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import UnderConstruction from "@/components/UnderConstruction";
 
-// In production we serve a branded "under construction" page while the
-// full site is being polished. `next dev` (NODE_ENV === "development")
-// always renders the real site so we can keep iterating locally.
-const SHOW_UNDER_CONSTRUCTION = process.env.NODE_ENV === "production";
+// Flip to `true` (or back to `process.env.NODE_ENV === "production"`) to
+// re-enable the branded "under construction" gate on the live site. The
+// component is kept around so this is a one-line toggle.
+const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -43,6 +44,7 @@ export default function Home() {
         <Services />
         <Process />
         <Testimonials />
+        <Credentials />
         <Team />
         <CTA />
         <OfficeVisit onOpenBooking={() => setBookingOpen(true)} />
