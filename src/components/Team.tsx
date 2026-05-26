@@ -60,14 +60,14 @@ const allMembers: Member[] = [
   {
     id: 5,
     name: "Md. Rabiul Hussain",
-    title: "Accountant",
-    department: "Finance",
+    title: "Documentation & Visa Processing Officer",
+    department: "Documentation",
     image: "/images/team/rabiul-hussain.jpg",
     badge: null,
     since: null,
     blurb:
-      "Md. Rabiul Hussain manages all financial operations at Mughal House — from worker payment records to employer billing — ensuring full transparency and accuracy across every transaction.",
-    expertise: ["Accounting", "Financial Records", "Billing", "Payroll"],
+      "Md. Rabiul Hussain leads documentation and e-visa processing at Mughal House — from passport and contract paperwork to embassy coordination — making sure every worker's travel file is complete and on time.",
+    expertise: ["Documentation", "Visa Processing", "Embassy Coordination", "Contract Attestation"],
     isFounder: false,
   },
   {
