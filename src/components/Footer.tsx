@@ -94,14 +94,35 @@ export default function Footer() {
               {" "}&middot; MH Manpower.
             </p>
 
-            <a
-              href="/mughal-house-license.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
-            >
-              License RAS838225
-            </a>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <a
+                href="/mughal-house-license.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View India license RAS838225 (opens in new tab)"
+                className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
+              >
+                India license &middot; RAS838225
+              </a>
+              <a
+                href="/agensi-malaysia-license.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Malaysia recruitment agency licence (Agensi Pekerjaan, opens in new tab)"
+                className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
+              >
+                Malaysia agency licence
+              </a>
+              <a
+                href="/Corporate-SAQ-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View RBA SAQ 2026 status PDF (opens in new tab)"
+                className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
+              >
+                RBA/SAQ Status 2026
+              </a>
+            </div>
 
             <div className="flex items-center gap-2 mt-2" role="list" aria-label="Social media links">
               {socialLinks.map(({ icon: Icon, label, href }) => (

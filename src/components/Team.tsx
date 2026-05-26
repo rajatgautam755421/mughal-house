@@ -58,24 +58,11 @@ const allMembers: Member[] = [
     isFounder: true,
   },
   {
-    id: 5,
-    name: "Md. Rabiul Hussain",
-    title: "Accountant",
-    department: "Finance",
-    image: "/images/team/director-standing.jpg",
-    badge: null,
-    since: null,
-    blurb:
-      "Md. Rabiul Hussain manages all financial operations at Mughal House — from worker payment records to employer billing — ensuring full transparency and accuracy across every transaction.",
-    expertise: ["Accounting", "Financial Records", "Billing", "Payroll"],
-    isFounder: false,
-  },
-  {
     id: 7,
     name: "Manik Sekh",
     title: "Marketing Manager, India",
     department: "Marketing",
-    image: "/images/team/staff-glasses-a.jpg",
+    image: "/images/team/manik-sekh.jpg",
     badge: null,
     since: null,
     blurb:
@@ -88,7 +75,7 @@ const allMembers: Member[] = [
     name: "Abdul Mabud Dhabak",
     title: "Public Relations Officer",
     department: "Public Relations",
-    image: "/images/team/staff-india-malaysia-a.jpg",
+    image: "/images/team/abdul-mabud-dhabak.jpg",
     badge: null,
     since: null,
     blurb:
@@ -97,29 +84,42 @@ const allMembers: Member[] = [
     isFounder: false,
   },
   {
-    id: 9,
-    name: "DebTirtha Goutam",
-    title: "Visa Processing Officer",
-    department: "Visa Processing",
-    image: "/images/team/staff-consultancy-desk.jpg",
+    id: 5,
+    name: "Md. Rabiul Hussain",
+    title: "Accountant",
+    department: "Finance",
+    image: "/images/team/rabiul-hussain.jpg",
     badge: null,
     since: null,
     blurb:
-      "DebTirtha Goutam specialises in e-visa applications and embassy coordination, ensuring every worker's travel documentation is processed accurately and delivered on time.",
-    expertise: ["Visa Processing", "Embassy Coordination", "E-Visa Applications", "Travel Docs"],
+      "Md. Rabiul Hussain manages all financial operations at Mughal House — from worker payment records to employer billing — ensuring full transparency and accuracy across every transaction.",
+    expertise: ["Accounting", "Financial Records", "Billing", "Payroll"],
     isFounder: false,
   },
   {
-    id: 13,
-    name: "Office Staff",
-    title: "Administration",
-    department: "Administration",
-    image: "/images/team/staff-young-curly.jpg",
+    id: 14,
+    name: "Sowel Rana Mondal",
+    title: "Front Desk Officer",
+    department: "Front Desk",
+    image: "/images/team/sowel-rana-mondal.jpg",
     badge: null,
     since: null,
     blurb:
-      "Supports the administrative backbone of Mughal House — managing correspondence, internal records and office coordination to keep operations running smoothly.",
-    expertise: ["Administration", "Record Keeping", "Office Coordination"],
+      "Sowel Rana Mondal is the first face every visitor meets at Mughal House — welcoming candidates and partners, coordinating appointments, and keeping the front-desk operations running smoothly day to day.",
+    expertise: ["Reception", "Visitor Coordination", "Appointments", "Office Hospitality"],
+    isFounder: false,
+  },
+  {
+    id: 15,
+    name: "Arif",
+    title: "Accountant",
+    department: "Finance",
+    image: "/images/team/arif-accountant.jpg",
+    badge: null,
+    since: null,
+    blurb:
+      "Arif supports the finance team at Mughal House, working alongside Md. Rabiul Hussain on day-to-day bookkeeping, payment records and employer billing so every transaction stays accurate and on time.",
+    expertise: ["Accounting", "Bookkeeping", "Payment Records", "Financial Reconciliation"],
     isFounder: false,
   },
 ];
@@ -410,10 +410,19 @@ export default function Team() {
             <div className="h-px flex-1 bg-rule" aria-hidden="true" />
           </div>
 
-          {/* Staff grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 w-full" role="list" aria-label="Team members">
+          {/* Staff grid — flex-wrap so partial last rows stay centered
+              instead of left-aligning into an orphan column. */}
+          <div
+            className="flex flex-wrap justify-center gap-4 sm:gap-5 w-full"
+            role="list"
+            aria-label="Team members"
+          >
             {staffMembers.map((s, i) => (
-              <div key={s.id} role="listitem">
+              <div
+                key={s.id}
+                role="listitem"
+                className="basis-[calc(50%-0.5rem)] sm:basis-[calc(33.333%-0.834rem)] lg:basis-[calc(20%-1rem)] max-w-[220px]"
+              >
                 <MemberCard member={s} globalIdx={i + 3} onOpen={openModal} variant="staff" />
               </div>
             ))}

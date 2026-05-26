@@ -43,14 +43,16 @@ export default function Hero() {
               >
                 Skilled Indian workers,
                 <br />
-                placed across Malaysia
+                placed{" "}
+                <span className="italic font-display font-medium">across</span>{" "}
+                the world
                 <span className="text-gold-500">.</span>
               </h1>
 
               <p className="mt-5 text-ink-soft text-[15px] lg:text-base leading-[1.55] max-w-xl text-pretty">
                 A government-licensed overseas recruitment agency based in Pandua,
-                West Bengal &mdash; placing skilled and semi-skilled workers across
-                Malaysia&rsquo;s industries.
+                West Bengal &mdash; placing skilled and semi-skilled workers into
+                Malaysia, the Gulf and emerging international markets.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
