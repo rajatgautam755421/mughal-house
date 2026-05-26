@@ -14,9 +14,19 @@ import Footer from "@/components/Footer";
 import BookAppointmentModal from "@/components/BookAppointmentModal";
 import LiveChat from "@/components/LiveChat";
 import ScrollToTop from "@/components/ScrollToTop";
+import UnderConstruction from "@/components/UnderConstruction";
+
+// In production we serve a branded "under construction" page while the
+// full site is being polished. `next dev` (NODE_ENV === "development")
+// always renders the real site so we can keep iterating locally.
+const SHOW_UNDER_CONSTRUCTION = process.env.NODE_ENV === "production";
 
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
+
+  if (SHOW_UNDER_CONSTRUCTION) {
+    return <UnderConstruction />;
+  }
 
   return (
     <>
