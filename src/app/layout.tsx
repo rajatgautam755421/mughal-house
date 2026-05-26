@@ -172,7 +172,14 @@ const organizationSchema = {
     },
     {
       "@type": "ContactPoint",
-      contactType: "sales",
+      contactType: "Chairman",
+      telephone: "+60-14-835-0321",
+      areaServed: "MY",
+      availableLanguage: ["English", "Malay", "Urdu"],
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "Director",
       telephone: "+60-12-360-2080",
       areaServed: "MY",
       availableLanguage: ["English", "Malay", "Urdu"],

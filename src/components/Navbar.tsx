@@ -244,11 +244,20 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                 <span className="font-medium">+91 7811-965514</span>
               </a>
               <a
+                href="tel:+60148350321"
+                className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
+              >
+                <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
+                  MY · Chairman
+                </span>
+                <span className="font-medium">+60 14-835 0321</span>
+              </a>
+              <a
                 href="tel:+60123602080"
                 className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
               >
                 <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
-                  Malaysia
+                  MY · Director
                 </span>
                 <span className="font-medium">+60 12-360 2080</span>
               </a>

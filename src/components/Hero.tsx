@@ -5,10 +5,9 @@ import { ArrowRight, Shield, MapPin } from "lucide-react";
 import ImageLightbox from "./ImageLightbox";
 
 const stats = [
-  { value: "10,000+",   label: "Workers deployed",  meta: "Placed across Malaysia" },
-  { value: "2023",      label: "Year established",  meta: "Government licensed"   },
-  { value: "RAS838225", label: "License number",    meta: "Govt. of India"         },
-  { value: "15+",       label: "Industry sectors",  meta: "Mfg. to hospitality"    },
+  { value: "10,000+",   label: "Workers deployed", meta: "Placed across Malaysia" },
+  { value: "RAS838225", label: "License number",   meta: "Govt. of India"         },
+  { value: "15+",       label: "Industry sectors", meta: "Mfg. to hospitality"    },
 ];
 
 export default function Hero() {
@@ -141,18 +140,14 @@ export default function Hero() {
           </div>
 
           {/* Stats strip — pronounced numerals, full hero footer */}
-          <dl className="grid grid-cols-2 lg:grid-cols-4 border-t border-rule">
+          <dl className="grid grid-cols-1 sm:grid-cols-3 border-t border-rule">
             {stats.map(({ value, label, meta }, i) => (
               <div
                 key={label}
-                // sm (2-col): right border on the left column (i % 2 === 0),
-                //             bottom border on the top row (i < 2).
-                // lg (4-col): right border on the first three cells; no bottom.
+                // Single col on phones: bottom border between rows.
+                // 3-col on sm+: right border between cells, no bottom.
                 className={`flex flex-col gap-1 py-4 lg:py-5 px-5 lg:px-6 border-rule
-                  ${i % 2 === 0 ? "border-r" : ""}
-                  ${i < 2 ? "border-b" : ""}
-                  ${i < 3 ? "lg:border-r" : "lg:border-r-0"}
-                  lg:border-b-0`}
+                  ${i < stats.length - 1 ? "border-b sm:border-b-0 sm:border-r" : ""}`}
               >
                 <dd className="font-display font-semibold text-ink leading-none tracking-tight"
                     style={{ fontSize: "clamp(1.5rem, 2.1vw, 2rem)" }}>

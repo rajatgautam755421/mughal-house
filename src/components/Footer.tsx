@@ -44,8 +44,9 @@ const contactInfo: Array<{
     label: "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,\nPo & PS Pandua, Dist – Hooghly,\nPin – 712149, West Bengal, India",
     href: "https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India",
   },
-  { icon: Phone, label: "+91 7811-965514", meta: "India",    href: "tel:+917811965514" },
-  { icon: Phone, label: "+60 12-360 2080", meta: "Malaysia", href: "tel:+60123602080"  },
+  { icon: Phone, label: "+91 7811-965514", meta: "India · Office",        href: "tel:+917811965514" },
+  { icon: Phone, label: "+60 14-835 0321", meta: "Malaysia · Chairman",   href: "tel:+60148350321"  },
+  { icon: Phone, label: "+60 12-360 2080", meta: "Malaysia · Director",   href: "tel:+60123602080"  },
   { icon: Mail,  label: "mhmc023@gmail.com",                 href: "mailto:mhmc023@gmail.com" },
 ];
 
