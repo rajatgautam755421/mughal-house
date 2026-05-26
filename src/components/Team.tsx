@@ -58,6 +58,32 @@ const allMembers: Member[] = [
     isFounder: true,
   },
   {
+    id: 5,
+    name: "Md. Rabiul Hussain",
+    title: "Accountant",
+    department: "Finance",
+    image: "/images/team/rabiul-hussain.jpg",
+    badge: null,
+    since: null,
+    blurb:
+      "Md. Rabiul Hussain manages all financial operations at Mughal House — from worker payment records to employer billing — ensuring full transparency and accuracy across every transaction.",
+    expertise: ["Accounting", "Financial Records", "Billing", "Payroll"],
+    isFounder: false,
+  },
+  {
+    id: 15,
+    name: "Arif",
+    title: "Accountant",
+    department: "Finance",
+    image: "/images/team/arif-accountant.jpg",
+    badge: null,
+    since: null,
+    blurb:
+      "Arif supports the finance team at Mughal House, working alongside Md. Rabiul Hussain on day-to-day bookkeeping, payment records and employer billing so every transaction stays accurate and on time.",
+    expertise: ["Accounting", "Bookkeeping", "Payment Records", "Financial Reconciliation"],
+    isFounder: false,
+  },
+  {
     id: 7,
     name: "Manik Sekh",
     title: "Marketing Manager, India",
@@ -84,19 +110,6 @@ const allMembers: Member[] = [
     isFounder: false,
   },
   {
-    id: 5,
-    name: "Md. Rabiul Hussain",
-    title: "Accountant",
-    department: "Finance",
-    image: "/images/team/rabiul-hussain.jpg",
-    badge: null,
-    since: null,
-    blurb:
-      "Md. Rabiul Hussain manages all financial operations at Mughal House — from worker payment records to employer billing — ensuring full transparency and accuracy across every transaction.",
-    expertise: ["Accounting", "Financial Records", "Billing", "Payroll"],
-    isFounder: false,
-  },
-  {
     id: 14,
     name: "Sowel Rana Mondal",
     title: "Front Desk Officer",
@@ -107,19 +120,6 @@ const allMembers: Member[] = [
     blurb:
       "Sowel Rana Mondal is the first face every visitor meets at Mughal House — welcoming candidates and partners, coordinating appointments, and keeping the front-desk operations running smoothly day to day.",
     expertise: ["Reception", "Visitor Coordination", "Appointments", "Office Hospitality"],
-    isFounder: false,
-  },
-  {
-    id: 15,
-    name: "Arif",
-    title: "Accountant",
-    department: "Finance",
-    image: "/images/team/arif-accountant.jpg",
-    badge: null,
-    since: null,
-    blurb:
-      "Arif supports the finance team at Mughal House, working alongside Md. Rabiul Hussain on day-to-day bookkeeping, payment records and employer billing so every transaction stays accurate and on time.",
-    expertise: ["Accounting", "Bookkeeping", "Payment Records", "Financial Reconciliation"],
     isFounder: false,
   },
 ];
