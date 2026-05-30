@@ -97,13 +97,13 @@ export default function Footer() {
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <a
-                href="/mughal-house-license.pdf"
+                href="/registration-certificate.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View India license RAS838225 (opens in new tab)"
+                aria-label="View registration certificate (opens in new tab)"
                 className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
               >
-                India license &middot; RAS838225
+                Registration Certificate
               </a>
               <a
                 href="/agensi-malaysia-license.pdf"

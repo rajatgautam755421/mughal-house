@@ -147,10 +147,10 @@ export default function UnderConstruction() {
             <ul className="grid grid-cols-3 gap-3" role="list">
               {[
                 {
-                  title: "India · RAS838225",
-                  pdf: "/mughal-house-license.pdf",
-                  thumb: "/images/credentials/mughal-house-license.jpg",
-                  alt: "India recruitment license RAS838225, page 1",
+                  title: "Registration Certificate",
+                  pdf: "/registration-certificate.pdf",
+                  thumb: "/images/credentials/registration-certificate.jpg",
+                  alt: "Registration Certificate, page 1",
                 },
                 {
                   title: "Licence C · Malaysia",

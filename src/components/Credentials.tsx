@@ -13,13 +13,6 @@ interface Credential {
 
 const credentials: Credential[] = [
   {
-    title: "India · License RAS838225",
-    subtitle: "Govt. of India",
-    pdf: "/mughal-house-license.pdf",
-    thumb: "/images/credentials/mughal-house-license.jpg",
-    alt: "First page of the Mughal House India recruitment license (RAS838225)",
-  },
-  {
     title: "Licence C",
     subtitle: "Agensi Pekerjaan · Malaysia",
     pdf: "/agensi-malaysia-license.pdf",
@@ -32,6 +25,13 @@ const credentials: Credential[] = [
     pdf: "/Corporate-SAQ-2026.pdf",
     thumb: "/images/credentials/Corporate-SAQ-2026.jpg",
     alt: "First page of the Mughal House RBA SAQ 2026 status report",
+  },
+  {
+    title: "Registration Certificate",
+    subtitle: "Govt. of India",
+    pdf: "/registration-certificate.pdf",
+    thumb: "/images/credentials/registration-certificate.jpg",
+    alt: "First page of the Mughal House Registration Certificate",
   },
 ];
 

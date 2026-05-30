@@ -72,11 +72,11 @@ export default function Hero() {
               >
                 <li>
                   <a
-                    href="/mughal-house-license.pdf"
+                    href="/registration-certificate.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12.5px] transition-colors duration-150"
-                    aria-label="View government license RAS838225"
+                    aria-label="View government registration certificate"
                   >
                     <Shield className="w-4 h-4 text-gold-500" aria-hidden="true" />
                     <span>

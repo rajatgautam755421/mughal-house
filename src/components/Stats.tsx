@@ -33,7 +33,7 @@ const stats = [
     suffix: "%",
     label: "Licensed & Compliant",
     description: "License No. RAS838225",
-    href: "/mughal-house-license.pdf",
+    href: "/registration-certificate.pdf",
     color: "text-emerald-400",
     bgColor: "bg-emerald-500/10",
     noFormat: false,
