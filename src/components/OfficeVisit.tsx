@@ -107,8 +107,8 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
   const contactInfo: Array<{ icon: React.ElementType; label: string; value: string; href?: string }> = [
     { icon: MapPin, label: t("contacts.officeIndia"), value: t("contacts.addressValue") },
     { icon: Phone, label: t("contacts.indiaPhone"),  value: "+91 7811-965514", href: "tel:+917811965514" },
-    { icon: Phone, label: t("contacts.myChairman"),  value: "+60 14-835 0321", href: "tel:+60148350321"  },
-    { icon: Phone, label: t("contacts.myDirector"),  value: "+60 12-360 2080", href: "tel:+60123602080"  },
+    { icon: Phone, label: t("contacts.myDirector"),  value: "+60 14-835 0321", href: "tel:+60148350321"  },
+    { icon: Phone, label: t("contacts.myChairman"),  value: "+60 12-360 2080", href: "tel:+60123602080"  },
     { icon: Mail,  label: t("contacts.email"),       value: "mhmc023@gmail.com", href: "mailto:mhmc023@gmail.com" },
   ];
 

@@ -233,7 +233,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                 className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
               >
                 <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
-                  {t("myChairmanLabel")}
+                  {t("myDirectorLabel")}
                 </span>
                 <span className="font-medium">+60 14-835 0321</span>
               </a>
@@ -242,7 +242,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                 className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
               >
                 <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
-                  {t("myDirectorLabel")}
+                  {t("myChairmanLabel")}
                 </span>
                 <span className="font-medium">+60 12-360 2080</span>
               </a>

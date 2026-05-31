@@ -1,6 +1,7 @@
 {
   "language": {
     "en": "English",
+    "zh": "Chinese",
     "ru": "Russian",
     "es": "Spanish",
     "switcher": "Language"
@@ -156,21 +157,21 @@
         "name": "Manivanna",
         "title": "Malaysia Business Partner",
         "location": "Kuala Lumpur, Malaysia",
-        "quote": "On the Malaysia side, my job is to make sure every worker Mughal House sends arrives to an employer who is ready, a workplace that is legal, and a contract that holds. I have walked through factories, plantations and construction sites across the country to vet every employer we place workers with. That ground-level diligence is what keeps the trust on both sides of the corridor.",
+        "quote": "Every worker we send arrives to an employer who is ready, a workplace that is legal, and a contract that holds. I vet every employer in person.",
         "highlight": "Vets every Malaysian employer on the ground"
       },
       "hemraj": {
         "name": "Hemraj Dahal",
         "title": "Director & Partner",
         "location": "Pandua, Hooghly, West Bengal, India",
-        "quote": "Building trust with Malaysian employers takes years of consistent delivery. Every employer we work with knows that when Mughal House sends a worker, that worker is prepared — medically cleared, legally documented, culturally oriented, and ready to contribute on day one. We have built this reputation through zero compromise on quality and full transparency at every step.",
+        "quote": "When Mughal House sends a worker, that worker is prepared — medically cleared, documented, ready on day one. Zero compromise on quality.",
         "highlight": "Trusted by employers across 15+ sectors"
       },
       "firoz": {
         "name": "Firoz Ahamed",
         "title": "Managing Director",
         "location": "Pandua, Hooghly, West Bengal, India",
-        "quote": "Every worker who walks through our office door in Pandua arrives with a dream — a better life for their family. Our job is to make that dream real, safely and legally. From the first document to the flight boarding pass, we handle it all. The families who send their sons and daughters through us trust us completely, and that trust is something we guard with everything we have.",
+        "quote": "Every worker arrives with a dream of a better life for their family. From the first document to the boarding pass, we handle it all.",
         "highlight": "Zero-fee policy for every worker we place"
       }
     },

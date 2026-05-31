@@ -1,0 +1,361 @@
+{
+  "language": {
+    "en": "英语",
+    "zh": "中文",
+    "ru": "俄语",
+    "es": "西班牙语",
+    "switcher": "语言"
+  },
+  "navbar": {
+    "links": {
+      "about": "关于",
+      "services": "服务",
+      "process": "流程",
+      "team": "团队",
+      "contact": "联系"
+    },
+    "bookAppointment": "预约咨询",
+    "freeConsultation": "免费咨询",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "navigation": "导航",
+    "indiaLabel": "印度",
+    "myChairmanLabel": "马来西亚 · 主席",
+    "myDirectorLabel": "马来西亚 · 董事",
+    "homeAria": "Mughal House Manpower Consultancy — 主页",
+    "manpowerConsultancy": "人力资源咨询"
+  },
+  "hero": {
+    "eyebrow": "政府许可 · 已投保 · 值得信赖 · 成立于 2023 年",
+    "location": "西孟加拉邦潘杜阿 · 马来西亚吉隆坡",
+    "headline1": "技术熟练的印度工人,",
+    "headline2": "派往",
+    "headline3": "全世界",
+    "headline4": "各地",
+    "description": "Mughal House 是一家政府许可的海外招聘机构,位于西孟加拉邦潘杜阿——为马来西亚、海湾国家及新兴国际市场输送熟练及半熟练工人。",
+    "ctaPrimary": "预约咨询",
+    "ctaSecondary": "查看我们招聘的领域",
+    "govLicensed": "政府许可 —",
+    "registrationCertAria": "查看政府注册证书",
+    "officeAria": "在 Google 地图上查看办公地址",
+    "officeAddress": "Ahmed Plaza, 潘杜阿, 西孟加拉邦",
+    "teamPhotoAria": "放大团队照片",
+    "teamPhotoAlt": "Mughal House Manpower Consultancy 管理团队, 西孟加拉邦潘杜阿",
+    "teamCaptionLabel": "Mughal House 团队",
+    "teamCaptionMeta": "西孟加拉邦潘杜阿 — 2024",
+    "teamPlacedSince": "自 2023 年以来的派遣量",
+    "stats": {
+      "workersValue": "10,000+",
+      "workersLabel": "派遣工人数",
+      "workersMeta": "遍布马来西亚",
+      "licenseValue": "RAS838225",
+      "licenseLabel": "许可证编号",
+      "licenseMeta": "印度政府",
+      "sectorsValue": "15+",
+      "sectorsLabel": "行业领域",
+      "sectorsMeta": "从制造业到酒店业"
+    },
+    "lightboxCaption": "我们的团队",
+    "lightboxSubcaption": "Mughal House Manpower Consultancy · 印度西孟加拉邦潘杜阿"
+  },
+  "about": {
+    "eyebrow": "关于公司",
+    "heading": "以信任为本,以口碑壮大。",
+    "intro": "二十年海外招聘经验,于 2023 年正式注册为 Mughal House Manpower Consultancy <strong>(MH Recruiter)</strong>。我们从西孟加拉邦潘杜阿出发,已为马来西亚的种植园、建筑、制造和酒店业派遣超过 10,000 名熟练工人。两位创始人亲自签署每一份合同——没有呼叫中心,没有中介。",
+    "pillars": {
+      "licensed": {
+        "title": "政府许可机构",
+        "description": "在印度政府注册,许可证 RAS838225。符合马来西亚所有招聘法规。"
+      },
+      "predeparture": {
+        "title": "完整的出发前支持",
+        "description": "体检、文件办理、电子签证及出发前培训均由公司内部完成。"
+      },
+      "attention": {
+        "title": "个性化派遣",
+        "description": "每位候选人根据技能、语言和能力匹配岗位——从不以数量取胜。"
+      },
+      "zeroFee": {
+        "title": "工人零费用政策",
+        "description": "工人无需向我们支付任何费用。所有成本由雇主承担,双方签订透明书面合同。"
+      }
+    },
+    "figureCaption": "<strong>S. Ahamed (Raju)</strong> — 主席兼创始人。西孟加拉邦潘杜阿。",
+    "imageAlt": "Mughal House Manpower Consultancy 主席兼创始人 S. Ahamed",
+    "lightboxCaption": "S. Ahamed",
+    "lightboxSubcaption": "主席兼创始人 · Mughal House Manpower Consultancy"
+  },
+  "services": {
+    "eyebrow": "我们的招聘领域",
+    "heading": "十一个领域。一套流程。从头到尾。",
+    "intro": "我们为马来西亚十一个行业寻找、筛选、培训和派遣工人。欢迎定制招聘需求——我们经常为特定工厂、合同或项目时间表组建专属团队。",
+    "items": {
+      "plantation": { "title": "种植园", "description": "普通和经验丰富的种植园工人。" },
+      "construction": { "title": "建筑", "description": "技术工匠和普通劳工。" },
+      "agriculture": { "title": "农业", "description": "作物种植、农耕及土地维护。" },
+      "poultry": { "title": "家禽养殖", "description": "鸡场专职人员。" },
+      "cleaning": { "title": "清洁服务", "description": "商业、住宅及工业清洁。" },
+      "housekeeping": { "title": "客房服务", "description": "酒店、度假村及企业客房人员。" },
+      "food": { "title": "餐饮", "description": "熟练及非熟练餐厅员工。" },
+      "bar": { "title": "酒吧及接待", "description": "调酒师、咖啡师及酒吧服务员。" },
+      "manufacturing": { "title": "通用制造", "description": "生产和装配工厂工人。" },
+      "specialised": { "title": "专业制造", "description": "工业工厂的 CNC 机床操作员。" },
+      "textile": { "title": "纺织及服装", "description": "裁缝师、制衣工人。" },
+      "custom": {
+        "title": "没有找到您的行业?",
+        "description": "告诉我们职位和配额——我们将为您量身定制团队。",
+        "cta": "告诉我们您的需求",
+        "aria": "讨论定制招聘需求"
+      }
+    },
+    "footerNote": "定制人力简报——我们将根据您的项目时间表、技能要求和配额量身定制招聘。",
+    "footerCta": "讨论您的需求"
+  },
+  "process": {
+    "eyebrow": "我们的流程",
+    "heading": "从面试到登机牌的六个步骤。",
+    "intro": "从西孟加拉邦的体检到飞往吉隆坡的航班,我们掌控整个派遣流程。雇主和工人双方均无需办理任何文件。",
+    "steps": {
+      "medical": { "title": "体检", "description": "在认可诊所进行全面的出发前健康检查。目的地国家的工作适应性证明。" },
+      "clearance": { "title": "人力放行许可", "description": "全程办理合法海外派遣所需的监管批准和政府许可。" },
+      "visa": { "title": "电子签证办理", "description": "由我们内部文件团队负责使馆协调和签证申请。" },
+      "ticketing": { "title": "机票预订", "description": "从印度到马来西亚的航班预订和团体出行协调,与合同开始日期同步。" },
+      "passport": { "title": "护照及文件", "description": "代候选人办理护照申请、续签、合同公证及相关文件。" },
+      "orientation": { "title": "出发前培训", "description": "出发前讲解马来西亚劳动法、职场权利、文化规范和紧急协议。" }
+    },
+    "cta": "开始申请"
+  },
+  "credentials": {
+    "eyebrow": "资质",
+    "heading": "走廊两侧均持牌照。",
+    "intro": "Mughal House 在印度政府注册,并持有马来西亚 Agensi Pekerjaan 框架下的 C 类许可证。点击任何文件即可打开完整 PDF。",
+    "items": {
+      "malaysia": {
+        "title": "Licence C",
+        "subtitle": "Agensi Pekerjaan · 马来西亚",
+        "alt": "马来西亚 C 类许可证首页 (Agensi Pekerjaan)"
+      },
+      "rba": {
+        "title": "RBA / SAQ 状态 2026",
+        "subtitle": "Responsible Business Alliance",
+        "alt": "Mughal House RBA SAQ 2026 状态报告首页"
+      },
+      "india": {
+        "title": "注册证书",
+        "subtitle": "印度政府",
+        "alt": "Mughal House 注册证书首页"
+      }
+    },
+    "openAria": "打开 {title} (PDF, 新标签页)"
+  },
+  "testimonials": {
+    "eyebrow": "来自创始团队",
+    "heading": "承诺背后的人们之声。",
+    "intro": "两位合伙人直接参与每一次派遣——从在西孟加拉邦寻找工人到在马来西亚完成最终安置。",
+    "items": {
+      "manivanna": {
+        "name": "Manivanna",
+        "title": "马来西亚业务合伙人",
+        "location": "马来西亚吉隆坡",
+        "quote": "我们派遣的每位工人,到岗时雇主已准备就绪、工作场所合法、合同切实有效。每一位雇主都由我亲自实地核查。",
+        "highlight": "亲自实地核查每位马来西亚雇主"
+      },
+      "hemraj": {
+        "name": "Hemraj Dahal",
+        "title": "董事兼合伙人",
+        "location": "印度西孟加拉邦胡格利潘杜阿",
+        "quote": "Mughal House 派出的工人都做好了准备——通过体检、文件齐全、首日即可上岗。质量上绝不妥协。",
+        "highlight": "受到 15+ 行业雇主的信赖"
+      },
+      "firoz": {
+        "name": "Firoz Ahamed",
+        "title": "执行董事",
+        "location": "印度西孟加拉邦胡格利潘杜阿",
+        "quote": "每位工人都怀揣着为家人创造更好生活的梦想。从第一份文件到登机牌,我们全程包办。",
+        "highlight": "对每位派遣工人实行零费用政策"
+      }
+    },
+    "starsAria": "5 颗星中的 {rating} 颗"
+  },
+  "team": {
+    "eyebrow": "团队",
+    "heading": "每一次成功派遣背后的人。",
+    "intro": "由招聘专员、文件官员和现场经理组成的结构化团队——每个人都对所服务的每位工人和雇主负责。点击任意卡片查看完整简介。",
+    "membersLabel": "团队成员",
+    "directorsLabel": "董事",
+    "viewProfile": "查看简介",
+    "viewProfileAria": "查看 {name} 的简介",
+    "expertise": "专业领域",
+    "close": "关闭",
+    "prevAria": "上一位成员",
+    "nextAria": "下一位成员",
+    "departments": {
+      "leadership": "领导层",
+      "businessDev": "业务发展",
+      "operations": "运营",
+      "malaysiaPartner": "马来西亚合伙人",
+      "documentation": "文件",
+      "finance": "财务",
+      "marketing": "市场",
+      "publicRelations": "公关",
+      "frontDesk": "前台"
+    },
+    "badges": {
+      "founder": "创始人",
+      "director": "董事"
+    },
+    "since": "成立于 2023 年",
+    "members": {
+      "sAhamed": {
+        "title": "主席兼创始人",
+        "blurb": "Mughal House 创始人 S. Ahamed (Raju) 亲自督导了从西孟加拉邦到马来西亚超过 10,000 名工人的派遣。他对道德和透明招聘的愿景指导着公司的每一次派遣。",
+        "expertise": ["战略", "行业关系", "马来西亚业务", "法规合规"]
+      },
+      "hemraj": {
+        "title": "业务发展及海外业务总监",
+        "blurb": "Hemraj Dahal 负责雇主合作与海外业务拓展,将 Mughal House 的版图扩展至马来西亚的制造、种植、建筑和酒店业。",
+        "expertise": ["客户关系", "雇主联络", "市场拓展", "业务战略"]
+      },
+      "firoz": {
+        "title": "印度区董事",
+        "blurb": "Firoz Ahamed 管理 Mughal House 在印度的日常运营——从潘杜阿办公室的候选人接待到最终派遣确认。他严谨的工作方式确保每次派遣无缝顺畅。",
+        "expertise": ["运营", "候选人管理", "客户服务", "派遣"]
+      },
+      "manivanna": {
+        "title": "马来西亚业务合伙人",
+        "blurb": "Manivanna 在吉隆坡领导 Mughal House 的马来西亚业务——核查雇主、谈判合同,确保我们派遣的每位工人都到达合法、准备就绪的工作场所。他在当地的存在是西孟加拉邦与马来西亚厂区之间的纽带。",
+        "expertise": ["雇主核查", "合同谈判", "马来西亚业务", "现场支持"]
+      },
+      "rabiul": {
+        "title": "文件及签证办理官",
+        "blurb": "Md. Rabiul Hussain 负责 Mughal House 的文件和电子签证办理——从护照和合同文件到使馆协调——确保每位工人的出行档案完整及时。",
+        "expertise": ["文件办理", "签证办理", "使馆协调", "合同公证"]
+      },
+      "arif": {
+        "title": "会计",
+        "blurb": "Arif 协助 Mughal House 的财务团队,与 Md. Rabiul Hussain 共同处理日常记账、付款记录和雇主对账,确保每笔交易准确及时。",
+        "expertise": ["会计", "记账", "付款记录", "财务对账"]
+      },
+      "manik": {
+        "title": "印度区市场经理",
+        "blurb": "Manik Sekh 在西孟加拉邦推动候选人招募和品牌推广,将胡格利及周边地区的社区与正规海外就业机会连接起来。",
+        "expertise": ["市场", "推广", "候选人招募", "社区关系"]
+      },
+      "abdul": {
+        "title": "公共关系官",
+        "blurb": "Abdul Mabud Dhabak 负责公共关系和利益相关方沟通——代表 Mughal House 与当地社区、政府机构和合作伙伴建立信任。",
+        "expertise": ["公共关系", "利益相关方沟通", "社区联络"]
+      },
+      "sowel": {
+        "title": "前台官员",
+        "blurb": "Sowel Rana Mondal 是每位访客在 Mughal House 见到的第一张脸——接待候选人和合作伙伴、安排预约,确保前台运营每天顺畅运转。",
+        "expertise": ["接待", "访客协调", "预约", "办公接待"]
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "联系我们",
+    "heading": "准备在马来西亚组建您的团队?",
+    "description": "与我们的招聘专员讨论您的用工需求。我们将在一个工作日内回复,并提供量身定制的候选人名单。",
+    "primary": "预约通话",
+    "secondary": "查看招聘领域",
+    "note": "政府许可 (RAS838225)。工人零费用。自 2023 年以来已派遣 10,000+ 人。"
+  },
+  "officeVisit": {
+    "eyebrow": "拜访办公室",
+    "heading": "走进职业生涯启程之地。",
+    "intro": "我们的团队随时准备引导您完成派遣流程。带上文件、提出问题,接下来交给我们。",
+    "contacts": {
+      "officeIndia": "注册办公室, 印度",
+      "indiaPhone": "印度 · 潘杜阿办公室 (WhatsApp 和 Telegram)",
+      "myChairman": "马来西亚 · 主席",
+      "myDirector": "马来西亚 · 董事",
+      "email": "电子邮件",
+      "addressValue": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road, Po & PS Pandua,\nDist – Hooghly, Pin – 712149, 西孟加拉邦, 印度"
+    },
+    "directions": "获取路线",
+    "bookAppointment": "预约咨询",
+    "messageEyebrow": "直接联系我们",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "whatsappAria": "在 WhatsApp 上聊天",
+    "telegramAria": "在 Telegram 上发消息",
+    "officeHoursLabel": "办公时间",
+    "hours": {
+      "monFri": "周一 – 周五",
+      "monFriShort": "周一至周五",
+      "saturday": "周六",
+      "sunday": "周日",
+      "open9to18": "9:00 – 18:00",
+      "open9to14": "9:00 – 14:00",
+      "closed": "休息",
+      "appointment": "需预约",
+      "apptShort": "预约",
+      "satNote": "周六仅接受预约。"
+    },
+    "imageAlt": "Mughal House Manpower Consultancy 建筑外观及招牌, Ahmed Plaza, 西孟加拉邦潘杜阿",
+    "figureCaption": "<strong>Mughal House</strong> — 位于西孟加拉邦潘杜阿 Ahmed Plaza 的注册办公室。",
+    "lightboxCaption": "Mughal House",
+    "lightboxSubcaption": "Ahmed Plaza, 潘杜阿 · 印度西孟加拉邦",
+    "map": {
+      "title": "注册办公室",
+      "eyebrow": "Mughal House Manpower Consultancy",
+      "subtitle": "潘杜阿, 胡格利 · 印度西孟加拉邦",
+      "addressLabel": "地址",
+      "openMaps": "在 Google 地图中打开",
+      "hoursNote": "周一至周五 9:00–18:00 · 周六需预约。",
+      "close": "关闭"
+    }
+  },
+  "footer": {
+    "tagline": "自 2023 年以来,服务于马来西亚雇主的政府许可海外招聘咨询机构。道德、高效、值得信赖。",
+    "alias": "亦称 <strong>MH Recruiter</strong> · MH Manpower。",
+    "registrationCert": "注册证书",
+    "licenceC": "Licence C · 马来西亚",
+    "saqStatus": "RBA/SAQ 状态 2026",
+    "registrationCertAria": "查看注册证书 (新标签页)",
+    "licenceCAria": "查看马来西亚 C 类许可证 (Agensi Pekerjaan), 新标签页",
+    "saqAria": "查看 RBA SAQ 2026 状态 PDF (新标签页)",
+    "socialAria": "在 {label} 上关注我们",
+    "sections": {
+      "company": "公司",
+      "services": "服务",
+      "contact": "联系",
+      "hours": "时间"
+    },
+    "company": {
+      "about": "关于我们",
+      "team": "我们的团队",
+      "careers": "招聘"
+    },
+    "services": {
+      "medical": "体检",
+      "clearance": "人力放行许可",
+      "visa": "电子签证办理",
+      "ticketing": "机票预订",
+      "passport": "护照及文件",
+      "orientation": "出发前培训"
+    },
+    "contactMeta": {
+      "indiaOffice": "印度 · 办公室",
+      "myChairman": "马来西亚 · 主席",
+      "myDirector": "马来西亚 · 董事"
+    },
+    "addressLabel": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,\nPo & PS Pandua, Dist – Hooghly,\nPin – 712149, 西孟加拉邦, 印度",
+    "hours": {
+      "monFri": "周一至周五",
+      "saturday": "周六",
+      "sunday": "周日",
+      "open9to18": "9:00 – 18:00",
+      "open9to14": "9:00 – 14:00",
+      "closed": "休息",
+      "satNote": "周六仅接受预约。"
+    },
+    "copyright": "© {year} Mughal House Manpower Consultancy。版权所有。",
+    "indiaLicense": "印度政府许可证"
+  },
+  "common": {
+    "skipToContent": "跳至主要内容",
+    "scrollToTop": "返回顶部"
+  }
+}

@@ -1,6 +1,7 @@
 {
   "language": {
     "en": "Inglés",
+    "zh": "Chino",
     "ru": "Ruso",
     "es": "Español",
     "switcher": "Idioma"
@@ -156,21 +157,21 @@
         "name": "Manivanna",
         "title": "Socio de Negocio en Malasia",
         "location": "Kuala Lumpur, Malasia",
-        "quote": "Del lado de Malasia, mi trabajo es asegurar que cada trabajador que envía Mughal House llegue a un empleador preparado, a un lugar de trabajo legal y bajo un contrato que se respete. He recorrido fábricas, plantaciones y obras de construcción por todo el país para verificar a cada empleador con el que colocamos personal. Esa diligencia a pie de obra es lo que mantiene la confianza a ambos lados del corredor.",
+        "quote": "Cada trabajador que enviamos llega a un empleador preparado, un lugar de trabajo legal y un contrato que se cumple. Yo verifico a cada empleador en persona.",
         "highlight": "Verifica en terreno a cada empleador malasio"
       },
       "hemraj": {
         "name": "Hemraj Dahal",
         "title": "Director y Socio",
         "location": "Pandua, Hooghly, Bengala Occidental, India",
-        "quote": "Construir confianza con los empleadores malasios toma años de entrega consistente. Cada empleador sabe que cuando Mughal House envía un trabajador, ese trabajador está preparado — examinado médicamente, con documentación legal, orientado culturalmente y listo para contribuir desde el primer día. Hemos construido esta reputación sin compromisos en calidad y con total transparencia en cada paso.",
+        "quote": "Cuando Mughal House envía un trabajador, está preparado — examinado, documentado, listo desde el primer día. Sin concesiones en calidad.",
         "highlight": "Confiados por empleadores en más de 15 sectores"
       },
       "firoz": {
         "name": "Firoz Ahamed",
         "title": "Director General",
         "location": "Pandua, Hooghly, Bengala Occidental, India",
-        "quote": "Cada trabajador que entra por la puerta de nuestra oficina en Pandua llega con un sueño — una vida mejor para su familia. Nuestro trabajo es hacer ese sueño real, de forma segura y legal. Del primer documento al pase de abordar, lo gestionamos todo. Las familias que confían en nosotros lo hacen por completo, y esa confianza la cuidamos con todo.",
+        "quote": "Cada trabajador llega con el sueño de una vida mejor para su familia. Del primer documento al pase de abordar, lo gestionamos todo.",
         "highlight": "Política de cero cuotas para cada trabajador"
       }
     },

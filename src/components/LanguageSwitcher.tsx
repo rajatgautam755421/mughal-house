@@ -12,6 +12,7 @@ const COOKIE_NAME = "NEXT_LOCALE";
 // since that's the international convention in language menus.
 const FLAGS: Record<Locale, string> = {
   en: "🇬🇧",
+  zh: "🇨🇳",
   ru: "🇷🇺",
   es: "🇪🇸",
 };
