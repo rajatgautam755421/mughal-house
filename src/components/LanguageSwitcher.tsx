@@ -4,9 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
-import { Globe, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 const COOKIE_NAME = "NEXT_LOCALE";
+
+// Country flag emojis paired with each locale. English uses the UK flag
+// since that's the international convention in language menus.
+const FLAGS: Record<Locale, string> = {
+  en: "🇬🇧",
+  ru: "🇷🇺",
+  es: "🇪🇸",
+};
 
 export default function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }) {
   const t = useTranslations("language");
@@ -47,7 +55,7 @@ export default function LanguageSwitcher({ tone = "light" }: { tone?: "light" | 
         aria-expanded={open}
         aria-label={t("switcher")}
       >
-        <Globe className="w-3.5 h-3.5" aria-hidden="true" />
+        <span className="text-base leading-none" aria-hidden="true">{FLAGS[locale]}</span>
         <span className="uppercase tracking-[0.14em] font-semibold">{locale}</span>
       </button>
 
@@ -66,7 +74,10 @@ export default function LanguageSwitcher({ tone = "light" }: { tone?: "light" | 
                   l === locale ? "text-ink font-semibold" : "text-ink-soft"
                 }`}
               >
-                <span>{t(l)}</span>
+                <span className="flex items-center gap-2">
+                  <span className="text-base leading-none" aria-hidden="true">{FLAGS[l]}</span>
+                  <span>{t(l)}</span>
+                </span>
                 {l === locale && <Check className="w-3.5 h-3.5 text-gold-500" aria-hidden="true" />}
               </button>
             </li>
