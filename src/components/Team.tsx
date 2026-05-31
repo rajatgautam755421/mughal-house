@@ -3,138 +3,54 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+type MemberKey =
+  | "sAhamed" | "hemraj" | "firoz" | "manivanna" | "rabiul" | "arif"
+  | "manik" | "abdul" | "sowel";
+
+type DeptKey =
+  | "leadership" | "businessDev" | "operations" | "malaysiaPartner"
+  | "documentation" | "finance" | "marketing" | "publicRelations" | "frontDesk";
 
 interface Member {
-  id: number;
+  key: MemberKey;
   name: string;
-  title: string;
-  department: string;
+  department: DeptKey;
   image: string;
-  badge: string | null;
-  since: string | null;
-  blurb: string;
-  expertise: string[];
+  badge: "founder" | "director" | null;
   isFounder: boolean;
 }
 
 const allMembers: Member[] = [
-  {
-    id: 1,
-    name: "S. Ahamed (Raju)",
-    title: "Chairman & Founder",
-    department: "Leadership",
-    image: "/images/team/sahamed-imac-desk.jpeg",
-    badge: "Founder",
-    since: "Est. 2023",
-    blurb:
-      "Founder of Mughal House, S. Ahamed (Raju) has personally overseen the deployment of over 10,000 workers from West Bengal to Malaysia. His vision of ethical, transparent recruitment drives every placement the company makes.",
-    expertise: ["Strategy", "Industry Relations", "Malaysia Operations", "Regulatory Compliance"],
-    isFounder: true,
-  },
-  {
-    id: 2,
-    name: "Hemraj Dahal",
-    title: "Business Development & Overseas Director",
-    department: "Business Dev",
-    image: "/images/team/hemraj-dahal-standing.jpeg",
-    badge: "Director",
-    since: "Est. 2023",
-    blurb:
-      "Hemraj Dahal leads employer partnerships and overseas business development, expanding Mughal House's reach across Malaysian manufacturing, plantation, construction and hospitality sectors.",
-    expertise: ["Client Relations", "Employer Liaison", "Market Expansion", "Business Strategy"],
-    isFounder: true,
-  },
-  {
-    id: 3,
-    name: "Firoz Ahamed",
-    title: "Director (India)",
-    department: "Operations",
-    image: "/images/team/firoz-ahamed-reception.jpeg",
-    badge: "Director",
-    since: "Est. 2023",
-    blurb:
-      "Firoz Ahamed manages the day-to-day operations of Mughal House in India — from candidate intake at the Pandua office to final deployment confirmation. His meticulous approach ensures every placement runs without a hitch.",
-    expertise: ["Operations", "Candidate Management", "Client Services", "Deployment"],
-    isFounder: true,
-  },
-  {
-    id: 5,
-    name: "Md. Rabiul Hussain",
-    title: "Documentation & Visa Processing Officer",
-    department: "Documentation",
-    image: "/images/team/rabiul-hussain.jpg",
-    badge: null,
-    since: null,
-    blurb:
-      "Md. Rabiul Hussain leads documentation and e-visa processing at Mughal House — from passport and contract paperwork to embassy coordination — making sure every worker's travel file is complete and on time.",
-    expertise: ["Documentation", "Visa Processing", "Embassy Coordination", "Contract Attestation"],
-    isFounder: false,
-  },
-  {
-    id: 15,
-    name: "Arif",
-    title: "Accountant",
-    department: "Finance",
-    image: "/images/team/arif-accountant.jpg",
-    badge: null,
-    since: null,
-    blurb:
-      "Arif supports the finance team at Mughal House, working alongside Md. Rabiul Hussain on day-to-day bookkeeping, payment records and employer billing so every transaction stays accurate and on time.",
-    expertise: ["Accounting", "Bookkeeping", "Payment Records", "Financial Reconciliation"],
-    isFounder: false,
-  },
-  {
-    id: 7,
-    name: "Manik Sekh",
-    title: "Marketing Manager, India",
-    department: "Marketing",
-    image: "/images/team/manik-sekh.jpg",
-    badge: null,
-    since: null,
-    blurb:
-      "Manik Sekh drives candidate outreach and brand awareness across West Bengal — connecting communities in Hooghly and surrounding districts with legitimate overseas employment opportunities.",
-    expertise: ["Marketing", "Outreach", "Candidate Sourcing", "Community Relations"],
-    isFounder: false,
-  },
-  {
-    id: 8,
-    name: "Abdul Mabud Dhabak",
-    title: "Public Relations Officer",
-    department: "Public Relations",
-    image: "/images/team/abdul-mabud-dhabak.jpg",
-    badge: null,
-    since: null,
-    blurb:
-      "Abdul Mabud Dhabak manages public relations and stakeholder communication — building trust with local communities, government bodies and partner organisations on behalf of Mughal House.",
-    expertise: ["Public Relations", "Stakeholder Communication", "Community Liaison"],
-    isFounder: false,
-  },
-  {
-    id: 14,
-    name: "Sowel Rana Mondal",
-    title: "Front Desk Officer",
-    department: "Front Desk",
-    image: "/images/team/sowel-rana-mondal.jpg",
-    badge: null,
-    since: null,
-    blurb:
-      "Sowel Rana Mondal is the first face every visitor meets at Mughal House — welcoming candidates and partners, coordinating appointments, and keeping the front-desk operations running smoothly day to day.",
-    expertise: ["Reception", "Visitor Coordination", "Appointments", "Office Hospitality"],
-    isFounder: false,
-  },
+  { key: "sAhamed",   name: "S. Ahamed (Raju)",     department: "leadership",      image: "/images/team/sahamed-imac-desk.jpeg",     badge: "founder",  isFounder: true  },
+  { key: "hemraj",    name: "Hemraj Dahal",         department: "businessDev",     image: "/images/team/hemraj-dahal-standing.jpeg", badge: "director", isFounder: true  },
+  { key: "firoz",     name: "Firoz Ahamed",         department: "operations",      image: "/images/team/firoz-ahamed-reception.jpeg", badge: "director", isFounder: true  },
+  { key: "manivanna", name: "Manivanna",            department: "malaysiaPartner", image: "/images/team/manivanna.jpg",              badge: "director", isFounder: true  },
+  { key: "rabiul",    name: "Md. Rabiul Hussain",   department: "documentation",   image: "/images/team/rabiul-hussain.jpg",         badge: null,       isFounder: false },
+  { key: "arif",      name: "Arif",                 department: "finance",         image: "/images/team/arif-accountant.jpg",        badge: null,       isFounder: false },
+  { key: "manik",     name: "Manik Sekh",           department: "marketing",       image: "/images/team/manik-sekh.jpg",             badge: null,       isFounder: false },
+  { key: "abdul",     name: "Abdul Mabud Dhabak",   department: "publicRelations", image: "/images/team/abdul-mabud-dhabak.jpg",     badge: null,       isFounder: false },
+  { key: "sowel",     name: "Sowel Rana Mondal",    department: "frontDesk",       image: "/images/team/sowel-rana-mondal.jpg",      badge: null,       isFounder: false },
 ];
 
 const chairman = allMembers[0];
-const directors = allMembers.slice(1, 3);
-const staffMembers = allMembers.slice(3);
+const directors = allMembers.slice(1, 4);
+const staffMembers = allMembers.slice(4);
 
-/* ── Member modal ── */
 function MemberModal({
   members, index, onClose, onPrev, onNext,
 }: {
   members: Member[]; index: number; onClose: () => void; onPrev: () => void; onNext: () => void;
 }) {
+  const t = useTranslations("team");
   const member = members[index];
+  const title = t(`members.${member.key}.title`);
+  const blurb = t(`members.${member.key}.blurb`);
+  const expertise = t.raw(`members.${member.key}.expertise`) as string[];
+  const department = t(`departments.${member.department}`);
+  const badge = member.badge ? t(`badges.${member.badge}`) : null;
+  const since = t("since");
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -163,29 +79,26 @@ function MemberModal({
         aria-hidden="true"
       />
 
-      {/* Prev / Next chips */}
       <button
         onClick={onPrev}
         className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-paper border border-rule text-ink-soft hover:text-ink hover:border-ink transition-colors duration-150"
-        aria-label="Previous member"
+        aria-label={t("prevAria")}
       >
         <ChevronLeft className="w-4 h-4" />
       </button>
       <button
         onClick={onNext}
         className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-paper border border-rule text-ink-soft hover:text-ink hover:border-ink transition-colors duration-150"
-        aria-label="Next member"
+        aria-label={t("nextAria")}
       >
         <ChevronRight className="w-4 h-4" />
       </button>
 
-      {/* Paper panel — matches Book-appointment modal */}
       <div className="relative w-full max-w-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-paper border border-rule shadow-[0_24px_60px_-20px_rgba(15,30,61,0.35)]">
 
-        {/* Header */}
         <div className="flex items-start justify-between px-7 pt-7 pb-5 border-b border-rule">
           <div className="min-w-0">
-            <span className="eyebrow">{member.department}</span>
+            <span className="eyebrow">{department}</span>
             <h2
               id="member-modal-title"
               className="mt-3 font-display font-semibold text-ink text-[1.55rem] leading-tight tracking-tight"
@@ -193,11 +106,11 @@ function MemberModal({
               {member.name}
             </h2>
             <p className="text-ink-muted text-[13px] mt-1.5">
-              {member.title}
-              {member.badge && (
+              {title}
+              {badge && (
                 <>
-                  {" "}&middot; <span className="text-ink">{member.badge}</span>
-                  {" "}&middot; {member.since}
+                  {" "}&middot; <span className="text-ink">{badge}</span>
+                  {" "}&middot; {since}
                 </>
               )}
             </p>
@@ -205,18 +118,17 @@ function MemberModal({
           <button
             onClick={onClose}
             className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
-            aria-label="Close"
+            aria-label={t("close")}
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Body */}
         <div className="px-7 py-6 flex flex-col sm:flex-row gap-6">
           <div className="relative w-full sm:w-44 shrink-0 aspect-[3/4] sm:aspect-auto sm:h-56 overflow-hidden">
             <Image
               src={member.image}
-              alt={`${member.name}, ${member.title}`}
+              alt={`${member.name}, ${title}`}
               fill
               className="object-cover object-top"
               sizes="(max-width:640px) 100vw, 176px"
@@ -227,14 +139,14 @@ function MemberModal({
           </div>
 
           <div className="flex-1 flex flex-col">
-            <p className="text-ink-soft text-[14.5px] leading-[1.65]">{member.blurb}</p>
+            <p className="text-ink-soft text-[14.5px] leading-[1.65]">{blurb}</p>
 
             <div className="mt-5">
               <p className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold mb-2">
-                Expertise
+                {t("expertise")}
               </p>
               <ul className="flex flex-wrap gap-x-4 gap-y-1 text-ink-soft text-[13px] list-disc list-inside marker:text-gold-500">
-                {member.expertise.map((tag) => <li key={tag}>{tag}</li>)}
+                {expertise.map((tag) => <li key={tag}>{tag}</li>)}
               </ul>
             </div>
 
@@ -255,14 +167,18 @@ function MemberModal({
   );
 }
 
-/* ── Org-tree card (text only — photo lives in modal) ── */
 function MemberCard({
   member, globalIdx, onOpen, variant = "staff",
 }: {
   member: Member; globalIdx: number; onOpen: (i: number) => void; variant?: "chairman" | "director" | "staff";
 }) {
+  const t = useTranslations("team");
   const isChairman = variant === "chairman";
   const isDirector = variant === "director";
+  const department = t(`departments.${member.department}`);
+  const title = t(`members.${member.key}.title`);
+  const badge = member.badge ? t(`badges.${member.badge}`) : null;
+  const since = t("since");
 
   return (
     <button
@@ -271,18 +187,16 @@ function MemberCard({
       className={`group block w-full text-left bg-paper border transition-colors duration-150 hover:border-ink ${
         isChairman ? "border-gold-500/60 p-6" : isDirector ? "border-rule p-5" : "border-rule p-4"
       }`}
-      aria-label={`View ${member.name}'s profile`}
+      aria-label={t("viewProfileAria", { name: member.name })}
     >
-      {/* Department label */}
       <span
         className={`block text-[10px] tracking-[0.2em] uppercase font-semibold mb-2 ${
           isChairman ? "text-gold-500" : "text-ink-muted"
         }`}
       >
-        {member.department}
+        {department}
       </span>
 
-      {/* Name */}
       <h3
         className={`font-display font-semibold text-ink leading-snug tracking-tight ${
           isChairman ? "text-lg" : isDirector ? "text-[15px]" : "text-[14px]"
@@ -291,54 +205,53 @@ function MemberCard({
         {member.name}
       </h3>
 
-      {/* Title */}
       <p className={`text-ink-muted mt-1 leading-snug ${isChairman ? "text-[13px]" : "text-[12px]"}`}>
-        {member.title}
+        {title}
       </p>
 
-      {/* Founder/Director badge meta */}
-      {member.badge && (
+      {badge && (
         <p className="mt-3 pt-3 border-t border-rule text-ink-faint text-[10px] tracking-[0.16em] uppercase">
-          {member.badge} · {member.since}
+          {badge} · {since}
         </p>
       )}
 
-      {/* "View profile" affordance */}
       <span
         aria-hidden="true"
         className="mt-4 inline-flex items-center gap-1.5 text-ink-soft text-[11px] tracking-wide group-hover:text-ink transition-colors duration-150"
       >
-        View profile
+        {t("viewProfile")}
         <span className="block w-3 h-px bg-current transition-all duration-150 group-hover:w-5" />
       </span>
     </button>
   );
 }
 
-/* ── SVG tree connector ── */
-function TreeConnector({ variant }: { variant: "down-to-two" | "two-to-many" }) {
+function TreeConnector({ variant }: { variant: "down-to-three" | "three-to-many" }) {
   const stroke = "#c8c2b3";
-  if (variant === "down-to-two") {
+  if (variant === "down-to-three") {
     return (
       <svg viewBox="0 0 200 48" preserveAspectRatio="none" className="w-full" style={{ height: 48 }} aria-hidden="true">
         <line x1="100" y1="0"  x2="100" y2="24" stroke={stroke} strokeWidth="1" />
-        <line x1="40"  y1="24" x2="160" y2="24" stroke={stroke} strokeWidth="1" />
-        <line x1="40"  y1="24" x2="40"  y2="48" stroke={stroke} strokeWidth="1" />
-        <line x1="160" y1="24" x2="160" y2="48" stroke={stroke} strokeWidth="1" />
+        <line x1="30"  y1="24" x2="170" y2="24" stroke={stroke} strokeWidth="1" />
+        <line x1="30"  y1="24" x2="30"  y2="48" stroke={stroke} strokeWidth="1" />
+        <line x1="100" y1="24" x2="100" y2="48" stroke={stroke} strokeWidth="1" />
+        <line x1="170" y1="24" x2="170" y2="48" stroke={stroke} strokeWidth="1" />
       </svg>
     );
   }
   return (
     <svg viewBox="0 0 200 48" preserveAspectRatio="none" className="w-full" style={{ height: 48 }} aria-hidden="true">
-      <line x1="40"  y1="0"  x2="40"  y2="24" stroke={stroke} strokeWidth="1" />
-      <line x1="160" y1="0"  x2="160" y2="24" stroke={stroke} strokeWidth="1" />
-      <line x1="40"  y1="24" x2="160" y2="24" stroke={stroke} strokeWidth="1" />
+      <line x1="30"  y1="0"  x2="30"  y2="24" stroke={stroke} strokeWidth="1" />
+      <line x1="100" y1="0"  x2="100" y2="24" stroke={stroke} strokeWidth="1" />
+      <line x1="170" y1="0"  x2="170" y2="24" stroke={stroke} strokeWidth="1" />
+      <line x1="30"  y1="24" x2="170" y2="24" stroke={stroke} strokeWidth="1" />
       <line x1="100" y1="24" x2="100" y2="48" stroke={stroke} strokeWidth="1" />
     </svg>
   );
 }
 
 export default function Team() {
+  const t = useTranslations("team");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const openModal  = useCallback((i: number) => setActiveIndex(i), []);
@@ -357,73 +270,63 @@ export default function Team() {
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 mb-12 lg:mb-16 items-end">
           <div className="lg:col-span-7">
-            <span className="eyebrow">The team</span>
+            <span className="eyebrow">{t("eyebrow")}</span>
             <h2
               id="team-heading"
               className="mt-4 font-display font-semibold text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
             >
-              The people behind every successful deployment.
+              {t("heading")}
             </h2>
           </div>
           <div className="lg:col-span-5">
             <p className="text-ink-soft text-base leading-[1.65]">
-              A structured team of recruitment specialists, documentation officers and field managers
-              &mdash; each one accountable for every worker and employer we serve. Click any card to
-              view a full profile.
+              {t("intro")}
             </p>
           </div>
         </div>
 
-        {/* Org tree */}
         <div className="flex flex-col items-center">
 
-          {/* Chairman */}
           <div className="w-52 sm:w-60">
             <MemberCard member={chairman} globalIdx={0} onOpen={openModal} variant="chairman" />
           </div>
 
-          {/* Connector */}
-          <div className="w-[240px] sm:w-[400px]">
-            <TreeConnector variant="down-to-two" />
+          <div className="w-[280px] sm:w-[560px]">
+            <TreeConnector variant="down-to-three" />
           </div>
 
-          {/* Directors */}
-          <div className="flex gap-3 sm:gap-12" role="list" aria-label="Directors">
+          <div className="flex gap-3 sm:gap-8" role="list" aria-label={t("directorsLabel")}>
             {directors.map((d, i) => (
-              <div key={d.id} role="listitem" className="w-[42vw] max-w-[176px] sm:w-52">
+              <div key={d.key} role="listitem" className="w-[28vw] max-w-[160px] sm:w-48">
                 <MemberCard member={d} globalIdx={i + 1} onOpen={openModal} variant="director" />
               </div>
             ))}
           </div>
 
-          {/* Connector to staff */}
-          <div className="w-[240px] sm:w-[400px]">
-            <TreeConnector variant="two-to-many" />
+          <div className="w-[280px] sm:w-[560px]">
+            <TreeConnector variant="three-to-many" />
           </div>
 
-          {/* Staff label */}
           <div className="flex items-center gap-4 w-full max-w-3xl mb-6">
             <div className="h-px flex-1 bg-rule" aria-hidden="true" />
             <span className="text-ink-muted text-[10px] tracking-[0.22em] uppercase font-semibold">
-              Team members
+              {t("membersLabel")}
             </span>
             <div className="h-px flex-1 bg-rule" aria-hidden="true" />
           </div>
 
-          {/* Staff grid — flex-wrap so partial last rows stay centered
-              instead of left-aligning into an orphan column. */}
           <div
             className="flex flex-wrap justify-center gap-4 sm:gap-5 w-full"
             role="list"
-            aria-label="Team members"
+            aria-label={t("membersLabel")}
           >
             {staffMembers.map((s, i) => (
               <div
-                key={s.id}
+                key={s.key}
                 role="listitem"
                 className="basis-[calc(50%-0.5rem)] sm:basis-[calc(33.333%-0.834rem)] lg:basis-[calc(20%-1rem)] max-w-[220px]"
               >
-                <MemberCard member={s} globalIdx={i + 3} onOpen={openModal} variant="staff" />
+                <MemberCard member={s} globalIdx={i + 4} onOpen={openModal} variant="staff" />
               </div>
             ))}
           </div>

@@ -2,32 +2,13 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import ImageLightbox from "./ImageLightbox";
 
-const pillars = [
-  {
-    title: "Government-licensed agency",
-    description:
-      "Registered with the Government of India, license RAS838225. Compliant with all Malaysian recruitment regulations.",
-  },
-  {
-    title: "Full pre-departure support",
-    description:
-      "Medical examinations, documentation, e-visa processing and pre-departure orientation handled in-house.",
-  },
-  {
-    title: "Individual placement attention",
-    description:
-      "Each candidate is matched to a role on skill, language and aptitude — never on volume.",
-  },
-  {
-    title: "Zero-fee worker policy",
-    description:
-      "Workers pay nothing to us. Costs are borne by the employer, with transparent written contracts on both sides.",
-  },
-];
+const pillarKeys = ["licensed", "predeparture", "attention", "zeroFee"] as const;
 
 export default function About() {
+  const t = useTranslations("about");
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
@@ -35,7 +16,7 @@ export default function About() {
       <section id="about" className="section-padding" style={{ background: "#faf8f3" }} aria-labelledby="about-heading">
         <div className="container-xl">
 
-          <span className="eyebrow">About the firm</span>
+          <span className="eyebrow">{t("eyebrow")}</span>
 
           <div className="mt-4 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
@@ -44,22 +25,19 @@ export default function About() {
                 id="about-heading"
                 className="font-display font-semibold text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
               >
-                A house built on trust, scaled by reputation.
+                {t("heading")}
               </h2>
 
-              <p className="mt-6 text-ink-soft text-lg leading-[1.6] text-pretty drop-cap">
-                Two decades in overseas recruitment, officially registered as Mughal House
-                Manpower Consultancy <span className="text-ink font-medium">(MH Recruiter)</span> in
-                2023. From Pandua, West Bengal we have placed 10,000+ skilled workers into
-                Malaysian plantation, construction, manufacturing and hospitality. Both founders
-                sign every contract personally &mdash; no call centre, no intermediary.
-              </p>
+              <p
+                className="mt-6 text-ink-soft text-lg leading-[1.6] text-pretty drop-cap"
+                dangerouslySetInnerHTML={{ __html: t.raw("intro") as string }}
+              />
 
               <dl className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-7">
-                {pillars.map(({ title, description }) => (
-                  <div key={title}>
-                    <dt className="text-ink font-semibold text-[15px] tracking-tight">{title}</dt>
-                    <dd className="mt-1.5 text-ink-soft text-[14px] leading-[1.6]">{description}</dd>
+                {pillarKeys.map((key) => (
+                  <div key={key}>
+                    <dt className="text-ink font-semibold text-[15px] tracking-tight">{t(`pillars.${key}.title`)}</dt>
+                    <dd className="mt-1.5 text-ink-soft text-[14px] leading-[1.6]">{t(`pillars.${key}.description`)}</dd>
                   </div>
                 ))}
               </dl>
@@ -75,17 +53,17 @@ export default function About() {
                   <div className="relative w-full" style={{ aspectRatio: "3/4" }}>
                     <Image
                       src="/images/team/sahamed-imac-desk.jpeg"
-                      alt="S. Ahamed, Chairman and Founder of Mughal House Manpower Consultancy"
+                      alt={t("imageAlt")}
                       fill
                       className="object-cover object-top"
                       sizes="(max-width: 1024px) 90vw, 440px"
                     />
                   </div>
                 </button>
-                <figcaption className="mt-3 text-ink-muted text-xs leading-snug">
-                  <span className="font-semibold text-ink">S. Ahamed (Raju)</span> &mdash; Chairman and
-                  Founder. Pandua, West Bengal.
-                </figcaption>
+                <figcaption
+                  className="mt-3 text-ink-muted text-xs leading-snug"
+                  dangerouslySetInnerHTML={{ __html: t.raw("figureCaption") as string }}
+                />
               </figure>
             </div>
           </div>
@@ -95,9 +73,9 @@ export default function About() {
       {lightboxOpen && (
         <ImageLightbox
           src="/images/team/sahamed-imac-desk.jpeg"
-          alt="S. Ahamed, Chairman & Founder"
-          caption="S. Ahamed"
-          subcaption="Chairman & Founder · Mughal House Manpower Consultancy"
+          alt={t("imageAlt")}
+          caption={t("lightboxCaption")}
+          subcaption={t("lightboxSubcaption")}
           onClose={() => setLightboxOpen(false)}
         />
       )}

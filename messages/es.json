@@ -1,0 +1,360 @@
+{
+  "language": {
+    "en": "Inglés",
+    "ru": "Ruso",
+    "es": "Español",
+    "switcher": "Idioma"
+  },
+  "navbar": {
+    "links": {
+      "about": "Nosotros",
+      "services": "Servicios",
+      "process": "Proceso",
+      "team": "Equipo",
+      "contact": "Contacto"
+    },
+    "bookAppointment": "Reservar cita",
+    "freeConsultation": "Consulta gratis",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "navigation": "Navegación",
+    "indiaLabel": "India",
+    "myChairmanLabel": "MY · Presidente",
+    "myDirectorLabel": "MY · Director",
+    "homeAria": "Mughal House Manpower Consultancy — inicio",
+    "manpowerConsultancy": "Consultoría de Personal"
+  },
+  "hero": {
+    "eyebrow": "Licencia gubernamental · Asegurada · Confiable · Desde 2023",
+    "location": "Pandua, Bengala Occidental · Kuala Lumpur, Malasia",
+    "headline1": "Trabajadores indios calificados,",
+    "headline2": "colocados",
+    "headline3": "en todo",
+    "headline4": "el mundo",
+    "description": "Agencia de reclutamiento internacional con licencia gubernamental, ubicada en Pandua, Bengala Occidental — colocando trabajadores calificados y semicalificados en Malasia, el Golfo y mercados internacionales emergentes.",
+    "ctaPrimary": "Reservar una consulta",
+    "ctaSecondary": "Ver para qué reclutamos",
+    "govLicensed": "Lic. gubernamental —",
+    "registrationCertAria": "Ver certificado de registro gubernamental",
+    "officeAria": "Ver ubicación de la oficina en Google Maps",
+    "officeAddress": "Ahmed Plaza, Pandua, Bengala Occidental",
+    "teamPhotoAria": "Ampliar fotografía del equipo",
+    "teamPhotoAlt": "Equipo directivo de Mughal House Manpower Consultancy, Pandua, Bengala Occidental",
+    "teamCaptionLabel": "El equipo Mughal House",
+    "teamCaptionMeta": "Pandua, Bengala Occidental — 2024",
+    "teamPlacedSince": "Colocados desde 2023",
+    "stats": {
+      "workersValue": "10 000+",
+      "workersLabel": "Trabajadores desplegados",
+      "workersMeta": "Colocados en Malasia",
+      "licenseValue": "RAS838225",
+      "licenseLabel": "Número de licencia",
+      "licenseMeta": "Gob. de la India",
+      "sectorsValue": "15+",
+      "sectorsLabel": "Sectores industriales",
+      "sectorsMeta": "De fabricación a hospitalidad"
+    },
+    "lightboxCaption": "Nuestro Equipo",
+    "lightboxSubcaption": "Mughal House Manpower Consultancy · Pandua, Bengala Occidental, India"
+  },
+  "about": {
+    "eyebrow": "Sobre la firma",
+    "heading": "Una casa construida con confianza, escalada con reputación.",
+    "intro": "Dos décadas en reclutamiento internacional, registrada oficialmente como Mughal House Manpower Consultancy <strong>(MH Recruiter)</strong> en 2023. Desde Pandua, Bengala Occidental, hemos colocado más de 10 000 trabajadores calificados en los sectores de plantación, construcción, manufactura y hospitalidad de Malasia. Ambos fundadores firman cada contrato personalmente — sin call center, sin intermediarios.",
+    "pillars": {
+      "licensed": {
+        "title": "Agencia con licencia gubernamental",
+        "description": "Registrada ante el Gobierno de la India, licencia RAS838225. Cumple con todas las regulaciones de reclutamiento de Malasia."
+      },
+      "predeparture": {
+        "title": "Apoyo completo previo al viaje",
+        "description": "Exámenes médicos, documentación, tramitación de e-visa y orientación previa al viaje gestionados internamente."
+      },
+      "attention": {
+        "title": "Atención individual en cada colocación",
+        "description": "Cada candidato se empareja con un puesto según habilidad, idioma y aptitud — nunca por volumen."
+      },
+      "zeroFee": {
+        "title": "Política de cero cuotas al trabajador",
+        "description": "Los trabajadores no nos pagan nada. Los costos los asume el empleador, con contratos escritos transparentes para ambas partes."
+      }
+    },
+    "figureCaption": "<strong>S. Ahamed (Raju)</strong> — Presidente y Fundador. Pandua, Bengala Occidental.",
+    "imageAlt": "S. Ahamed, Presidente y Fundador de Mughal House Manpower Consultancy",
+    "lightboxCaption": "S. Ahamed",
+    "lightboxSubcaption": "Presidente y Fundador · Mughal House Manpower Consultancy"
+  },
+  "services": {
+    "eyebrow": "Para qué reclutamos",
+    "heading": "Once sectores. Un proceso. De principio a fin.",
+    "intro": "Buscamos, evaluamos, preparamos y desplegamos trabajadores en once industrias en Malasia. Bienvenidas las solicitudes a medida — formamos cohortes adaptadas a fábricas, contratos o cronogramas específicos.",
+    "items": {
+      "plantation": { "title": "Plantación", "description": "Trabajadores de plantación generales y experimentados." },
+      "construction": { "title": "Construcción", "description": "Oficios calificados y trabajadores generales." },
+      "agriculture": { "title": "Agricultura", "description": "Cultivo, agricultura y mantenimiento de tierras." },
+      "poultry": { "title": "Avicultura", "description": "Personal dedicado a operaciones de granjas avícolas." },
+      "cleaning": { "title": "Servicios de limpieza", "description": "Limpieza comercial, residencial e industrial." },
+      "housekeeping": { "title": "Housekeeping", "description": "Personal de limpieza para hoteles, resorts y empresas." },
+      "food": { "title": "Alimentos y bebidas", "description": "Personal de restaurante calificado y no calificado." },
+      "bar": { "title": "Bar y hospitalidad", "description": "Bartenders, baristas y personal de servicio de bar." },
+      "manufacturing": { "title": "Manufactura general", "description": "Operarios de fábrica para producción y ensamblaje." },
+      "specialised": { "title": "Manufactura especializada", "description": "Operadores de máquinas CNC para plantas industriales." },
+      "textile": { "title": "Textil y confección", "description": "Sastres, costureras y trabajadores de prendas." },
+      "custom": {
+        "title": "¿No ves tu sector?",
+        "description": "Cuéntanos el puesto y la cuota — armaremos una cohorte a tu medida.",
+        "cta": "Cuéntanos tu necesidad",
+        "aria": "Discutir un requerimiento personalizado de reclutamiento"
+      }
+    },
+    "footerNote": "Briefs de personal a medida — adaptaremos la búsqueda al cronograma de tu proyecto, perfil de habilidades y cuota.",
+    "footerCta": "Discute tu requerimiento"
+  },
+  "process": {
+    "eyebrow": "Nuestro proceso",
+    "heading": "Seis pasos desde la entrevista hasta el pase de abordar.",
+    "intro": "Del examen médico en Bengala Occidental al vuelo a Kuala Lumpur, gestionamos toda la cadena de despliegue. Empleadores y trabajadores no tienen que tramitar nada por su cuenta.",
+    "steps": {
+      "medical": { "title": "Examen médico", "description": "Evaluación de salud previa al viaje en clínicas acreditadas. Certificación de aptitud para el país de destino." },
+      "clearance": { "title": "Autorización laboral", "description": "Tramitación integral de aprobaciones regulatorias y permisos gubernamentales para el despliegue legal en el extranjero." },
+      "visa": { "title": "Tramitación de e-visa", "description": "Coordinación con embajadas y solicitud de visa gestionadas por nuestro equipo de documentación." },
+      "ticketing": { "title": "Boletos aéreos", "description": "Reservas de vuelos y coordinación de viaje grupal de India a Malasia, sincronizadas con las fechas de inicio del contrato." },
+      "passport": { "title": "Pasaporte y documentación", "description": "Solicitud y renovación de pasaportes, atestación de contratos y papeleo de respaldo, gestionado a nombre del candidato." },
+      "orientation": { "title": "Orientación previa al viaje", "description": "Briefings sobre legislación laboral malasia, derechos laborales, normas culturales y protocolos de emergencia antes del viaje." }
+    },
+    "cta": "Iniciar una solicitud"
+  },
+  "credentials": {
+    "eyebrow": "Credenciales",
+    "heading": "Licenciados a ambos lados del corredor.",
+    "intro": "Mughal House está registrada ante el Gobierno de la India y cuenta con una Licence C bajo el marco Agensi Pekerjaan de Malasia. Toca cualquier documento para abrir el PDF completo.",
+    "items": {
+      "malaysia": {
+        "title": "Licence C",
+        "subtitle": "Agensi Pekerjaan · Malasia",
+        "alt": "Primera página de la Licence C de Malasia (Agensi Pekerjaan)"
+      },
+      "rba": {
+        "title": "RBA / SAQ Status 2026",
+        "subtitle": "Responsible Business Alliance",
+        "alt": "Primera página del informe RBA SAQ 2026 de Mughal House"
+      },
+      "india": {
+        "title": "Certificado de Registro",
+        "subtitle": "Gob. de la India",
+        "alt": "Primera página del Certificado de Registro de Mughal House"
+      }
+    },
+    "openAria": "Abrir {title} (PDF, nueva pestaña)"
+  },
+  "testimonials": {
+    "eyebrow": "De los fundadores",
+    "heading": "Palabras de las personas detrás de la promesa.",
+    "intro": "Ambos socios participan directamente en cada despliegue — desde la búsqueda de trabajadores en Bengala Occidental hasta la colocación final en Malasia.",
+    "items": {
+      "manivanna": {
+        "name": "Manivanna",
+        "title": "Socio de Negocio en Malasia",
+        "location": "Kuala Lumpur, Malasia",
+        "quote": "Del lado de Malasia, mi trabajo es asegurar que cada trabajador que envía Mughal House llegue a un empleador preparado, a un lugar de trabajo legal y bajo un contrato que se respete. He recorrido fábricas, plantaciones y obras de construcción por todo el país para verificar a cada empleador con el que colocamos personal. Esa diligencia a pie de obra es lo que mantiene la confianza a ambos lados del corredor.",
+        "highlight": "Verifica en terreno a cada empleador malasio"
+      },
+      "hemraj": {
+        "name": "Hemraj Dahal",
+        "title": "Director y Socio",
+        "location": "Pandua, Hooghly, Bengala Occidental, India",
+        "quote": "Construir confianza con los empleadores malasios toma años de entrega consistente. Cada empleador sabe que cuando Mughal House envía un trabajador, ese trabajador está preparado — examinado médicamente, con documentación legal, orientado culturalmente y listo para contribuir desde el primer día. Hemos construido esta reputación sin compromisos en calidad y con total transparencia en cada paso.",
+        "highlight": "Confiados por empleadores en más de 15 sectores"
+      },
+      "firoz": {
+        "name": "Firoz Ahamed",
+        "title": "Director General",
+        "location": "Pandua, Hooghly, Bengala Occidental, India",
+        "quote": "Cada trabajador que entra por la puerta de nuestra oficina en Pandua llega con un sueño — una vida mejor para su familia. Nuestro trabajo es hacer ese sueño real, de forma segura y legal. Del primer documento al pase de abordar, lo gestionamos todo. Las familias que confían en nosotros lo hacen por completo, y esa confianza la cuidamos con todo.",
+        "highlight": "Política de cero cuotas para cada trabajador"
+      }
+    },
+    "starsAria": "{rating} de 5 estrellas"
+  },
+  "team": {
+    "eyebrow": "El equipo",
+    "heading": "Las personas detrás de cada despliegue exitoso.",
+    "intro": "Un equipo estructurado de especialistas en reclutamiento, oficiales de documentación y gerentes de campo — cada uno responsable por cada trabajador y empleador que atendemos. Haz clic en cualquier tarjeta para ver el perfil completo.",
+    "membersLabel": "Miembros del equipo",
+    "directorsLabel": "Directores",
+    "viewProfile": "Ver perfil",
+    "viewProfileAria": "Ver perfil de {name}",
+    "expertise": "Especialidad",
+    "close": "Cerrar",
+    "prevAria": "Miembro anterior",
+    "nextAria": "Siguiente miembro",
+    "departments": {
+      "leadership": "Liderazgo",
+      "businessDev": "Desarrollo",
+      "operations": "Operaciones",
+      "malaysiaPartner": "Socio Malasia",
+      "documentation": "Documentación",
+      "finance": "Finanzas",
+      "marketing": "Marketing",
+      "publicRelations": "Relaciones Públicas",
+      "frontDesk": "Recepción"
+    },
+    "badges": {
+      "founder": "Fundador",
+      "director": "Director"
+    },
+    "since": "Desde 2023",
+    "members": {
+      "sAhamed": {
+        "title": "Presidente y Fundador",
+        "blurb": "Fundador de Mughal House, S. Ahamed (Raju) ha supervisado personalmente el despliegue de más de 10 000 trabajadores de Bengala Occidental a Malasia. Su visión de reclutamiento ético y transparente guía cada colocación de la compañía.",
+        "expertise": ["Estrategia", "Relaciones Sectoriales", "Operaciones en Malasia", "Cumplimiento Regulatorio"]
+      },
+      "hemraj": {
+        "title": "Director de Desarrollo de Negocio y Operaciones Internacionales",
+        "blurb": "Hemraj Dahal lidera alianzas con empleadores y desarrollo de negocio internacional, expandiendo el alcance de Mughal House en los sectores de manufactura, plantación, construcción y hospitalidad en Malasia.",
+        "expertise": ["Relaciones con clientes", "Enlace con empleadores", "Expansión de mercado", "Estrategia de negocio"]
+      },
+      "firoz": {
+        "title": "Director (India)",
+        "blurb": "Firoz Ahamed gestiona las operaciones diarias de Mughal House en India — desde la recepción de candidatos en la oficina de Pandua hasta la confirmación final del despliegue. Su enfoque meticuloso garantiza que cada colocación se realice sin contratiempos.",
+        "expertise": ["Operaciones", "Gestión de candidatos", "Servicios al cliente", "Despliegue"]
+      },
+      "manivanna": {
+        "title": "Socio de Negocio en Malasia",
+        "blurb": "Manivanna lidera las operaciones de Mughal House del lado de Malasia desde Kuala Lumpur — verificando empleadores, negociando contratos y asegurando que cada trabajador que desplegamos llegue a un lugar de trabajo legal y preparado. Su presencia en terreno es el vínculo entre Bengala Occidental y la planta malasia.",
+        "expertise": ["Verificación de empleadores", "Negociación de contratos", "Operaciones en Malasia", "Apoyo en terreno"]
+      },
+      "rabiul": {
+        "title": "Oficial de Documentación y Tramitación de Visa",
+        "blurb": "Md. Rabiul Hussain lidera la documentación y tramitación de e-visa en Mughal House — desde pasaporte y papeleo de contrato hasta coordinación con embajadas — asegurando que el expediente de viaje de cada trabajador esté completo y a tiempo.",
+        "expertise": ["Documentación", "Tramitación de visa", "Coordinación con embajadas", "Atestación de contratos"]
+      },
+      "arif": {
+        "title": "Contador",
+        "blurb": "Arif apoya al equipo de finanzas de Mughal House, trabajando junto a Md. Rabiul Hussain en la contabilidad diaria, registros de pago y facturación a empleadores para que cada transacción sea precisa y puntual.",
+        "expertise": ["Contabilidad", "Teneduría", "Registros de pago", "Conciliación financiera"]
+      },
+      "manik": {
+        "title": "Gerente de Marketing, India",
+        "blurb": "Manik Sekh impulsa la captación de candidatos y la visibilidad de marca en Bengala Occidental — conectando comunidades de Hooghly y distritos cercanos con oportunidades legítimas de empleo internacional.",
+        "expertise": ["Marketing", "Difusión", "Captación de candidatos", "Relaciones comunitarias"]
+      },
+      "abdul": {
+        "title": "Oficial de Relaciones Públicas",
+        "blurb": "Abdul Mabud Dhabak gestiona las relaciones públicas y la comunicación con grupos de interés — construyendo confianza con comunidades locales, organismos gubernamentales y organizaciones aliadas en nombre de Mughal House.",
+        "expertise": ["Relaciones Públicas", "Comunicación con stakeholders", "Enlace comunitario"]
+      },
+      "sowel": {
+        "title": "Oficial de Recepción",
+        "blurb": "Sowel Rana Mondal es la primera cara que cada visitante encuentra en Mughal House — recibiendo candidatos y socios, coordinando citas y manteniendo las operaciones de recepción funcionando sin contratiempos.",
+        "expertise": ["Recepción", "Coordinación de visitantes", "Citas", "Hospitalidad de oficina"]
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Contáctanos",
+    "heading": "¿Listo para armar tu equipo en Malasia?",
+    "description": "Habla con nuestros especialistas de reclutamiento sobre tu necesidad de contratación. Respondemos en un día hábil con una lista corta adaptada a tu brief.",
+    "primary": "Agendar una llamada",
+    "secondary": "Ver sectores para los que reclutamos",
+    "note": "Con licencia gubernamental (RAS838225). Sin cuotas al trabajador. Más de 10 000 colocaciones desde 2023."
+  },
+  "officeVisit": {
+    "eyebrow": "Visita la oficina",
+    "heading": "Entra al lugar donde comienzan las carreras.",
+    "intro": "Nuestro equipo está listo para guiarte por el proceso de colocación. Trae tus documentos, haz tus preguntas, y nosotros nos encargamos del resto.",
+    "contacts": {
+      "officeIndia": "Oficina registrada, India",
+      "indiaPhone": "India · Oficina Pandua (WhatsApp y Telegram)",
+      "myChairman": "Malasia · Presidente",
+      "myDirector": "Malasia · Director",
+      "email": "Correo electrónico",
+      "addressValue": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road, Po & PS Pandua,\nDist – Hooghly, Pin – 712149, Bengala Occidental, India"
+    },
+    "directions": "Cómo llegar",
+    "bookAppointment": "Reservar cita",
+    "messageEyebrow": "Escríbenos directamente",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "whatsappAria": "Chatear en WhatsApp",
+    "telegramAria": "Escribir en Telegram",
+    "officeHoursLabel": "Horario de oficina",
+    "hours": {
+      "monFri": "Lunes – Viernes",
+      "monFriShort": "Lun–Vie",
+      "saturday": "Sábado",
+      "sunday": "Domingo",
+      "open9to18": "9:00 – 18:00",
+      "open9to14": "9:00 – 14:00",
+      "closed": "Cerrado",
+      "appointment": "Con cita",
+      "apptShort": "Cita",
+      "satNote": "Sábado solo con cita."
+    },
+    "imageAlt": "Edificio de Mughal House Manpower Consultancy con letrero, Ahmed Plaza, Pandua, Bengala Occidental",
+    "figureCaption": "<strong>Mughal House</strong> — la oficina registrada en Ahmed Plaza, Pandua, Bengala Occidental.",
+    "lightboxCaption": "Mughal House",
+    "lightboxSubcaption": "Ahmed Plaza, Pandua · Bengala Occidental, India",
+    "map": {
+      "title": "Oficina registrada",
+      "eyebrow": "Mughal House Manpower Consultancy",
+      "subtitle": "Pandua, Hooghly · Bengala Occidental, India",
+      "addressLabel": "Dirección",
+      "openMaps": "Abrir en Google Maps",
+      "hoursNote": "Lun–Vie 9:00–18:00 · Sáb con cita.",
+      "close": "Cerrar"
+    }
+  },
+  "footer": {
+    "tagline": "Consultora de reclutamiento internacional con licencia gubernamental atendiendo a empleadores malasios desde 2023. Ética, eficiente y confiable.",
+    "alias": "También conocida como <strong>MH Recruiter</strong> · MH Manpower.",
+    "registrationCert": "Certificado de Registro",
+    "licenceC": "Licence C · Malasia",
+    "saqStatus": "RBA/SAQ Status 2026",
+    "registrationCertAria": "Ver certificado de registro (nueva pestaña)",
+    "licenceCAria": "Ver Licence C de Malasia (Agensi Pekerjaan), nueva pestaña",
+    "saqAria": "Ver PDF RBA SAQ 2026 (nueva pestaña)",
+    "socialAria": "Síguenos en {label}",
+    "sections": {
+      "company": "Compañía",
+      "services": "Servicios",
+      "contact": "Contacto",
+      "hours": "Horario"
+    },
+    "company": {
+      "about": "Nosotros",
+      "team": "Nuestro Equipo",
+      "careers": "Carreras"
+    },
+    "services": {
+      "medical": "Examen médico",
+      "clearance": "Autorización laboral",
+      "visa": "Tramitación de e-visa",
+      "ticketing": "Boletos aéreos",
+      "passport": "Pasaporte y documentación",
+      "orientation": "Orientación previa al viaje"
+    },
+    "contactMeta": {
+      "indiaOffice": "India · Oficina",
+      "myChairman": "Malasia · Presidente",
+      "myDirector": "Malasia · Director"
+    },
+    "addressLabel": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,\nPo & PS Pandua, Dist – Hooghly,\nPin – 712149, Bengala Occidental, India",
+    "hours": {
+      "monFri": "Lun–Vie",
+      "saturday": "Sábado",
+      "sunday": "Domingo",
+      "open9to18": "9:00 – 18:00",
+      "open9to14": "9:00 – 14:00",
+      "closed": "Cerrado",
+      "satNote": "Sábado solo con cita."
+    },
+    "copyright": "© {year} Mughal House Manpower Consultancy. Todos los derechos reservados.",
+    "indiaLicense": "Licencia del Gob. de la India"
+  },
+  "common": {
+    "skipToContent": "Saltar al contenido principal",
+    "scrollToTop": "Volver arriba"
+  }
+}

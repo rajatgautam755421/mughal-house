@@ -2,16 +2,18 @@
 
 import React, { useState } from "react";
 import { ArrowRight, Shield, MapPin } from "lucide-react";
+import { useTranslations } from "next-intl";
 import ImageLightbox from "./ImageLightbox";
 
-const stats = [
-  { value: "10,000+",   label: "Workers deployed", meta: "Placed across Malaysia" },
-  { value: "RAS838225", label: "License number",   meta: "Govt. of India"         },
-  { value: "15+",       label: "Industry sectors", meta: "Mfg. to hospitality"    },
-];
-
 export default function Hero() {
+  const t = useTranslations("hero");
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const stats = [
+    { value: t("stats.workersValue"), label: t("stats.workersLabel"), meta: t("stats.workersMeta") },
+    { value: t("stats.licenseValue"), label: t("stats.licenseLabel"), meta: t("stats.licenseMeta") },
+    { value: t("stats.sectorsValue"), label: t("stats.sectorsLabel"), meta: t("stats.sectorsMeta") },
+  ];
 
   return (
     <>
@@ -23,48 +25,42 @@ export default function Hero() {
       >
         <div className="container-xl flex-1 flex flex-col">
 
-          {/* Masthead rule */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 mb-6 lg:mb-7 border-b border-rule">
-            <span className="eyebrow">Government licensed · Insured · Trusted · Est. 2023</span>
+            <span className="eyebrow">{t("eyebrow")}</span>
             <span className="text-ink-faint text-[11px] tracking-[0.18em] uppercase">
-              Pandua, West Bengal · Kuala Lumpur, Malaysia
+              {t("location")}
             </span>
           </div>
 
-          {/* Two-column editorial — columns stretch, content top-aligned within */}
           <div className="flex-1 grid lg:grid-cols-12 gap-10 lg:gap-14 py-5 lg:py-6">
 
-            {/* Lead column */}
             <div className="lg:col-span-6 fade-in flex flex-col" style={{ "--d": "0ms" } as React.CSSProperties}>
               <h1
                 className="font-display font-semibold text-ink leading-[1.02] tracking-[-0.025em] text-balance"
                 style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.85rem)" }}
               >
-                Skilled Indian workers,
+                {t("headline1")}
                 <br />
-                placed{" "}
-                <span className="italic font-display font-medium">across</span>{" "}
-                the world
+                {t("headline2")}{" "}
+                <span className="italic font-display font-medium">{t("headline3")}</span>{" "}
+                {t("headline4")}
                 <span className="text-gold-500">.</span>
               </h1>
 
               <p className="mt-5 text-ink-soft text-[15px] lg:text-base leading-[1.55] max-w-xl text-pretty">
-                A government-licensed overseas recruitment agency based in Pandua,
-                West Bengal &mdash; placing skilled and semi-skilled workers into
-                Malaysia, the Gulf and emerging international markets.
+                {t("description")}
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a href="#contact" className="btn btn-primary">
-                  Book a consultation
+                  {t("ctaPrimary")}
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </a>
                 <a href="#services" className="btn btn-ghost">
-                  See what we recruit for
+                  {t("ctaSecondary")}
                 </a>
               </div>
 
-              {/* Credentials */}
               <ul
                 className="mt-auto pt-5 flex flex-wrap items-center gap-x-7 gap-y-2.5 border-t border-rule"
                 role="list"
@@ -76,11 +72,11 @@ export default function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12.5px] transition-colors duration-150"
-                    aria-label="View government registration certificate"
+                    aria-label={t("registrationCertAria")}
                   >
                     <Shield className="w-4 h-4 text-gold-500" aria-hidden="true" />
                     <span>
-                      Gov. licensed &mdash;{" "}
+                      {t("govLicensed")}{" "}
                       <span className="text-ink font-semibold">RAS838225</span>
                     </span>
                   </a>
@@ -91,39 +87,37 @@ export default function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-ink-soft hover:text-ink text-[12.5px] transition-colors duration-150"
-                    aria-label="View office location on Google Maps"
+                    aria-label={t("officeAria")}
                   >
                     <MapPin className="w-4 h-4 text-gold-500" aria-hidden="true" />
-                    <span>Ahmed Plaza, Pandua, West Bengal</span>
+                    <span>{t("officeAddress")}</span>
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Photo column — image shown at natural aspect, no cropping */}
             <div className="lg:col-span-6 fade-in flex flex-col justify-center" style={{ "--d": "120ms" } as React.CSSProperties}>
               <figure className="m-0">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
                   className="block w-full focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-                  aria-label="Enlarge team photograph"
+                  aria-label={t("teamPhotoAria")}
                 >
                   <img
                     src="/images/team/team-group-photo.jpg"
-                    alt="Mughal House Manpower Consultancy management team, Pandua, West Bengal"
+                    alt={t("teamPhotoAlt")}
                     className="w-full h-auto block"
                   />
                 </button>
 
-                {/* Caption row below image */}
                 <figcaption className="mt-3 flex items-end justify-between gap-4">
                   <div>
                     <p className="text-ink-muted text-[10px] tracking-[0.22em] uppercase font-semibold">
-                      The Mughal House team
+                      {t("teamCaptionLabel")}
                     </p>
                     <p className="text-ink text-[13px] mt-1">
-                      Pandua, West Bengal &mdash; 2024
+                      {t("teamCaptionMeta")}
                     </p>
                   </div>
                   <div className="text-right border-l border-rule pl-4">
@@ -131,7 +125,7 @@ export default function Hero() {
                       10,000<span className="text-gold-500">+</span>
                     </p>
                     <p className="text-ink-muted text-[10px] tracking-[0.18em] uppercase font-semibold mt-1.5">
-                      Placed since 2023
+                      {t("teamPlacedSince")}
                     </p>
                   </div>
                 </figcaption>
@@ -139,13 +133,10 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Stats strip — pronounced numerals, full hero footer */}
           <dl className="grid grid-cols-1 sm:grid-cols-3 border-t border-rule">
             {stats.map(({ value, label, meta }, i) => (
               <div
                 key={label}
-                // Single col on phones: bottom border between rows.
-                // 3-col on sm+: right border between cells, no bottom.
                 className={`flex flex-col gap-1 py-4 lg:py-5 px-5 lg:px-6 border-rule
                   ${i < stats.length - 1 ? "border-b sm:border-b-0 sm:border-r" : ""}`}
               >
@@ -164,9 +155,9 @@ export default function Hero() {
       {lightboxOpen && (
         <ImageLightbox
           src="/images/team/team-group-photo.jpg"
-          alt="Mughal House Manpower Consultancy management team"
-          caption="Our Team"
-          subcaption="Mughal House Manpower Consultancy · Pandua, West Bengal, India"
+          alt={t("teamPhotoAlt")}
+          caption={t("lightboxCaption")}
+          subcaption={t("lightboxSubcaption")}
           onClose={() => setLightboxOpen(false)}
         />
       )}

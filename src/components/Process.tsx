@@ -2,41 +2,15 @@
 
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const steps = [
-  {
-    title: "Medical examination",
-    description:
-      "Comprehensive pre-departure health screening at accredited clinics. Fit-to-work certification for the destination country.",
-  },
-  {
-    title: "Manpower clearance",
-    description:
-      "End-to-end processing of regulatory approvals and government clearances required for legal overseas deployment.",
-  },
-  {
-    title: "E-visa processing",
-    description:
-      "Embassy coordination and visa application managed by our in-house documentation team.",
-  },
-  {
-    title: "Air ticketing",
-    description:
-      "Flight bookings and group travel coordination from India to Malaysia, sequenced with contract start dates.",
-  },
-  {
-    title: "Passport &amp; documentation",
-    description:
-      "Passport applications, renewals, contract attestation and supporting paperwork handled on the candidate&rsquo;s behalf.",
-  },
-  {
-    title: "Pre-departure orientation",
-    description:
-      "Briefings on Malaysian labour law, workplace rights, cultural norms and emergency protocols before travel.",
-  },
-];
+const stepKeys = [
+  "medical", "clearance", "visa", "ticketing", "passport", "orientation",
+] as const;
 
 export default function Process() {
+  const t = useTranslations("process");
+
   return (
     <section
       id="process"
@@ -48,28 +22,27 @@ export default function Process() {
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 mb-12 lg:mb-16 items-end">
           <div className="lg:col-span-7">
-            <span className="eyebrow">Our process</span>
+            <span className="eyebrow">{t("eyebrow")}</span>
             <h2
               id="process-heading"
               className="mt-4 font-display font-semibold text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
             >
-              Six steps from interview to boarding pass.
+              {t("heading")}
             </h2>
           </div>
           <div className="lg:col-span-5">
             <p className="text-ink-soft text-base leading-[1.65]">
-              From medical screening in West Bengal to the flight to Kuala Lumpur, we own the
-              full deployment pipeline. Employers and workers face zero paperwork on either side.
+              {t("intro")}
             </p>
           </div>
         </div>
 
         <ol className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-rule" role="list">
-          {steps.map((step, i) => {
+          {stepKeys.map((key, i) => {
             const num = String(i + 1).padStart(2, "0");
             return (
               <li
-                key={step.title}
+                key={key}
                 className={`p-7 lg:p-8 border-b border-rule ${
                   i % 3 !== 2 ? "lg:border-r" : ""
                 } ${i % 2 === 0 ? "md:border-r lg:border-r" : ""} ${
@@ -80,14 +53,12 @@ export default function Process() {
                   <span className="font-display text-gold-500 text-base">{num}</span>
                   <div className="h-px flex-1 bg-rule" aria-hidden="true" />
                 </div>
-                <h3
-                  className="font-display text-ink text-xl lg:text-[1.6rem] leading-snug tracking-tight"
-                  dangerouslySetInnerHTML={{ __html: step.title }}
-                />
-                <p
-                  className="mt-3 text-ink-soft text-[14px] leading-[1.6]"
-                  dangerouslySetInnerHTML={{ __html: step.description }}
-                />
+                <h3 className="font-display text-ink text-xl lg:text-[1.6rem] leading-snug tracking-tight">
+                  {t(`steps.${key}.title`)}
+                </h3>
+                <p className="mt-3 text-ink-soft text-[14px] leading-[1.6]">
+                  {t(`steps.${key}.description`)}
+                </p>
               </li>
             );
           })}
@@ -95,7 +66,7 @@ export default function Process() {
 
         <div className="mt-10 text-center">
           <a href="#contact" className="btn-link">
-            Start an application
+            {t("cta")}
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
         </div>

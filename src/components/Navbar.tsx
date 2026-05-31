@@ -3,16 +3,19 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-const navLinks = [
-  { label: "About",    href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Process",  href: "#process" },
-  { label: "Team",     href: "#team" },
-  { label: "Contact",  href: "#contact" },
-];
+const navHrefs = [
+  { key: "about",    href: "#about" },
+  { key: "services", href: "#services" },
+  { key: "process",  href: "#process" },
+  { key: "team",     href: "#team" },
+  { key: "contact",  href: "#contact" },
+] as const;
 
 export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void }) {
+  const t = useTranslations("navbar");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
@@ -27,9 +30,8 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Track which section is currently in view
   useEffect(() => {
-    const ids = navLinks.map((l) => l.href.replace("#", ""));
+    const ids = navHrefs.map((l) => l.href.replace("#", ""));
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -69,8 +71,6 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
         role="banner"
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          // Solid paper at the top too — the header should read as a
-          // distinct surface from the hero, not blur into it.
           background: isScrolled
             ? "rgba(255, 255, 255, 0.96)"
             : "#faf8f3",
@@ -84,8 +84,6 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
             "background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
         }}
       >
-        {/* Brand ribbon — a royal→gold stripe that anchors the
-            header against the page below, in both states. */}
         <div
           aria-hidden="true"
           style={{
@@ -98,11 +96,10 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
           className="container-xl flex items-center justify-between h-16 lg:h-20"
           aria-label="Main navigation"
         >
-          {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-3 group shrink-0"
-            aria-label="Mughal House Manpower Consultancy — home"
+            aria-label={t("homeAria")}
           >
             <img src="/logo.svg" alt="" aria-hidden="true" className="w-9 h-9" />
             <div className="hidden sm:flex flex-col leading-none">
@@ -110,14 +107,13 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                 Mughal House
               </span>
               <span className="text-ink-muted text-[10px] tracking-[0.18em] uppercase mt-1">
-                Manpower Consultancy
+                {t("manpowerConsultancy")}
               </span>
             </div>
           </Link>
 
-          {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-8" role="list">
-            {navLinks.map((link) => {
+            {navHrefs.map((link) => {
               const isActive = activeSection === link.href;
               return (
                 <li key={link.href}>
@@ -128,7 +124,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                       isActive ? "text-ink" : "text-ink-soft hover:text-ink"
                     }`}
                   >
-                    {link.label}
+                    {t(`links.${link.key}`)}
                     <span
                       aria-hidden="true"
                       className={`absolute left-0 right-0 -bottom-0.5 h-[1.5px] bg-gold-500 origin-left transition-transform duration-200 ${
@@ -141,38 +137,33 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
             })}
           </ul>
 
-          {/* CTAs */}
-          <div className="hidden lg:flex items-center gap-7">
-            <button onClick={onOpenBooking} className="btn-link">
-              Book appointment
-            </button>
-            <button
-              onClick={() => handleNavClick("#contact")}
-              className="btn btn-primary"
-            >
-              Free consultation
+          <div className="hidden lg:flex items-center gap-5">
+            <LanguageSwitcher />
+            <button onClick={onOpenBooking} className="btn btn-primary">
+              {t("bookAppointment")}
             </button>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            className="lg:hidden w-10 h-10 flex items-center justify-center text-ink"
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            aria-expanded={isMobileOpen}
-            aria-controls="mobile-menu"
-            aria-label={isMobileOpen ? "Close menu" : "Open menu"}
-          >
-            {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+            <button
+              className="w-10 h-10 flex items-center justify-center text-ink"
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+              aria-expanded={isMobileOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMobileOpen ? t("closeMenu") : t("openMenu")}
+            >
+              {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </nav>
       </header>
 
-      {/* Mobile drawer */}
       <div
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
-        aria-label="Navigation"
+        aria-label={t("navigation")}
         className={`fixed inset-0 z-90 lg:hidden transition-opacity duration-200 ${
           isMobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
@@ -188,18 +179,18 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
           }`}
         >
           <div className="flex items-center justify-between mb-10 pt-2">
-            <span className="eyebrow">Navigation</span>
+            <span className="eyebrow">{t("navigation")}</span>
             <button
               onClick={() => setIsMobileOpen(false)}
               className="w-8 h-8 flex items-center justify-center text-ink-soft"
-              aria-label="Close menu"
+              aria-label={t("closeMenu")}
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           <ul className="flex flex-col gap-1 flex-1" role="list">
-            {navLinks.map((link) => {
+            {navHrefs.map((link) => {
               const isActive = activeSection === link.href;
               return (
                 <li key={link.href}>
@@ -210,7 +201,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                       isActive ? "text-ink" : "text-ink-soft"
                     }`}
                   >
-                    <span>{link.label}</span>
+                    <span>{t(`links.${link.key}`)}</span>
                     {isActive && (
                       <span className="w-2 h-2 rounded-full bg-gold-500" aria-hidden="true" />
                     )}
@@ -223,15 +214,9 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
           <div className="flex flex-col gap-3 pt-6">
             <button
               onClick={() => { setIsMobileOpen(false); onOpenBooking(); }}
-              className="btn btn-ghost justify-center"
-            >
-              Book appointment
-            </button>
-            <button
-              onClick={() => handleNavClick("#contact")}
               className="btn btn-primary justify-center"
             >
-              Free consultation
+              {t("bookAppointment")}
             </button>
             <div className="pt-4 flex flex-col gap-2 text-sm">
               <a
@@ -239,7 +224,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                 className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
               >
                 <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
-                  India
+                  {t("indiaLabel")}
                 </span>
                 <span className="font-medium">+91 7811-965514</span>
               </a>
@@ -248,7 +233,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                 className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
               >
                 <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
-                  MY · Chairman
+                  {t("myChairmanLabel")}
                 </span>
                 <span className="font-medium">+60 14-835 0321</span>
               </a>
@@ -257,7 +242,7 @@ export default function Navbar({ onOpenBooking }: { onOpenBooking: () => void })
                 className="flex items-center justify-between text-ink hover:text-brand transition-colors duration-150"
               >
                 <span className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold">
-                  MY · Director
+                  {t("myDirectorLabel")}
                 </span>
                 <span className="font-medium">+60 12-360 2080</span>
               </a>

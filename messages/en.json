@@ -1,0 +1,360 @@
+{
+  "language": {
+    "en": "English",
+    "ru": "Russian",
+    "es": "Spanish",
+    "switcher": "Language"
+  },
+  "navbar": {
+    "links": {
+      "about": "About",
+      "services": "Services",
+      "process": "Process",
+      "team": "Team",
+      "contact": "Contact"
+    },
+    "bookAppointment": "Book appointment",
+    "freeConsultation": "Free consultation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "navigation": "Navigation",
+    "indiaLabel": "India",
+    "myChairmanLabel": "MY · Chairman",
+    "myDirectorLabel": "MY · Director",
+    "homeAria": "Mughal House Manpower Consultancy — home",
+    "manpowerConsultancy": "Manpower Consultancy"
+  },
+  "hero": {
+    "eyebrow": "Government licensed · Insured · Trusted · Est. 2023",
+    "location": "Pandua, West Bengal · Kuala Lumpur, Malaysia",
+    "headline1": "Skilled Indian workers,",
+    "headline2": "placed",
+    "headline3": "across",
+    "headline4": "the world",
+    "description": "A government-licensed overseas recruitment agency based in Pandua, West Bengal — placing skilled and semi-skilled workers into Malaysia, the Gulf and emerging international markets.",
+    "ctaPrimary": "Book a consultation",
+    "ctaSecondary": "See what we recruit for",
+    "govLicensed": "Gov. licensed —",
+    "registrationCertAria": "View government registration certificate",
+    "officeAria": "View office location on Google Maps",
+    "officeAddress": "Ahmed Plaza, Pandua, West Bengal",
+    "teamPhotoAria": "Enlarge team photograph",
+    "teamPhotoAlt": "Mughal House Manpower Consultancy management team, Pandua, West Bengal",
+    "teamCaptionLabel": "The Mughal House team",
+    "teamCaptionMeta": "Pandua, West Bengal — 2024",
+    "teamPlacedSince": "Placed since 2023",
+    "stats": {
+      "workersValue": "10,000+",
+      "workersLabel": "Workers deployed",
+      "workersMeta": "Placed across Malaysia",
+      "licenseValue": "RAS838225",
+      "licenseLabel": "License number",
+      "licenseMeta": "Govt. of India",
+      "sectorsValue": "15+",
+      "sectorsLabel": "Industry sectors",
+      "sectorsMeta": "Mfg. to hospitality"
+    },
+    "lightboxCaption": "Our Team",
+    "lightboxSubcaption": "Mughal House Manpower Consultancy · Pandua, West Bengal, India"
+  },
+  "about": {
+    "eyebrow": "About the firm",
+    "heading": "A house built on trust, scaled by reputation.",
+    "intro": "Two decades in overseas recruitment, officially registered as Mughal House Manpower Consultancy <strong>(MH Recruiter)</strong> in 2023. From Pandua, West Bengal we have placed 10,000+ skilled workers into Malaysian plantation, construction, manufacturing and hospitality. Both founders sign every contract personally — no call centre, no intermediary.",
+    "pillars": {
+      "licensed": {
+        "title": "Government-licensed agency",
+        "description": "Registered with the Government of India, license RAS838225. Compliant with all Malaysian recruitment regulations."
+      },
+      "predeparture": {
+        "title": "Full pre-departure support",
+        "description": "Medical examinations, documentation, e-visa processing and pre-departure orientation handled in-house."
+      },
+      "attention": {
+        "title": "Individual placement attention",
+        "description": "Each candidate is matched to a role on skill, language and aptitude — never on volume."
+      },
+      "zeroFee": {
+        "title": "Zero-fee worker policy",
+        "description": "Workers pay nothing to us. Costs are borne by the employer, with transparent written contracts on both sides."
+      }
+    },
+    "figureCaption": "<strong>S. Ahamed (Raju)</strong> — Chairman and Founder. Pandua, West Bengal.",
+    "imageAlt": "S. Ahamed, Chairman and Founder of Mughal House Manpower Consultancy",
+    "lightboxCaption": "S. Ahamed",
+    "lightboxSubcaption": "Chairman & Founder · Mughal House Manpower Consultancy"
+  },
+  "services": {
+    "eyebrow": "What we recruit for",
+    "heading": "Eleven sectors. One process. End to end.",
+    "intro": "We source, screen, prepare and deploy workers across eleven industries in Malaysia. Bespoke recruitment briefs are welcome — we routinely build cohorts tailored to specific factories, contracts or project timelines.",
+    "items": {
+      "plantation": { "title": "Plantation", "description": "General and experienced plantation workers." },
+      "construction": { "title": "Construction", "description": "Skilled tradesmen and general labourers." },
+      "agriculture": { "title": "Agriculture", "description": "Crop cultivation, farming and land maintenance." },
+      "poultry": { "title": "Poultry farming", "description": "Dedicated staff for chicken farm operations." },
+      "cleaning": { "title": "Cleaning services", "description": "Commercial, residential and industrial cleaning." },
+      "housekeeping": { "title": "Housekeeping", "description": "Hotel, resort and corporate housekeeping staff." },
+      "food": { "title": "Food & beverage", "description": "Skilled and non-skilled restaurant crew." },
+      "bar": { "title": "Bar & hospitality", "description": "Bartenders, baristas and bar service staff." },
+      "manufacturing": { "title": "General manufacturing", "description": "Factory workers for production and assembly." },
+      "specialised": { "title": "Specialised manufacturing", "description": "CNC machine operators for industrial plants." },
+      "textile": { "title": "Textile & apparel", "description": "Tailoring staff, garment workers, seamstresses." },
+      "custom": {
+        "title": "Don't see your sector?",
+        "description": "Tell us the role and quota — we will tailor a cohort for you.",
+        "cta": "Tell us your requirement",
+        "aria": "Discuss a custom recruitment requirement"
+      }
+    },
+    "footerNote": "Custom manpower briefs — we will tailor sourcing to your project timeline, skill profile and quota.",
+    "footerCta": "Discuss your requirement"
+  },
+  "process": {
+    "eyebrow": "Our process",
+    "heading": "Six steps from interview to boarding pass.",
+    "intro": "From medical screening in West Bengal to the flight to Kuala Lumpur, we own the full deployment pipeline. Employers and workers face zero paperwork on either side.",
+    "steps": {
+      "medical": { "title": "Medical examination", "description": "Comprehensive pre-departure health screening at accredited clinics. Fit-to-work certification for the destination country." },
+      "clearance": { "title": "Manpower clearance", "description": "End-to-end processing of regulatory approvals and government clearances required for legal overseas deployment." },
+      "visa": { "title": "E-visa processing", "description": "Embassy coordination and visa application managed by our in-house documentation team." },
+      "ticketing": { "title": "Air ticketing", "description": "Flight bookings and group travel coordination from India to Malaysia, sequenced with contract start dates." },
+      "passport": { "title": "Passport & documentation", "description": "Passport applications, renewals, contract attestation and supporting paperwork handled on the candidate's behalf." },
+      "orientation": { "title": "Pre-departure orientation", "description": "Briefings on Malaysian labour law, workplace rights, cultural norms and emergency protocols before travel." }
+    },
+    "cta": "Start an application"
+  },
+  "credentials": {
+    "eyebrow": "Credentials",
+    "heading": "Licenced on both sides of the corridor.",
+    "intro": "Mughal House is registered with the Government of India and holds a Licence C with Malaysia's Agensi Pekerjaan framework. Tap any document to open the full PDF.",
+    "items": {
+      "malaysia": {
+        "title": "Licence C",
+        "subtitle": "Agensi Pekerjaan · Malaysia",
+        "alt": "First page of the Malaysia Licence C (Agensi Pekerjaan)"
+      },
+      "rba": {
+        "title": "RBA / SAQ Status 2026",
+        "subtitle": "Responsible Business Alliance",
+        "alt": "First page of the Mughal House RBA SAQ 2026 status report"
+      },
+      "india": {
+        "title": "Registration Certificate",
+        "subtitle": "Govt. of India",
+        "alt": "First page of the Mughal House Registration Certificate"
+      }
+    },
+    "openAria": "Open {title} (PDF, new tab)"
+  },
+  "testimonials": {
+    "eyebrow": "From the founders",
+    "heading": "Words from the people behind the promise.",
+    "intro": "Both partners are directly involved in every deployment — from sourcing workers in West Bengal to final placement in Malaysia.",
+    "items": {
+      "manivanna": {
+        "name": "Manivanna",
+        "title": "Malaysia Business Partner",
+        "location": "Kuala Lumpur, Malaysia",
+        "quote": "On the Malaysia side, my job is to make sure every worker Mughal House sends arrives to an employer who is ready, a workplace that is legal, and a contract that holds. I have walked through factories, plantations and construction sites across the country to vet every employer we place workers with. That ground-level diligence is what keeps the trust on both sides of the corridor.",
+        "highlight": "Vets every Malaysian employer on the ground"
+      },
+      "hemraj": {
+        "name": "Hemraj Dahal",
+        "title": "Director & Partner",
+        "location": "Pandua, Hooghly, West Bengal, India",
+        "quote": "Building trust with Malaysian employers takes years of consistent delivery. Every employer we work with knows that when Mughal House sends a worker, that worker is prepared — medically cleared, legally documented, culturally oriented, and ready to contribute on day one. We have built this reputation through zero compromise on quality and full transparency at every step.",
+        "highlight": "Trusted by employers across 15+ sectors"
+      },
+      "firoz": {
+        "name": "Firoz Ahamed",
+        "title": "Managing Director",
+        "location": "Pandua, Hooghly, West Bengal, India",
+        "quote": "Every worker who walks through our office door in Pandua arrives with a dream — a better life for their family. Our job is to make that dream real, safely and legally. From the first document to the flight boarding pass, we handle it all. The families who send their sons and daughters through us trust us completely, and that trust is something we guard with everything we have.",
+        "highlight": "Zero-fee policy for every worker we place"
+      }
+    },
+    "starsAria": "{rating} out of 5 stars"
+  },
+  "team": {
+    "eyebrow": "The team",
+    "heading": "The people behind every successful deployment.",
+    "intro": "A structured team of recruitment specialists, documentation officers and field managers — each one accountable for every worker and employer we serve. Click any card to view a full profile.",
+    "membersLabel": "Team members",
+    "directorsLabel": "Directors",
+    "viewProfile": "View profile",
+    "viewProfileAria": "View {name}'s profile",
+    "expertise": "Expertise",
+    "close": "Close",
+    "prevAria": "Previous member",
+    "nextAria": "Next member",
+    "departments": {
+      "leadership": "Leadership",
+      "businessDev": "Business Dev",
+      "operations": "Operations",
+      "malaysiaPartner": "Malaysia Partner",
+      "documentation": "Documentation",
+      "finance": "Finance",
+      "marketing": "Marketing",
+      "publicRelations": "Public Relations",
+      "frontDesk": "Front Desk"
+    },
+    "badges": {
+      "founder": "Founder",
+      "director": "Director"
+    },
+    "since": "Est. 2023",
+    "members": {
+      "sAhamed": {
+        "title": "Chairman & Founder",
+        "blurb": "Founder of Mughal House, S. Ahamed (Raju) has personally overseen the deployment of over 10,000 workers from West Bengal to Malaysia. His vision of ethical, transparent recruitment drives every placement the company makes.",
+        "expertise": ["Strategy", "Industry Relations", "Malaysia Operations", "Regulatory Compliance"]
+      },
+      "hemraj": {
+        "title": "Business Development & Overseas Director",
+        "blurb": "Hemraj Dahal leads employer partnerships and overseas business development, expanding Mughal House's reach across Malaysian manufacturing, plantation, construction and hospitality sectors.",
+        "expertise": ["Client Relations", "Employer Liaison", "Market Expansion", "Business Strategy"]
+      },
+      "firoz": {
+        "title": "Director (India)",
+        "blurb": "Firoz Ahamed manages the day-to-day operations of Mughal House in India — from candidate intake at the Pandua office to final deployment confirmation. His meticulous approach ensures every placement runs without a hitch.",
+        "expertise": ["Operations", "Candidate Management", "Client Services", "Deployment"]
+      },
+      "manivanna": {
+        "title": "Malaysia Business Partner",
+        "blurb": "Manivanna leads Mughal House's Malaysia-side operations from Kuala Lumpur — vetting employers, negotiating contracts and making sure every worker we deploy arrives to a legal, prepared workplace. His on-ground presence is the link between West Bengal and the Malaysian floor.",
+        "expertise": ["Employer Vetting", "Contract Negotiation", "Malaysia Operations", "On-ground Support"]
+      },
+      "rabiul": {
+        "title": "Documentation & Visa Processing Officer",
+        "blurb": "Md. Rabiul Hussain leads documentation and e-visa processing at Mughal House — from passport and contract paperwork to embassy coordination — making sure every worker's travel file is complete and on time.",
+        "expertise": ["Documentation", "Visa Processing", "Embassy Coordination", "Contract Attestation"]
+      },
+      "arif": {
+        "title": "Accountant",
+        "blurb": "Arif supports the finance team at Mughal House, working alongside Md. Rabiul Hussain on day-to-day bookkeeping, payment records and employer billing so every transaction stays accurate and on time.",
+        "expertise": ["Accounting", "Bookkeeping", "Payment Records", "Financial Reconciliation"]
+      },
+      "manik": {
+        "title": "Marketing Manager, India",
+        "blurb": "Manik Sekh drives candidate outreach and brand awareness across West Bengal — connecting communities in Hooghly and surrounding districts with legitimate overseas employment opportunities.",
+        "expertise": ["Marketing", "Outreach", "Candidate Sourcing", "Community Relations"]
+      },
+      "abdul": {
+        "title": "Public Relations Officer",
+        "blurb": "Abdul Mabud Dhabak manages public relations and stakeholder communication — building trust with local communities, government bodies and partner organisations on behalf of Mughal House.",
+        "expertise": ["Public Relations", "Stakeholder Communication", "Community Liaison"]
+      },
+      "sowel": {
+        "title": "Front Desk Officer",
+        "blurb": "Sowel Rana Mondal is the first face every visitor meets at Mughal House — welcoming candidates and partners, coordinating appointments, and keeping the front-desk operations running smoothly day to day.",
+        "expertise": ["Reception", "Visitor Coordination", "Appointments", "Office Hospitality"]
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Get in touch",
+    "heading": "Ready to build your team in Malaysia?",
+    "description": "Speak to our recruitment specialists about your hiring requirement. We respond within one working day with a shortlist tailored to your brief.",
+    "primary": "Schedule a call",
+    "secondary": "See sectors we recruit for",
+    "note": "Government licensed (RAS838225). No worker-side fees. 10,000+ placements since 2023."
+  },
+  "officeVisit": {
+    "eyebrow": "Visit the office",
+    "heading": "Walk in to where careers begin.",
+    "intro": "Our team is ready to walk you through the placement process. Bring your documents, ask your questions, and we will take it from there.",
+    "contacts": {
+      "officeIndia": "Registered office, India",
+      "indiaPhone": "India · Pandua office (WhatsApp & Telegram)",
+      "myChairman": "Malaysia · Chairman",
+      "myDirector": "Malaysia · Director",
+      "email": "Email",
+      "addressValue": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road, Po & PS Pandua,\nDist – Hooghly, Pin – 712149, West Bengal, India"
+    },
+    "directions": "Get directions",
+    "bookAppointment": "Book appointment",
+    "messageEyebrow": "Message us directly",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "whatsappAria": "Chat on WhatsApp",
+    "telegramAria": "Message on Telegram",
+    "officeHoursLabel": "Office hours",
+    "hours": {
+      "monFri": "Monday – Friday",
+      "monFriShort": "Mon–Fri",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "open9to18": "9:00 – 18:00",
+      "open9to14": "9:00 – 14:00",
+      "closed": "Closed",
+      "appointment": "By appointment",
+      "apptShort": "Appt.",
+      "satNote": "Saturday by appointment only."
+    },
+    "imageAlt": "Mughal House Manpower Consultancy building exterior with signage, Ahmed Plaza, Pandua, West Bengal",
+    "figureCaption": "<strong>Mughal House</strong> — the registered office at Ahmed Plaza, Pandua, West Bengal.",
+    "lightboxCaption": "Mughal House",
+    "lightboxSubcaption": "Ahmed Plaza, Pandua · West Bengal, India",
+    "map": {
+      "title": "Registered office",
+      "eyebrow": "Mughal House Manpower Consultancy",
+      "subtitle": "Pandua, Hooghly · West Bengal, India",
+      "addressLabel": "Address",
+      "openMaps": "Open in Google Maps",
+      "hoursNote": "Mon–Fri 9 AM–6 PM · Sat by appointment.",
+      "close": "Close"
+    }
+  },
+  "footer": {
+    "tagline": "Government-licensed overseas recruitment consultancy serving Malaysian employers since 2023. Ethical, efficient and trusted.",
+    "alias": "Also known as <strong>MH Recruiter</strong> · MH Manpower.",
+    "registrationCert": "Registration Certificate",
+    "licenceC": "Licence C · Malaysia",
+    "saqStatus": "RBA/SAQ Status 2026",
+    "registrationCertAria": "View registration certificate (opens in new tab)",
+    "licenceCAria": "View Malaysia Licence C (Agensi Pekerjaan), opens in new tab",
+    "saqAria": "View RBA SAQ 2026 status PDF (opens in new tab)",
+    "socialAria": "Follow us on {label}",
+    "sections": {
+      "company": "Company",
+      "services": "Services",
+      "contact": "Contact",
+      "hours": "Hours"
+    },
+    "company": {
+      "about": "About Us",
+      "team": "Our Team",
+      "careers": "Careers"
+    },
+    "services": {
+      "medical": "Medical examination",
+      "clearance": "Manpower clearance",
+      "visa": "E-visa processing",
+      "ticketing": "Air ticketing",
+      "passport": "Passport & documentation",
+      "orientation": "Pre-departure orientation"
+    },
+    "contactMeta": {
+      "indiaOffice": "India · Office",
+      "myChairman": "Malaysia · Chairman",
+      "myDirector": "Malaysia · Director"
+    },
+    "addressLabel": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,\nPo & PS Pandua, Dist – Hooghly,\nPin – 712149, West Bengal, India",
+    "hours": {
+      "monFri": "Mon–Fri",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "open9to18": "9:00 – 18:00",
+      "open9to14": "9:00 – 14:00",
+      "closed": "Closed",
+      "satNote": "Saturday by appointment only."
+    },
+    "copyright": "© {year} Mughal House Manpower Consultancy. All rights reserved.",
+    "indiaLicense": "Govt. of India license"
+  },
+  "common": {
+    "skipToContent": "Skip to main content",
+    "scrollToTop": "Scroll to top"
+  }
+}

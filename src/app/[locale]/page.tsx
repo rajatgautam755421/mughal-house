@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -23,6 +24,7 @@ import UnderConstruction from "@/components/UnderConstruction";
 const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function Home() {
+  const t = useTranslations("common");
   const [bookingOpen, setBookingOpen] = useState(false);
 
   if (SHOW_UNDER_CONSTRUCTION) {
@@ -35,7 +37,7 @@ export default function Home() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-ink focus:text-paper focus:font-semibold"
       >
-        Skip to main content
+        {t("skipToContent")}
       </a>
       <Navbar onOpenBooking={() => setBookingOpen(true)} />
       <main id="main-content">

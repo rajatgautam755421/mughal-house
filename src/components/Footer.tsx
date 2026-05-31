@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -17,38 +18,26 @@ function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
-const footerLinks = {
-  company: [
-    { label: "About Us", href: "#about"   },
-    { label: "Our Team", href: "#team"    },
-    { label: "Careers",  href: "#contact" },
-  ],
-  services: [
-    { label: "Medical examination",      href: "#services" },
-    { label: "Manpower clearance",       href: "#services" },
-    { label: "E-visa processing",        href: "#services" },
-    { label: "Air ticketing",            href: "#services" },
-    { label: "Passport & documentation", href: "#services" },
-    { label: "Pre-departure orientation", href: "#services" },
-  ],
-};
+const companyLinks = [
+  { key: "about",   href: "#about"   },
+  { key: "team",    href: "#team"    },
+  { key: "careers", href: "#contact" },
+] as const;
 
-const contactInfo: Array<{
-  icon: typeof MapPin;
-  label: string;
-  href: string;
-  meta?: string;
-}> = [
-  {
-    icon: MapPin,
-    label: "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,\nPo & PS Pandua, Dist – Hooghly,\nPin – 712149, West Bengal, India",
-    href: "https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India",
-  },
-  { icon: Phone, label: "+91 7811-965514", meta: "India · Office",        href: "tel:+917811965514" },
-  { icon: Phone, label: "+60 14-835 0321", meta: "Malaysia · Chairman",   href: "tel:+60148350321"  },
-  { icon: Phone, label: "+60 12-360 2080", meta: "Malaysia · Director",   href: "tel:+60123602080"  },
-  { icon: Mail,  label: "mhmc023@gmail.com",                 href: "mailto:mhmc023@gmail.com" },
-];
+const serviceLinks = [
+  { key: "medical",     href: "#services" },
+  { key: "clearance",   href: "#services" },
+  { key: "visa",        href: "#services" },
+  { key: "ticketing",   href: "#services" },
+  { key: "passport",    href: "#services" },
+  { key: "orientation", href: "#services" },
+] as const;
+
+const phoneContacts = [
+  { value: "+91 7811-965514", metaKey: "indiaOffice", href: "tel:+917811965514" },
+  { value: "+60 14-835 0321", metaKey: "myChairman",  href: "tel:+60148350321"  },
+  { value: "+60 12-360 2080", metaKey: "myDirector",  href: "tel:+60123602080"  },
+] as const;
 
 const socialLinks = [
   { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/mughalhouse" },
@@ -56,6 +45,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -72,7 +62,6 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
 
-          {/* Brand */}
           <div className="md:col-span-4 flex flex-col gap-5">
             <Link href="/" className="flex items-center gap-3 w-fit" aria-label="Mughal House Manpower Consultancy">
               <img src="/logo.svg" alt="" aria-hidden="true" className="w-10 h-10" />
@@ -87,41 +76,40 @@ export default function Footer() {
             </Link>
 
             <p className="text-white/65 text-[14px] leading-[1.65] max-w-md">
-              Government-licensed overseas recruitment consultancy serving Malaysian employers
-              since 2023. Ethical, efficient and trusted.
+              {t("tagline")}
             </p>
-            <p className="text-white/45 text-[12px] tracking-wide">
-              Also known as <span className="text-white/70 font-medium">MH Recruiter</span>
-              {" "}&middot; MH Manpower.
-            </p>
+            <p
+              className="text-white/45 text-[12px] tracking-wide"
+              dangerouslySetInnerHTML={{ __html: t.raw("alias") as string }}
+            />
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <a
                 href="/registration-certificate.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View registration certificate (opens in new tab)"
+                aria-label={t("registrationCertAria")}
                 className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
               >
-                Registration Certificate
+                {t("registrationCert")}
               </a>
               <a
                 href="/agensi-malaysia-license.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View Malaysia Licence C (Agensi Pekerjaan), opens in new tab"
+                aria-label={t("licenceCAria")}
                 className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
               >
-                Licence C &middot; Malaysia
+                {t("licenceC")}
               </a>
               <a
                 href="/Corporate-SAQ-2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View RBA SAQ 2026 status PDF (opens in new tab)"
+                aria-label={t("saqAria")}
                 className="inline-flex items-center gap-2 text-gold-300 text-[12px] tracking-wide font-medium hover:text-paper transition-colors duration-150 border-b border-gold-300/40 hover:border-paper pb-1 w-fit"
               >
-                RBA/SAQ Status 2026
+                {t("saqStatus")}
               </a>
             </div>
 
@@ -133,7 +121,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   role="listitem"
-                  aria-label={`Follow us on ${label}`}
+                  aria-label={t("socialAria", { label })}
                   className="w-9 h-9 border border-white/15 flex items-center justify-center text-white/65 hover:text-paper hover:border-paper transition-colors duration-150"
                 >
                   <Icon className="w-4 h-4" />
@@ -142,79 +130,88 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Company */}
           <nav className="md:col-span-2" aria-label="Company">
-            <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">Company</p>
+            <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">{t("sections.company")}</p>
             <ul className="flex flex-col gap-2.5" role="list">
-              {footerLinks.company.map(({ label, href }) => (
-                <li key={label}>
+              {companyLinks.map(({ key, href }) => (
+                <li key={key}>
                   <a href={href} className="text-white/70 text-[14px] hover:text-paper transition-colors duration-150">
-                    {label}
+                    {t(`company.${key}`)}
                   </a>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Services */}
           <nav className="md:col-span-3" aria-label="Services">
-            <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">Services</p>
+            <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">{t("sections.services")}</p>
             <ul className="flex flex-col gap-2.5" role="list">
-              {footerLinks.services.map(({ label, href }) => (
-                <li key={label}>
+              {serviceLinks.map(({ key, href }) => (
+                <li key={key}>
                   <a href={href} className="text-white/70 text-[14px] hover:text-paper transition-colors duration-150">
-                    {label}
+                    {t(`services.${key}`)}
                   </a>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Contact + News */}
           <div className="md:col-span-3 flex flex-col gap-8">
             <div>
-              <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">Contact</p>
+              <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">{t("sections.contact")}</p>
               <address className="not-italic flex flex-col gap-3.5">
-                {contactInfo.map(({ icon: Icon, label, href, meta }) => (
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex gap-2.5 text-white/70 text-[13px] leading-[1.55] hover:text-paper transition-colors duration-150"
+                >
+                  <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-white/50" aria-hidden="true" />
+                  <span className="whitespace-pre-line">{t("addressLabel")}</span>
+                </a>
+                {phoneContacts.map(({ value, metaKey, href }) => (
                   <a
-                    key={label}
+                    key={value}
                     href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="flex gap-2.5 text-white/70 text-[13px] leading-[1.55] hover:text-paper transition-colors duration-150"
                   >
-                    <Icon className="w-4 h-4 shrink-0 mt-0.5 text-white/50" aria-hidden="true" />
-                    <span className="whitespace-pre-line">
-                      {label}
-                      {meta && (
-                        <span className="ml-2 text-[10.5px] tracking-[0.18em] uppercase text-gold-300/80 font-semibold">
-                          {meta}
-                        </span>
-                      )}
+                    <Phone className="w-4 h-4 shrink-0 mt-0.5 text-white/50" aria-hidden="true" />
+                    <span>
+                      {value}
+                      <span className="ml-2 text-[10.5px] tracking-[0.18em] uppercase text-gold-300/80 font-semibold">
+                        {t(`contactMeta.${metaKey}`)}
+                      </span>
                     </span>
                   </a>
                 ))}
+                <a
+                  href="mailto:mhmc023@gmail.com"
+                  className="flex gap-2.5 text-white/70 text-[13px] leading-[1.55] hover:text-paper transition-colors duration-150"
+                >
+                  <Mail className="w-4 h-4 shrink-0 mt-0.5 text-white/50" aria-hidden="true" />
+                  <span>mhmc023@gmail.com</span>
+                </a>
               </address>
             </div>
 
             <div>
-              <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">Hours</p>
+              <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">{t("sections.hours")}</p>
               <ul className="flex flex-col gap-2 text-white/70 text-[13px] leading-snug" role="list">
                 <li className="flex items-center justify-between gap-3">
-                  <span>Mon&ndash;Fri</span>
-                  <span className="text-paper">9:00 &ndash; 18:00</span>
+                  <span>{t("hours.monFri")}</span>
+                  <span className="text-paper">{t("hours.open9to18")}</span>
                 </li>
                 <li className="flex items-center justify-between gap-3">
-                  <span>Saturday</span>
-                  <span className="text-paper">9:00 &ndash; 14:00</span>
+                  <span>{t("hours.saturday")}</span>
+                  <span className="text-paper">{t("hours.open9to14")}</span>
                 </li>
                 <li className="flex items-center justify-between gap-3">
-                  <span>Sunday</span>
-                  <span className="text-white/45">Closed</span>
+                  <span>{t("hours.sunday")}</span>
+                  <span className="text-white/45">{t("hours.closed")}</span>
                 </li>
               </ul>
               <p className="mt-4 text-white/45 text-[11px] leading-relaxed">
-                Saturday by appointment only.
+                {t("hours.satNote")}
               </p>
             </div>
           </div>
@@ -223,9 +220,9 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-xl py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/45 text-[12px]">
-          <p>© {currentYear} Mughal House Manpower Consultancy. All rights reserved.</p>
+          <p>{t("copyright", { year: currentYear })}</p>
           <p className="text-white/55">
-            Govt. of India license{" "}
+            {t("indiaLicense")}{" "}
             <span className="text-gold-300 font-medium">RAS838225</span>
           </p>
         </div>

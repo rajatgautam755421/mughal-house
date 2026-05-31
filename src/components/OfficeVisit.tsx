@@ -6,17 +6,16 @@ import {
   MapPin, Clock, Phone, Mail, ArrowRight, Calendar, X,
   Navigation, MessageCircle, Send,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import ImageLightbox from "./ImageLightbox";
 
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India";
-const ADDRESS_LINES = [
-  "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,",
-  "Po & PS Pandua, Dist – Hooghly,",
-  "Pin – 712149, West Bengal, India",
-];
 
 function MapModal({ onClose }: { onClose: () => void }) {
+  const t = useTranslations("officeVisit");
+  const addressLines = (t("contacts.addressValue") as string).split("\n");
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", onKey);
@@ -41,37 +40,35 @@ function MapModal({ onClose }: { onClose: () => void }) {
       />
       <div className="relative w-full max-w-lg max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-paper border border-rule shadow-[0_24px_60px_-20px_rgba(15,30,61,0.35)]">
 
-        {/* Header */}
         <div className="flex items-start justify-between px-7 pt-7 pb-5 border-b border-rule">
           <div>
-            <span className="eyebrow">Mughal House Manpower Consultancy</span>
+            <span className="eyebrow">{t("map.eyebrow")}</span>
             <h2
               id="map-modal-title"
               className="mt-3 font-display font-semibold text-ink text-[1.55rem] leading-tight tracking-tight"
             >
-              Registered office
+              {t("map.title")}
             </h2>
             <p className="text-ink-muted text-[13px] mt-1.5">
-              Pandua, Hooghly &middot; West Bengal, India
+              {t("map.subtitle")}
             </p>
           </div>
           <button
             onClick={onClose}
             className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
-            aria-label="Close"
+            aria-label={t("map.close")}
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Body */}
         <div className="px-7 py-6 flex flex-col gap-5">
           <div>
             <p className="text-ink-muted text-[10.5px] tracking-[0.18em] uppercase font-semibold mb-2">
-              Address
+              {t("map.addressLabel")}
             </p>
             <address className="not-italic text-ink text-[15px] leading-[1.6]">
-              {ADDRESS_LINES.map((line) => (
+              {addressLines.map((line) => (
                 <span key={line} className="block">{line}</span>
               ))}
             </address>
@@ -84,11 +81,11 @@ function MapModal({ onClose }: { onClose: () => void }) {
             className="btn btn-primary justify-center w-full"
           >
             <Navigation className="w-4 h-4" aria-hidden="true" />
-            Open in Google Maps
+            {t("map.openMaps")}
           </a>
 
           <p className="text-center text-ink-faint text-[11px]">
-            Mon&ndash;Fri 9 AM&ndash;6 PM &middot; Sat by appointment.
+            {t("map.hoursNote")}
           </p>
         </div>
       </div>
@@ -96,27 +93,24 @@ function MapModal({ onClose }: { onClose: () => void }) {
   );
 }
 
-const officeHours = [
-  { days: "Monday – Friday", hours: "9:00 – 18:00",                  type: "Open" },
-  { days: "Saturday",        hours: "9:00 – 14:00",                  type: "By appointment" },
-  { days: "Sunday",          hours: "Closed",                        type: "Closed" },
-];
-
-const contactInfo: Array<{ icon: React.ElementType; label: string; value: string; href?: string }> = [
-  {
-    icon: MapPin,
-    label: "Registered office, India",
-    value: "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road, Po & PS Pandua,\nDist – Hooghly, Pin – 712149, West Bengal, India",
-  },
-  { icon: Phone, label: "India · Pandua office (WhatsApp & Telegram)", value: "+91 7811-965514", href: "tel:+917811965514" },
-  { icon: Phone, label: "Malaysia · Chairman",                          value: "+60 14-835 0321", href: "tel:+60148350321"  },
-  { icon: Phone, label: "Malaysia · Director",                          value: "+60 12-360 2080", href: "tel:+60123602080"  },
-  { icon: Mail,  label: "Email",                              value: "mhmc023@gmail.com", href: "mailto:mhmc023@gmail.com" },
-];
-
 export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => void }) {
+  const t = useTranslations("officeVisit");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [mapOpen, setMapOpen] = useState(false);
+
+  const officeHours = [
+    { days: t("hours.monFri"),   hours: t("hours.open9to18"), type: "Open" as const },
+    { days: t("hours.saturday"), hours: t("hours.open9to14"), type: "Appt" as const },
+    { days: t("hours.sunday"),   hours: t("hours.closed"),    type: "Closed" as const },
+  ];
+
+  const contactInfo: Array<{ icon: React.ElementType; label: string; value: string; href?: string }> = [
+    { icon: MapPin, label: t("contacts.officeIndia"), value: t("contacts.addressValue") },
+    { icon: Phone, label: t("contacts.indiaPhone"),  value: "+91 7811-965514", href: "tel:+917811965514" },
+    { icon: Phone, label: t("contacts.myChairman"),  value: "+60 14-835 0321", href: "tel:+60148350321"  },
+    { icon: Phone, label: t("contacts.myDirector"),  value: "+60 12-360 2080", href: "tel:+60123602080"  },
+    { icon: Mail,  label: t("contacts.email"),       value: "mhmc023@gmail.com", href: "mailto:mhmc023@gmail.com" },
+  ];
 
   return (
     <>
@@ -129,18 +123,16 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
         <div className="container-xl">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
 
-            {/* Content column */}
             <div className="lg:col-span-7">
-              <span className="eyebrow">Visit the office</span>
+              <span className="eyebrow">{t("eyebrow")}</span>
               <h2
                 id="contact-heading"
                 className="mt-4 font-display font-semibold text-ink text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-[-0.015em] text-balance"
               >
-                Walk in to where careers begin.
+                {t("heading")}
               </h2>
               <p className="mt-5 text-ink-soft text-base leading-[1.65] max-w-xl">
-                Our team is ready to walk you through the placement process. Bring your
-                documents, ask your questions, and we will take it from there.
+                {t("intro")}
               </p>
 
               <dl className="mt-10 border-t border-rule">
@@ -167,44 +159,42 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
 
               <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
                 <button onClick={() => setMapOpen(true)} className="btn btn-primary">
-                  Get directions
+                  {t("directions")}
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </button>
                 <button onClick={onOpenBooking} className="btn btn-ghost">
                   <Calendar className="w-4 h-4" aria-hidden="true" />
-                  Book appointment
+                  {t("bookAppointment")}
                 </button>
               </div>
 
-              {/* Messaging */}
               <div className="mt-10 pt-7 border-t border-rule">
-                <p className="eyebrow">Message us directly</p>
+                <p className="eyebrow">{t("messageEyebrow")}</p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <a
                     href="https://wa.me/917811965514"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2.5 border border-rule text-ink text-[13px] font-semibold hover:border-ink transition-colors duration-150"
-                    aria-label="Chat on WhatsApp"
+                    aria-label={t("whatsappAria")}
                   >
                     <MessageCircle className="w-4 h-4 text-[#25D366]" aria-hidden="true" />
-                    WhatsApp
+                    {t("whatsapp")}
                   </a>
                   <a
                     href="https://t.me/+917811965514"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2.5 border border-rule text-ink text-[13px] font-semibold hover:border-ink transition-colors duration-150"
-                    aria-label="Message on Telegram"
+                    aria-label={t("telegramAria")}
                   >
                     <Send className="w-4 h-4 text-[#2AABEE]" aria-hidden="true" />
-                    Telegram
+                    {t("telegram")}
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Image + hours column */}
             <div className="lg:col-span-5">
               <figure className="m-0 relative">
                 <button
@@ -215,7 +205,7 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                   <div className="relative w-full" style={{ aspectRatio: "9/16" }}>
                     <Image
                       src="/images/team/mughal-house-exterior.jpg"
-                      alt="Mughal House Manpower Consultancy building exterior with signage, Ahmed Plaza, Pandua, West Bengal"
+                      alt={t("imageAlt")}
                       fill
                       className="object-cover"
                       sizes="(max-width:1024px) 90vw, 460px"
@@ -223,12 +213,11 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                   </div>
                 </button>
 
-                {/* Office hours overlay */}
                 <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-72 bg-paper border border-rule p-5 shadow-[0_12px_32px_-12px_rgba(15,30,61,0.25)]">
                   <div className="flex items-center gap-2 mb-3">
                     <Clock className="w-4 h-4 text-gold-500" aria-hidden="true" />
                     <span className="text-ink text-[11px] tracking-[0.2em] uppercase font-semibold">
-                      Office hours
+                      {t("officeHoursLabel")}
                     </span>
                   </div>
                   <ul className="flex flex-col gap-2" role="list">
@@ -237,8 +226,8 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                         <span className="text-ink-muted">{days}</span>
                         <div className="flex items-center gap-2">
                           <span className="text-ink font-medium">{hours}</span>
-                          {type === "By appointment" && (
-                            <span className="text-ink-muted text-[10px]">Appt.</span>
+                          {type === "Appt" && (
+                            <span className="text-ink-muted text-[10px]">{t("hours.apptShort")}</span>
                           )}
                         </div>
                       </li>
@@ -246,10 +235,10 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
                   </ul>
                 </div>
 
-                <figcaption className="mt-3 text-ink-muted text-xs leading-snug">
-                  <span className="font-semibold text-ink">Mughal House</span> &mdash; the registered
-                  office at Ahmed Plaza, Pandua, West Bengal.
-                </figcaption>
+                <figcaption
+                  className="mt-3 text-ink-muted text-xs leading-snug"
+                  dangerouslySetInnerHTML={{ __html: t.raw("figureCaption") as string }}
+                />
               </figure>
             </div>
 
@@ -260,9 +249,9 @@ export default function OfficeVisit({ onOpenBooking }: { onOpenBooking?: () => v
       {lightboxOpen && (
         <ImageLightbox
           src="/images/team/mughal-house-exterior.jpg"
-          alt="Mughal House Manpower Consultancy building exterior, Ahmed Plaza, Pandua"
-          caption="Mughal House"
-          subcaption="Ahmed Plaza, Pandua &middot; West Bengal, India"
+          alt={t("imageAlt")}
+          caption={t("lightboxCaption")}
+          subcaption={t("lightboxSubcaption")}
           onClose={() => setLightboxOpen(false)}
         />
       )}
