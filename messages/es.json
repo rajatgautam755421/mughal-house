@@ -119,7 +119,7 @@
       "medical": { "title": "Examen médico", "description": "Evaluación de salud previa al viaje en clínicas acreditadas. Certificación de aptitud para el país de destino." },
       "clearance": { "title": "Autorización laboral", "description": "Tramitación integral de aprobaciones regulatorias y permisos gubernamentales para el despliegue legal en el extranjero." },
       "visa": { "title": "Tramitación de e-visa", "description": "Coordinación con embajadas y solicitud de visa gestionadas por nuestro equipo de documentación." },
-      "ticketing": { "title": "Boletos aéreos", "description": "Reservas de vuelos y coordinación de viaje grupal de India a Malasia, sincronizadas con las fechas de inicio del contrato." },
+      "ticketing": { "title": "Boletos aéreos", "description": "Reservas de vuelos y coordinación de viaje grupal de India al país de destino, sincronizadas con las fechas de inicio del contrato." },
       "passport": { "title": "Pasaporte y documentación", "description": "Solicitud y renovación de pasaportes, atestación de contratos y papeleo de respaldo, gestionado a nombre del candidato." },
       "orientation": { "title": "Orientación previa al viaje", "description": "Briefings sobre legislación laboral malasia, derechos laborales, normas culturales y protocolos de emergencia antes del viaje." }
     },

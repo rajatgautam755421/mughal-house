@@ -114,12 +114,12 @@
   "process": {
     "eyebrow": "Our process",
     "heading": "Six steps from interview to boarding pass.",
-    "intro": "From medical screening in West Bengal to the flight to Kuala Lumpur, we own the full deployment pipeline. Employers and workers face zero paperwork on either side.",
+    "intro": "We oversee the entire deployment lifecycle, seamlessly bridging the gap from initial medical screening in India to arrival in the destination country. Our end-to-end management eliminates administrative complexity, ensuring a frictionless, zero-paperwork experience for both employers and workers.",
     "steps": {
       "medical": { "title": "Medical examination", "description": "Comprehensive pre-departure health screening at accredited clinics. Fit-to-work certification for the destination country." },
       "clearance": { "title": "Manpower clearance", "description": "End-to-end processing of regulatory approvals and government clearances required for legal overseas deployment." },
       "visa": { "title": "E-visa processing", "description": "Embassy coordination and visa application managed by our in-house documentation team." },
-      "ticketing": { "title": "Air ticketing", "description": "Flight bookings and group travel coordination from India to Malaysia, sequenced with contract start dates." },
+      "ticketing": { "title": "Air ticketing", "description": "Flight bookings and group travel coordination from India to the destination country, sequenced with contract start dates." },
       "passport": { "title": "Passport & documentation", "description": "Passport applications, renewals, contract attestation and supporting paperwork handled on the candidate's behalf." },
       "orientation": { "title": "Pre-departure orientation", "description": "Briefings on Malaysian labour law, workplace rights, cultural norms and emergency protocols before travel." }
     },

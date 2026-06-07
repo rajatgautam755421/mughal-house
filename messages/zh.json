@@ -119,7 +119,7 @@
       "medical": { "title": "体检", "description": "在认可诊所进行全面的出发前健康检查。目的地国家的工作适应性证明。" },
       "clearance": { "title": "人力放行许可", "description": "全程办理合法海外派遣所需的监管批准和政府许可。" },
       "visa": { "title": "电子签证办理", "description": "由我们内部文件团队负责使馆协调和签证申请。" },
-      "ticketing": { "title": "机票预订", "description": "从印度到马来西亚的航班预订和团体出行协调,与合同开始日期同步。" },
+      "ticketing": { "title": "机票预订", "description": "从印度到目的地国家的航班预订和团体出行协调，与合同开始日期同步。" },
       "passport": { "title": "护照及文件", "description": "代候选人办理护照申请、续签、合同公证及相关文件。" },
       "orientation": { "title": "出发前培训", "description": "出发前讲解马来西亚劳动法、职场权利、文化规范和紧急协议。" }
     },
