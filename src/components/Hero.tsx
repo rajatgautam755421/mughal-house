@@ -1,12 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
+import ImageLightbox from "./ImageLightbox";
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const stats = [
     { value: t("stats.workersValue"), label: t("stats.workersLabel"), meta: t("stats.workersMeta") },
@@ -18,8 +20,11 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Mughal House Manpower Consultancy"
-      className="relative flex flex-col overflow-hidden pt-16 lg:pt-20"
-      style={{ background: "#faf8f3", height: "100svh" }}
+      // On lg+ we lock to 100svh so the editorial spread fits in one screen.
+      // Below lg, content stacks and the section grows naturally — min-h
+      // keeps it at least one viewport tall so it still reads as a hero.
+      className="relative flex flex-col overflow-hidden pt-20 sm:pt-24 lg:pt-20 min-h-svh lg:h-svh"
+      style={{ background: "#faf8f3" }}
     >
       {/* Ambient washes */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0"
@@ -27,20 +32,20 @@ export default function Hero() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0"
         style={{ background: "radial-gradient(45% 55% at 0% 60%, rgba(30,79,156,0.05) 0%, transparent 65%)" }} />
 
-      {/* ── Inner container: fills exactly the remaining height ── */}
+      {/* Inner container */}
       <div className="w-full max-w-[1320px] mx-auto px-6 sm:px-8 lg:px-10 flex-1 min-h-0 flex flex-col relative">
 
-        {/* ── Main content: stretches to fill remaining height ── */}
-        <div className="flex-1 min-h-0 flex flex-col lg:flex-row gap-8 lg:gap-14 lg:items-stretch">
+        {/* Main content — stacks on small screens, splits 50/50 on lg+ */}
+        <div className="flex-1 min-h-0 flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-14 lg:items-stretch py-6 lg:py-0">
 
-          {/* ── Text column ── */}
+          {/* Text column */}
           <div
-            className="lg:w-[50%] shrink-0 flex flex-col justify-center py-4 fade-in"
+            className="lg:w-[50%] lg:shrink-0 flex flex-col justify-center lg:py-4 fade-in"
             style={{ "--d": "0ms" } as React.CSSProperties}
           >
             <h1
               className="font-display font-semibold text-ink leading-[1.03] tracking-[-0.025em] text-balance"
-              style={{ fontSize: "clamp(2rem, 3.8vw, 4.25rem)" }}
+              style={{ fontSize: "clamp(2rem, 4.4vw, 4.25rem)" }}
             >
               {t("headline1")}
               <br />
@@ -74,52 +79,67 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ── Image column — hidden on mobile, fills height on desktop ── */}
-          <div className="hidden lg:flex flex-col flex-1 min-h-0 min-w-0 py-4 relative">
+          {/* Image column — visible on every breakpoint.
+              Below lg it has a fixed aspect ratio; on lg+ it fills the
+              remaining row height for the editorial split. */}
+          <div className="flex flex-col flex-1 min-h-0 min-w-0 lg:py-4 relative fade-in" style={{ "--d": "120ms" } as React.CSSProperties}>
             {/* Decorative corner frames */}
             <div
               aria-hidden="true"
-              className="absolute bottom-2 right-0 w-20 h-20 pointer-events-none"
+              className="absolute -bottom-1 right-0 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none"
               style={{ borderBottom: "2px solid rgba(176,136,48,0.5)", borderRight: "2px solid rgba(176,136,48,0.5)" }}
             />
             <div
               aria-hidden="true"
-              className="absolute top-2 left-0 w-20 h-20 pointer-events-none"
+              className="absolute -top-1 left-0 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none"
               style={{ borderTop: "2px solid rgba(30,79,156,0.3)", borderLeft: "2px solid rgba(30,79,156,0.3)" }}
             />
 
-            {/* Image — fills the full column height */}
-            <div className="relative flex-1 min-h-0 overflow-hidden"
-              style={{ border: "1px solid #e6e1d6" }}>
-              <Image
-                src="/images/mughal-house-hero.jpeg"
-                alt={t("teamPhotoAlt")}
-                fill
-                priority
-                className="object-cover object-top"
-                sizes="44vw"
-              />
-              {/* Gradient overlay for badge legibility */}
-              <div
-                aria-hidden="true"
-                className="absolute inset-x-0 bottom-0 h-2/5 pointer-events-none"
-                style={{ background: "linear-gradient(to top, rgba(15,30,61,0.55) 0%, transparent 100%)" }}
-              />
-
-              {/* Floating stat badge */}
-              <div className="absolute bottom-5 left-5">
+            {/* Image frame — full image visible on mobile/tablet (object-contain
+                with portrait-friendly aspect ratios), and fills column height on
+                desktop where the image can be cropped tastefully (object-cover).
+                Click/tap to open the lightbox. */}
+            <div
+              className="relative overflow-hidden bg-paper-soft aspect-4/3 sm:aspect-4/5 md:aspect-3/4 lg:aspect-auto lg:flex-1 lg:min-h-0"
+              style={{ border: "1px solid #e6e1d6" }}
+            >
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(true)}
+                className="absolute inset-0 block w-full h-full group cursor-zoom-in focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                aria-label={t("teamPhotoAria")}
+              >
+                <Image
+                  src="/images/mughal-house-hero.jpeg"
+                  alt={t("teamPhotoAlt")}
+                  fill
+                  priority
+                  className="object-contain object-center lg:object-cover lg:object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="(max-width: 1024px) 100vw, 44vw"
+                />
+                {/* Gradient overlay for badge legibility — only on desktop where image fills the frame */}
                 <div
-                  className="bg-paper border border-rule px-4 py-3.5"
+                  aria-hidden="true"
+                  className="hidden lg:block absolute inset-x-0 bottom-0 h-2/5 pointer-events-none"
+                  style={{ background: "linear-gradient(to top, rgba(15,30,61,0.55) 0%, transparent 100%)" }}
+                />
+              </button>
+
+              {/* Floating stat badge — hidden on mobile to avoid duplicating the stats strip.
+                  Sits above the button via z-index so it stays interactive-free of the click target. */}
+              <div className="hidden sm:block absolute bottom-3 left-3 sm:bottom-5 sm:left-5 pointer-events-none z-10">
+                <div
+                  className="bg-paper border border-rule px-3 py-2.5 sm:px-4 sm:py-3.5"
                   style={{ boxShadow: "0 12px 32px -12px rgba(15,30,61,0.3)" }}
                 >
-                  <div className="flex items-center gap-2 mb-1.5">
+                  <div className="flex items-center gap-2 mb-1 sm:mb-1.5">
                     <Users className="w-3 h-3 text-gold-500 shrink-0" aria-hidden="true" />
                     <span className="text-ink-muted text-[9.5px] tracking-[0.2em] uppercase font-semibold">
                       {t("teamPlacedSince")}
                     </span>
                   </div>
-                  <p className="font-display font-semibold text-ink text-2xl leading-none">10,000+</p>
-                  <p className="text-ink-muted text-[11.5px] mt-1">{t("stats.workersMeta")}</p>
+                  <p className="font-display font-semibold text-ink text-xl sm:text-2xl leading-none">10,000+</p>
+                  <p className="text-ink-muted text-[11px] sm:text-[11.5px] mt-1">{t("stats.workersMeta")}</p>
                 </div>
               </div>
             </div>
@@ -131,7 +151,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Stats strip — shrink-0, always anchored to the bottom */}
+        {/* Stats strip — anchored to the bottom on lg+, stacks below content on smaller screens */}
         <dl className="shrink-0 grid grid-cols-1 sm:grid-cols-3 border-t border-rule">
           {stats.map(({ value, label, meta }, i) => (
             <div
@@ -151,6 +171,16 @@ export default function Hero() {
           ))}
         </dl>
       </div>
+
+      {lightboxOpen && (
+        <ImageLightbox
+          src="/images/mughal-house-hero.jpeg"
+          alt={t("teamPhotoAlt")}
+          caption={t("lightboxCaption")}
+          subcaption={t("lightboxSubcaption")}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </section>
   );
 }
