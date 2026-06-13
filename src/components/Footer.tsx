@@ -28,6 +28,7 @@ const serviceLinks = [
 
 const phoneContacts = [
   { value: "+91 7811-965514", metaKey: "indiaOffice", href: "tel:+917811965514" },
+  { value: "+91 9748-549484", metaKey: "chairman",    href: "tel:+919748549484" },
   { value: "+60 14-835 0321", metaKey: "myDirector",  href: "tel:+60148350321"  },
   { value: "+60 12-360 2080", metaKey: "myChairman",  href: "tel:+60123602080"  },
 ] as const;
