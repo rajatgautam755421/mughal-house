@@ -31,7 +31,7 @@ const brandFull  = "Mughal House Manpower Consultancy";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${brandFull} (MH Recruiter) — Govt-Licensed Overseas Recruitment, West Bengal to Malaysia`,
+    default: `${brandFull} (MH Recruiter) — Govt-Licensed Overseas Recruitment, West Bengal to the world`,
     template: `%s | ${brandFull} · MH Recruiter`,
   },
   description:
@@ -86,14 +86,14 @@ export const metadata: Metadata = {
     siteName: brandFull,
     title: `${brandFull} (MH Recruiter) — Govt-Licensed Overseas Recruitment`,
     description:
-      "10,000+ skilled Indian workers placed across Malaysia. Government-licensed (RAS838225), zero worker-side fees, ethical recruitment since 2023.",
+      "10,000+ skilled Indian workers placed across the world. Government-licensed (RAS838225), zero worker-side fees, ethical recruitment since 2023.",
     // og:image is generated dynamically by src/app/opengraph-image.tsx
   },
   twitter: {
     card: "summary_large_image",
     title: `${brandFull} (MH Recruiter)`,
     description:
-      "Government-licensed overseas recruitment agency in Pandua, West Bengal. 10,000+ workers placed in Malaysia since 2023.",
+      "Government-licensed overseas recruitment agency in Pandua, West Bengal. 10,000+ workers placed across the world since 2023.",
   },
   alternates: {
     canonical: siteUrl,

@@ -5,7 +5,7 @@ import { join } from "node:path";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
-  "Mughal House Manpower Consultancy (MH Recruiter) — Government-licensed overseas recruitment, West Bengal to Malaysia";
+  "Mughal House Manpower Consultancy (MH Recruiter) — Government-licensed overseas recruitment, West Bengal to the world";
 
 export default async function OGImage() {
   // Embed the team portrait so the share card carries a real photo, not
@@ -119,7 +119,7 @@ export default async function OGImage() {
                 fontFamily: "sans-serif",
               }}
             >
-              workers, across Malaysia
+              workers, across the world
             </div>
           </div>
         </div>
@@ -168,7 +168,7 @@ export default async function OGImage() {
             >
               <span style={{ display: "flex" }}>Skilled Indian workers,</span>
               <span style={{ display: "flex" }}>
-                placed across Malaysia
+                placed across the world
                 <span style={{ color: "#b08830" }}>.</span>
               </span>
             </div>
@@ -184,8 +184,7 @@ export default async function OGImage() {
               }}
             >
               A government-licensed overseas recruitment agency in Pandua,
-              West Bengal — placing skilled workers into Malaysia, the Gulf
-              and emerging markets.
+              West Bengal — placing skilled workers across the world.
             </div>
           </div>
 
