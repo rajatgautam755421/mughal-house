@@ -1,7 +1,7 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  locales: ["en", "zh", "ru", "es"],
+  locales: ["en", "zh", "ru", "es", "ja"],
   defaultLocale: "en",
   // Always show the locale prefix in URLs (/en, /ru, /es) — clearer for
   // SEO and shareable links, and matches the alternate-locale metadata.

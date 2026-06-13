@@ -4,6 +4,7 @@
     "zh": "Chinese",
     "ru": "Russian",
     "es": "Spanish",
+    "ja": "Japanese",
     "switcher": "Language"
   },
   "navbar": {
@@ -354,6 +355,65 @@
     },
     "copyright": "© {year} Mughal House Manpower Consultancy. All rights reserved.",
     "indiaLicense": "Govt. of India license"
+  },
+  "bookingModal": {
+    "eyebrow": "Mughal House Manpower Consultancy",
+    "title": "Book an appointment",
+    "subtitle": "We'll confirm your slot within one working day.",
+    "close": "Close",
+    "successTitle": "Request received.",
+    "successBody": "We have your details. A member of our team will reach out within one working day to confirm your slot.",
+    "done": "Done",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Your full name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "+91 78119 65514",
+    "dateLabel": "Preferred date",
+    "timeLabel": "Preferred time",
+    "anyTime": "Any time",
+    "messageLabel": "Message / purpose",
+    "messagePlaceholder": "Briefly describe what you would like to discuss…",
+    "submit": "Request appointment",
+    "sending": "Sending…",
+    "footnote": "Appointments are subject to availability. Mon–Fri 9 AM–6 PM, Sat 9 AM–2 PM.",
+    "errors": {
+      "nameRequired": "Please enter your full name.",
+      "nameShort": "Name looks too short.",
+      "emailRequired": "We need an email to confirm your slot.",
+      "emailInvalid": "That email does not look right.",
+      "phoneRequired": "Please share a phone number we can reach you on.",
+      "phoneInvalid": "Use a valid international format, e.g. +91 78119 65514.",
+      "generic": "Something went wrong."
+    }
+  },
+  "liveChat": {
+    "intro1": "Hello — welcome to **Mughal House Manpower Consultancy**. How can we help?",
+    "intro2": "Please share your name below and a member of our team will be with you shortly.",
+    "eyebrow": "Live support",
+    "title": "Mughal House",
+    "status": "Online · replies in minutes",
+    "openChat": "Open chat",
+    "closeChat": "Close chat",
+    "online": "Online",
+    "userGreeting": "Hi, I'm **{name}**.",
+    "userGreetingEmail": "Hi, I'm **{name}** ({email}).",
+    "botGreeting": "Nice to meet you, **{name}**. What would you like to know? Ask about jobs, recruitment services or visa processing.",
+    "received": "Message received. Our team will reply soon. For urgent matters call **+91 7811-965514**.",
+    "error": "Sorry, something went wrong. Please try again.",
+    "namePlaceholder": "Your name *",
+    "emailPlaceholder": "Email (optional)",
+    "startChat": "Start chat",
+    "typePlaceholder": "Type a message…",
+    "sendMessage": "Send message",
+    "whatsappAria": "Chat on WhatsApp",
+    "telegramAria": "Message on Telegram"
+  },
+  "lightbox": {
+    "eyebrow": "Mughal House · Photograph",
+    "close": "Close",
+    "dismiss": "Press <kbd>Esc</kbd> or click outside to close"
   },
   "common": {
     "skipToContent": "Skip to main content",

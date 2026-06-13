@@ -1,38 +1,46 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { X, CheckCircle2, Loader2 } from "lucide-react";
 
 interface Props {
   onClose: () => void;
 }
 
-type FieldErrors = Partial<Record<"name" | "email" | "phone", string>>;
+// Validation returns an error *code* (a key under bookingModal.errors) so the
+// pure function stays free of locale concerns — the component translates it.
+type ErrorCode =
+  | "nameRequired" | "nameShort"
+  | "emailRequired" | "emailInvalid"
+  | "phoneRequired" | "phoneInvalid";
+type FieldErrors = Partial<Record<"name" | "email" | "phone", ErrorCode>>;
 
 const EMAIL_RE   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE   = /^[+\d][\d\s()-]{6,}\d$/; // ≥ 8 digits with usual separators
 
-function validateField(field: "name" | "email" | "phone", value: string): string | undefined {
+function validateField(field: "name" | "email" | "phone", value: string): ErrorCode | undefined {
   const v = value.trim();
   if (field === "name") {
-    if (!v) return "Please enter your full name.";
-    if (v.length < 2) return "Name looks too short.";
+    if (!v) return "nameRequired";
+    if (v.length < 2) return "nameShort";
     return;
   }
   if (field === "email") {
-    if (!v) return "We need an email to confirm your slot.";
-    if (!EMAIL_RE.test(v)) return "That email does not look right.";
+    if (!v) return "emailRequired";
+    if (!EMAIL_RE.test(v)) return "emailInvalid";
     return;
   }
   if (field === "phone") {
-    if (!v) return "Please share a phone number we can reach you on.";
-    if (!PHONE_RE.test(v)) return "Use a valid international format, e.g. +91 78119 65514.";
+    if (!v) return "phoneRequired";
+    if (!PHONE_RE.test(v)) return "phoneInvalid";
     return;
   }
   return;
 }
 
 export default function BookAppointmentModal({ onClose }: Props) {
+  const t = useTranslations("bookingModal");
   const [form, setForm] = useState({
     name: "", email: "", phone: "", date: "", time: "", message: "",
   });
@@ -92,11 +100,11 @@ export default function BookAppointmentModal({ onClose }: Props) {
         body: JSON.stringify(form),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      if (!res.ok) throw new Error(data.error || t("errors.generic"));
       setStatus("success");
     } catch (err: unknown) {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+      setErrorMsg(err instanceof Error ? err.message : t("errors.generic"));
     }
   };
 
@@ -131,21 +139,21 @@ export default function BookAppointmentModal({ onClose }: Props) {
         {/* Header */}
         <div className="flex items-start justify-between px-7 pt-7 pb-5 border-b border-rule">
           <div>
-            <span className="eyebrow">Mughal House Manpower Consultancy</span>
+            <span className="eyebrow">{t("eyebrow")}</span>
             <h2
               id="appointment-modal-title"
               className="mt-3 font-display font-semibold text-ink text-[1.55rem] leading-tight tracking-tight"
             >
-              Book an appointment
+              {t("title")}
             </h2>
             <p className="text-ink-muted text-[13px] mt-1.5">
-              We&rsquo;ll confirm your slot within one working day.
+              {t("subtitle")}
             </p>
           </div>
           <button
             onClick={onClose}
             className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
-            aria-label="Close"
+            aria-label={t("close")}
           >
             <X className="w-4 h-4" />
           </button>
@@ -156,15 +164,14 @@ export default function BookAppointmentModal({ onClose }: Props) {
             <CheckCircle2 className="w-10 h-10 text-gold-500" aria-hidden="true" />
             <div>
               <h3 className="font-display font-semibold text-ink text-xl mb-2">
-                Request received.
+                {t("successTitle")}
               </h3>
               <p className="text-ink-soft text-sm leading-[1.6] max-w-sm">
-                We have your details. A member of our team will reach out
-                within one working day to confirm your slot.
+                {t("successBody")}
               </p>
             </div>
             <button onClick={onClose} className="btn btn-primary mt-2">
-              Done
+              {t("done")}
             </button>
           </div>
         ) : (
@@ -173,14 +180,14 @@ export default function BookAppointmentModal({ onClose }: Props) {
             {/* Name */}
             <div>
               <label htmlFor="appt-name" className={labelClass}>
-                Full name <span className="text-gold-600">*</span>
+                {t("nameLabel")} <span className="text-gold-600">*</span>
               </label>
               <input
                 ref={firstInputRef}
                 id="appt-name"
                 type="text"
                 required
-                placeholder="Your full name"
+                placeholder={t("namePlaceholder")}
                 value={form.name}
                 onChange={(e) => set("name", e.target.value)}
                 onBlur={() => onBlur("name")}
@@ -190,7 +197,7 @@ export default function BookAppointmentModal({ onClose }: Props) {
               />
               {errors.name && (
                 <p id="appt-name-error" className={errorTextClass} role="alert">
-                  {errors.name}
+                  {t(`errors.${errors.name}`)}
                 </p>
               )}
             </div>
@@ -199,13 +206,13 @@ export default function BookAppointmentModal({ onClose }: Props) {
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="appt-email" className={labelClass}>
-                  Email <span className="text-gold-600">*</span>
+                  {t("emailLabel")} <span className="text-gold-600">*</span>
                 </label>
                 <input
                   id="appt-email"
                   type="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder={t("emailPlaceholder")}
                   value={form.email}
                   onChange={(e) => set("email", e.target.value)}
                   onBlur={() => onBlur("email")}
@@ -215,19 +222,19 @@ export default function BookAppointmentModal({ onClose }: Props) {
                 />
                 {errors.email && (
                   <p id="appt-email-error" className={errorTextClass} role="alert">
-                    {errors.email}
+                    {t(`errors.${errors.email}`)}
                   </p>
                 )}
               </div>
               <div>
                 <label htmlFor="appt-phone" className={labelClass}>
-                  Phone <span className="text-gold-600">*</span>
+                  {t("phoneLabel")} <span className="text-gold-600">*</span>
                 </label>
                 <input
                   id="appt-phone"
                   type="tel"
                   required
-                  placeholder="+91 78119 65514"
+                  placeholder={t("phonePlaceholder")}
                   value={form.phone}
                   onChange={(e) => set("phone", e.target.value)}
                   onBlur={() => onBlur("phone")}
@@ -237,7 +244,7 @@ export default function BookAppointmentModal({ onClose }: Props) {
                 />
                 {errors.phone && (
                   <p id="appt-phone-error" className={errorTextClass} role="alert">
-                    {errors.phone}
+                    {t(`errors.${errors.phone}`)}
                   </p>
                 )}
               </div>
@@ -247,7 +254,7 @@ export default function BookAppointmentModal({ onClose }: Props) {
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="appt-date" className={labelClass}>
-                  Preferred date
+                  {t("dateLabel")}
                 </label>
                 <input
                   id="appt-date"
@@ -260,7 +267,7 @@ export default function BookAppointmentModal({ onClose }: Props) {
               </div>
               <div>
                 <label htmlFor="appt-time" className={labelClass}>
-                  Preferred time
+                  {t("timeLabel")}
                 </label>
                 <select
                   id="appt-time"
@@ -268,7 +275,7 @@ export default function BookAppointmentModal({ onClose }: Props) {
                   onChange={(e) => set("time", e.target.value)}
                   className={inputClass}
                 >
-                  <option value="">Any time</option>
+                  <option value="">{t("anyTime")}</option>
                   <option>09:00 AM</option>
                   <option>10:00 AM</option>
                   <option>11:00 AM</option>
@@ -284,12 +291,12 @@ export default function BookAppointmentModal({ onClose }: Props) {
             {/* Message */}
             <div>
               <label htmlFor="appt-message" className={labelClass}>
-                Message / purpose
+                {t("messageLabel")}
               </label>
               <textarea
                 id="appt-message"
                 rows={3}
-                placeholder="Briefly describe what you would like to discuss…"
+                placeholder={t("messagePlaceholder")}
                 value={form.message}
                 onChange={(e) => set("message", e.target.value)}
                 className={`${inputClass} resize-none`}
@@ -310,15 +317,15 @@ export default function BookAppointmentModal({ onClose }: Props) {
               {status === "loading" ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
-                  Sending…
+                  {t("sending")}
                 </>
               ) : (
-                "Request appointment"
+                t("submit")
               )}
             </button>
 
             <p className="text-center text-ink-faint text-[11px]">
-              Appointments are subject to availability. Mon&ndash;Fri 9 AM&ndash;6 PM, Sat 9 AM&ndash;2 PM.
+              {t("footnote")}
             </p>
           </form>
         )}

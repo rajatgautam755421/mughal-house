@@ -116,8 +116,8 @@ export const metadata: Metadata = {
   other: {
     "geo.region":     "IN-WB",
     "geo.placename":  "Pandua, Hooghly, West Bengal, India",
-    "geo.position":   "23.0779;88.2870",
-    "ICBM":           "23.0779, 88.2870",
+    "geo.position":   "23.080721;88.275368",
+    "ICBM":           "23.080721, 88.275368",
     "business:contact_data:street_address": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road",
     "business:contact_data:locality":       "Pandua",
     "business:contact_data:region":         "West Bengal",
@@ -212,7 +212,7 @@ const localBusinessSchema = {
   email: "mhmc023@gmail.com",
   priceRange: "$$",
   address: postalAddress,
-  geo: { "@type": "GeoCoordinates", latitude: 23.0779, longitude: 88.287 },
+  geo: { "@type": "GeoCoordinates", latitude: 23.080721, longitude: 88.275368 },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

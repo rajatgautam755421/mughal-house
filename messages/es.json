@@ -4,6 +4,7 @@
     "zh": "Chino",
     "ru": "Ruso",
     "es": "Español",
+    "ja": "Japonés",
     "switcher": "Idioma"
   },
   "navbar": {
@@ -354,6 +355,65 @@
     },
     "copyright": "© {year} Mughal House Manpower Consultancy. Todos los derechos reservados.",
     "indiaLicense": "Licencia del Gob. de la India"
+  },
+  "bookingModal": {
+    "eyebrow": "Mughal House Manpower Consultancy",
+    "title": "Reservar una cita",
+    "subtitle": "Confirmaremos su cita en un día hábil.",
+    "close": "Cerrar",
+    "successTitle": "Solicitud recibida.",
+    "successBody": "Tenemos sus datos. Un miembro de nuestro equipo se pondrá en contacto con usted en un día hábil para confirmar su cita.",
+    "done": "Listo",
+    "nameLabel": "Nombre completo",
+    "namePlaceholder": "Su nombre completo",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "usted@ejemplo.com",
+    "phoneLabel": "Teléfono",
+    "phonePlaceholder": "+91 78119 65514",
+    "dateLabel": "Fecha preferida",
+    "timeLabel": "Hora preferida",
+    "anyTime": "Cualquier hora",
+    "messageLabel": "Mensaje / motivo",
+    "messagePlaceholder": "Describa brevemente lo que le gustaría tratar…",
+    "submit": "Solicitar cita",
+    "sending": "Enviando…",
+    "footnote": "Las citas están sujetas a disponibilidad. Lun–Vie 9:00–18:00, Sáb 9:00–14:00.",
+    "errors": {
+      "nameRequired": "Por favor, introduzca su nombre completo.",
+      "nameShort": "El nombre parece demasiado corto.",
+      "emailRequired": "Necesitamos un correo electrónico para confirmar su cita.",
+      "emailInvalid": "Ese correo electrónico no parece correcto.",
+      "phoneRequired": "Comparta un número de teléfono en el que podamos contactarle.",
+      "phoneInvalid": "Use un formato internacional válido, p. ej. +91 78119 65514.",
+      "generic": "Algo salió mal."
+    }
+  },
+  "liveChat": {
+    "intro1": "Hola — bienvenido a **Mughal House Manpower Consultancy**. ¿En qué podemos ayudarle?",
+    "intro2": "Comparta su nombre a continuación y un miembro de nuestro equipo le atenderá en breve.",
+    "eyebrow": "Soporte en vivo",
+    "title": "Mughal House",
+    "status": "En línea · responde en minutos",
+    "openChat": "Abrir chat",
+    "closeChat": "Cerrar chat",
+    "online": "En línea",
+    "userGreeting": "Hola, soy **{name}**.",
+    "userGreetingEmail": "Hola, soy **{name}** ({email}).",
+    "botGreeting": "Encantado de conocerle, **{name}**. ¿Qué le gustaría saber? Pregunte sobre empleos, servicios de contratación o tramitación de visados.",
+    "received": "Mensaje recibido. Nuestro equipo responderá pronto. Para asuntos urgentes llame al **+91 7811-965514**.",
+    "error": "Lo sentimos, algo salió mal. Inténtelo de nuevo.",
+    "namePlaceholder": "Su nombre *",
+    "emailPlaceholder": "Correo electrónico (opcional)",
+    "startChat": "Iniciar chat",
+    "typePlaceholder": "Escriba un mensaje…",
+    "sendMessage": "Enviar mensaje",
+    "whatsappAria": "Chatear por WhatsApp",
+    "telegramAria": "Enviar mensaje por Telegram"
+  },
+  "lightbox": {
+    "eyebrow": "Mughal House · Fotografía",
+    "close": "Cerrar",
+    "dismiss": "Pulse <kbd>Esc</kbd> o haga clic fuera para cerrar"
   },
   "common": {
     "skipToContent": "Saltar al contenido principal",

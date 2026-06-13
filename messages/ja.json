@@ -1,0 +1,422 @@
+{
+  "language": {
+    "en": "英語",
+    "zh": "中国語",
+    "ru": "ロシア語",
+    "es": "スペイン語",
+    "ja": "日本語",
+    "switcher": "言語"
+  },
+  "navbar": {
+    "links": {
+      "about": "会社概要",
+      "services": "サービス",
+      "process": "プロセス",
+      "team": "チーム",
+      "contact": "お問い合わせ"
+    },
+    "bookAppointment": "予約する",
+    "freeConsultation": "無料相談",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "navigation": "ナビゲーション",
+    "indiaLabel": "インド",
+    "myChairmanLabel": "MY・会長",
+    "myDirectorLabel": "MY・ディレクター",
+    "homeAria": "Mughal House Manpower Consultancy — ホーム",
+    "manpowerConsultancy": "人材コンサルティング"
+  },
+  "hero": {
+    "eyebrow": "政府認可・保険加入・信頼・2023年設立",
+    "location": "西ベンガル州パンドゥア・マレーシア クアラルンプール",
+    "headline1": "熟練したインド人労働者を、",
+    "headline2": "",
+    "headline3": "世界各地へ",
+    "headline4": "派遣します",
+    "description": "西ベンガル州パンドゥアを拠点とする政府認可の海外人材派遣エージェンシーです。熟練・準熟練労働者をマレーシア、湾岸諸国、そして新興の国際市場へと送り出しています。",
+    "ctaPrimary": "相談を予約する",
+    "ctaSecondary": "募集分野を見る",
+    "govLicensed": "政府認可 —",
+    "registrationCertAria": "政府登録証明書を見る",
+    "officeAria": "Googleマップで事務所の所在地を見る",
+    "officeAddress": "Ahmed Plaza、西ベンガル州パンドゥア",
+    "teamPhotoAria": "チーム写真を拡大する",
+    "teamPhotoAlt": "Mughal House Manpower Consultancy の経営陣、西ベンガル州パンドゥア",
+    "teamCaptionLabel": "Mughal House のチーム",
+    "teamCaptionMeta": "西ベンガル州パンドゥア — 2024年",
+    "teamPlacedSince": "2023年より派遣実績",
+    "stats": {
+      "workersValue": "10,000人以上",
+      "workersLabel": "派遣した労働者",
+      "workersMeta": "マレーシア全土へ派遣",
+      "licenseValue": "RAS838225",
+      "licenseLabel": "ライセンス番号",
+      "licenseMeta": "インド政府",
+      "sectorsValue": "15以上",
+      "sectorsLabel": "産業分野",
+      "sectorsMeta": "製造業からホスピタリティまで"
+    },
+    "lightboxCaption": "私たちのチーム",
+    "lightboxSubcaption": "Mughal House Manpower Consultancy・インド 西ベンガル州パンドゥア"
+  },
+  "about": {
+    "eyebrow": "会社について",
+    "heading": "信頼の上に築かれ、評判によって成長してきた一つの「家」。",
+    "intro": "海外人材派遣に20年。2023年に Mughal House Manpower Consultancy <strong>(MH Recruiter)</strong> として正式に登録されました。西ベンガル州パンドゥアから、10,000人以上の熟練労働者をマレーシアのプランテーション、建設、製造、ホスピタリティ分野へ送り出してきました。両創業者がすべての契約に自ら署名します。コールセンターも、仲介業者もありません。",
+    "pillars": {
+      "licensed": {
+        "title": "政府認可エージェンシー",
+        "description": "インド政府に登録、ライセンス番号 RAS838225。マレーシアのすべての人材派遣規制に準拠しています。"
+      },
+      "predeparture": {
+        "title": "出発前の万全なサポート",
+        "description": "健康診断、書類手続き、e-ビザ申請、出発前オリエンテーションを社内で一貫して対応します。"
+      },
+      "attention": {
+        "title": "一人ひとりに合わせた配置",
+        "description": "各候補者を、技能・言語・適性に基づいて職務にマッチングします。決して人数ありきではありません。"
+      },
+      "zeroFee": {
+        "title": "労働者手数料ゼロの方針",
+        "description": "労働者が当社に支払う費用は一切ありません。費用は雇用主が負担し、双方に透明性のある書面契約を交わします。"
+      }
+    },
+    "figureCaption": "<strong>S. Ahamed (Raju)</strong> — 会長兼創業者。西ベンガル州パンドゥア。",
+    "imageAlt": "Mughal House Manpower Consultancy 会長兼創業者の S. Ahamed",
+    "lightboxCaption": "S. Ahamed",
+    "lightboxSubcaption": "会長兼創業者・Mughal House Manpower Consultancy"
+  },
+  "services": {
+    "eyebrow": "募集分野",
+    "heading": "11の分野。1つのプロセス。最初から最後まで。",
+    "intro": "私たちはマレーシアの11の業界にわたり、労働者の調達、選考、研修、派遣を行います。オーダーメイドの採用依頼も歓迎します。特定の工場、契約、プロジェクトの工程に合わせた人員チームを日常的に編成しています。",
+    "items": {
+      "plantation": { "title": "プランテーション", "description": "一般および経験豊富なプランテーション労働者。" },
+      "construction": { "title": "建設", "description": "熟練技能工および一般作業員。" },
+      "agriculture": { "title": "農業", "description": "作物の栽培、農作業、土地の管理。" },
+      "poultry": { "title": "養鶏", "description": "養鶏場運営の専従スタッフ。" },
+      "cleaning": { "title": "清掃サービス", "description": "商業施設、住宅、工業施設の清掃。" },
+      "housekeeping": { "title": "ハウスキーピング", "description": "ホテル、リゾート、企業向けの客室・施設清掃スタッフ。" },
+      "food": { "title": "飲食", "description": "熟練・未熟練のレストランスタッフ。" },
+      "bar": { "title": "バー・ホスピタリティ", "description": "バーテンダー、バリスタ、バーサービススタッフ。" },
+      "manufacturing": { "title": "一般製造", "description": "生産・組立を担う工場労働者。" },
+      "specialised": { "title": "専門製造", "description": "工業プラント向けのCNC工作機械オペレーター。" },
+      "textile": { "title": "繊維・アパレル", "description": "縫製スタッフ、衣料品工員、ミシン工。" },
+      "custom": {
+        "title": "ご希望の分野が見当たりませんか？",
+        "description": "職務と必要人数をお知らせください。お客様に合わせたチームを編成します。",
+        "cta": "ご要望をお聞かせください",
+        "aria": "オーダーメイドの採用依頼について相談する"
+      }
+    },
+    "footerNote": "オーダーメイドの人材依頼 — プロジェクトの工程、技能要件、必要人数に合わせて人材調達を行います。",
+    "footerCta": "ご要望について相談する"
+  },
+  "process": {
+    "eyebrow": "私たちのプロセス",
+    "heading": "面接から搭乗券まで、6つのステップ。",
+    "intro": "私たちは派遣の全工程を管理し、インドでの初回健康診断から派遣先国への到着まで切れ目なくつなぎます。一貫した管理により事務手続きの煩雑さを排除し、雇用主と労働者の双方にとって手間のない、書類作業ゼロの体験を実現します。",
+    "steps": {
+      "medical": { "title": "健康診断", "description": "認定クリニックでの出発前の包括的な健康診断。派遣先国向けの就労適性証明を発行します。" },
+      "clearance": { "title": "人材派遣の許認可", "description": "合法的な海外派遣に必要な規制当局の承認と政府許認可を、一貫して処理します。" },
+      "visa": { "title": "e-ビザ申請", "description": "大使館との調整およびビザ申請を、社内の書類専門チームが管理します。" },
+      "ticketing": { "title": "航空券手配", "description": "インドから派遣先国までの航空券予約と団体渡航の調整を、契約開始日に合わせて行います。" },
+      "passport": { "title": "パスポート・書類手続き", "description": "パスポートの申請・更新、契約書の認証、関連書類の手続きを候補者に代わって行います。" },
+      "orientation": { "title": "出発前オリエンテーション", "description": "渡航前に、マレーシアの労働法、職場での権利、文化的慣習、緊急時の対応について説明します。" }
+    },
+    "cta": "応募を始める"
+  },
+  "credentials": {
+    "eyebrow": "資格・認定",
+    "heading": "回廊の両側で認可を受けています。",
+    "intro": "Mughal House はインド政府に登録され、マレーシアの Agensi Pekerjaan 制度のもとでライセンスC を保有しています。各書類をタップすると完全版のPDFが開きます。",
+    "items": {
+      "malaysia": {
+        "title": "ライセンスC",
+        "subtitle": "Agensi Pekerjaan・マレーシア",
+        "alt": "マレーシアのライセンスC（Agensi Pekerjaan）の1ページ目"
+      },
+      "rba": {
+        "title": "RBA / SAQ ステータス 2026",
+        "subtitle": "Responsible Business Alliance",
+        "alt": "Mughal House の RBA SAQ 2026 ステータス報告書の1ページ目"
+      },
+      "india": {
+        "title": "登録証明書",
+        "subtitle": "インド政府",
+        "alt": "Mughal House の登録証明書の1ページ目"
+      }
+    },
+    "openAria": "{title} を開く（PDF、新しいタブ）"
+  },
+  "testimonials": {
+    "eyebrow": "創業者より",
+    "heading": "約束の裏にいる人々の言葉。",
+    "intro": "両パートナーは、西ベンガル州での労働者の調達からマレーシアでの最終的な配置まで、すべての派遣に直接関わっています。",
+    "items": {
+      "manivanna": {
+        "name": "Manivanna",
+        "title": "マレーシア・ビジネスパートナー",
+        "location": "マレーシア クアラルンプール",
+        "quote": "私たちが送り出すすべての労働者は、準備の整った雇用主のもとへ、合法的な職場へ、確かな契約のもとへ到着します。私はすべての雇用主を自ら直接見極めています。",
+        "highlight": "マレーシアの雇用主を現地で一社ずつ見極める"
+      },
+      "hemraj": {
+        "name": "Hemraj Dahal",
+        "title": "ディレクター兼パートナー",
+        "location": "インド 西ベンガル州フーグリー県パンドゥア",
+        "quote": "Mughal House が労働者を送り出すとき、その労働者は準備が整っています。健康診断も済み、書類も揃い、初日から働ける状態です。品質に一切の妥協はありません。",
+        "highlight": "15以上の分野の雇用主から信頼されています"
+      },
+      "firoz": {
+        "name": "Firoz Ahamed",
+        "title": "マネージングディレクター",
+        "location": "インド 西ベンガル州フーグリー県パンドゥア",
+        "quote": "すべての労働者は、家族のより良い暮らしという夢を抱いて到着します。最初の書類から搭乗券まで、私たちがすべてを担います。",
+        "highlight": "派遣するすべての労働者に手数料ゼロの方針"
+      }
+    },
+    "starsAria": "5つ星のうち{rating}"
+  },
+  "team": {
+    "eyebrow": "チーム",
+    "heading": "すべての派遣の成功を支える人々。",
+    "intro": "採用スペシャリスト、書類担当者、現場マネージャーで構成された組織的なチーム。一人ひとりが、私たちが関わるすべての労働者と雇用主に責任を持っています。各カードをクリックすると詳細なプロフィールが表示されます。",
+    "membersLabel": "チームメンバー",
+    "directorsLabel": "ディレクター",
+    "viewProfile": "プロフィールを見る",
+    "viewProfileAria": "{name} のプロフィールを見る",
+    "expertise": "専門分野",
+    "close": "閉じる",
+    "prevAria": "前のメンバー",
+    "nextAria": "次のメンバー",
+    "departments": {
+      "leadership": "経営陣",
+      "businessDev": "事業開発",
+      "operations": "オペレーション",
+      "malaysiaPartner": "マレーシア・パートナー",
+      "documentation": "書類管理",
+      "finance": "財務",
+      "marketing": "マーケティング",
+      "publicRelations": "広報",
+      "frontDesk": "受付"
+    },
+    "badges": {
+      "founder": "創業者",
+      "director": "ディレクター"
+    },
+    "since": "2023年設立",
+    "members": {
+      "sAhamed": {
+        "title": "会長兼創業者",
+        "blurb": "Mughal House の創業者である S. Ahamed (Raju) は、西ベンガル州からマレーシアへの10,000人を超える労働者の派遣を自ら統括してきました。倫理的で透明性のある人材派遣という彼のビジョンが、すべての配置を支えています。",
+        "expertise": ["戦略", "業界との関係構築", "マレーシア事業", "規制順守"]
+      },
+      "hemraj": {
+        "title": "事業開発・海外担当ディレクター",
+        "blurb": "Hemraj Dahal は雇用主とのパートナーシップと海外事業開発を率い、マレーシアの製造、プランテーション、建設、ホスピタリティ分野へ Mughal House の事業を拡大しています。",
+        "expertise": ["顧客対応", "雇用主との連携", "市場拡大", "事業戦略"]
+      },
+      "firoz": {
+        "title": "ディレクター（インド）",
+        "blurb": "Firoz Ahamed は、パンドゥア事務所での候補者の受け入れから派遣の最終確認まで、インドにおける Mughal House の日々の業務を管理しています。緻密な仕事ぶりにより、すべての配置が滞りなく進みます。",
+        "expertise": ["オペレーション", "候補者管理", "顧客サービス", "派遣"]
+      },
+      "manivanna": {
+        "title": "マレーシア・ビジネスパートナー",
+        "blurb": "Manivanna はクアラルンプールから Mughal House のマレーシア側業務を率い、雇用主の見極め、契約交渉を行い、派遣するすべての労働者が合法的で準備の整った職場へ到着できるようにしています。彼の現地での存在が、西ベンガルとマレーシアの現場をつなぐ架け橋です。",
+        "expertise": ["雇用主の審査", "契約交渉", "マレーシア事業", "現地サポート"]
+      },
+      "rabiul": {
+        "title": "書類・ビザ申請担当",
+        "blurb": "Md. Rabiul Hussain は Mughal House の書類業務と e-ビザ申請を率い、パスポートや契約書の手続きから大使館との調整まで、すべての労働者の渡航書類が漏れなく期限内に揃うようにしています。",
+        "expertise": ["書類管理", "ビザ申請", "大使館との調整", "契約書の認証"]
+      },
+      "arif": {
+        "title": "経理担当",
+        "blurb": "Arif は Mughal House の財務チームを支え、Md. Rabiul Hussain とともに日々の帳簿管理、支払い記録、雇用主への請求業務を担当し、すべての取引が正確かつ期限内に処理されるようにしています。",
+        "expertise": ["会計", "帳簿管理", "支払い記録", "財務照合"]
+      },
+      "manik": {
+        "title": "マーケティングマネージャー（インド）",
+        "blurb": "Manik Sekh は西ベンガル州全域で候補者への働きかけとブランド認知の向上を推進し、フーグリーおよび周辺地域のコミュニティと正規の海外就労機会をつないでいます。",
+        "expertise": ["マーケティング", "アウトリーチ", "候補者の調達", "コミュニティとの関係"]
+      },
+      "abdul": {
+        "title": "広報担当",
+        "blurb": "Abdul Mabud Dhabak は広報と関係者とのコミュニケーションを担当し、Mughal House を代表して地域社会、政府機関、提携団体との信頼関係を築いています。",
+        "expertise": ["広報", "関係者とのコミュニケーション", "地域社会との連携"]
+      },
+      "sowel": {
+        "title": "受付担当",
+        "blurb": "Sowel Rana Mondal は Mughal House を訪れるすべての人を最初に迎える顔として、候補者やパートナーを歓迎し、面談の調整を行い、日々の受付業務を円滑に運営しています。",
+        "expertise": ["受付", "来訪者対応", "予約管理", "オフィスのおもてなし"]
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "お問い合わせ",
+    "heading": "マレーシアでチームを構築する準備はできていますか？",
+    "description": "採用に関するご要望について、当社の採用スペシャリストにご相談ください。1営業日以内に、ご依頼に合わせた候補者リストをお返しします。",
+    "primary": "通話を予約する",
+    "secondary": "募集分野を見る",
+    "note": "政府認可（RAS838225）。労働者側の手数料なし。2023年以降10,000人以上の派遣実績。"
+  },
+  "officeVisit": {
+    "eyebrow": "事務所へお越しください",
+    "heading": "キャリアが始まる場所へ、お気軽にお立ち寄りください。",
+    "intro": "私たちのチームが、派遣のプロセスをご案内する準備を整えています。書類をお持ちになり、ご質問をお寄せください。あとは私たちが対応します。",
+    "contacts": {
+      "officeIndia": "登録事務所（インド）",
+      "indiaPhone": "インド・パンドゥア事務所（WhatsApp・Telegram）",
+      "chairman": "会長",
+      "myChairman": "マレーシア・会長",
+      "myDirector": "マレーシア・ディレクター",
+      "email": "メール",
+      "addressValue": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road, Po & PS Pandua,\nDist – Hooghly, Pin – 712149, West Bengal, India"
+    },
+    "directions": "道順を見る",
+    "bookAppointment": "予約する",
+    "messageEyebrow": "直接メッセージを送る",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "whatsappAria": "WhatsApp でチャットする",
+    "telegramAria": "Telegram でメッセージを送る",
+    "officeHoursLabel": "営業時間",
+    "hours": {
+      "monFri": "月曜〜金曜",
+      "monFriShort": "月〜金",
+      "saturday": "土曜",
+      "sunday": "日曜",
+      "open9to18": "9:00 – 18:00",
+      "open9to14": "9:00 – 14:00",
+      "closed": "休業",
+      "appointment": "予約制",
+      "apptShort": "予約",
+      "satNote": "土曜は予約制のみ。"
+    },
+    "imageAlt": "看板のある Mughal House Manpower Consultancy の建物外観、Ahmed Plaza、西ベンガル州パンドゥア",
+    "figureCaption": "<strong>Mughal House</strong> — 西ベンガル州パンドゥア、Ahmed Plaza の登録事務所。",
+    "lightboxCaption": "Mughal House",
+    "lightboxSubcaption": "Ahmed Plaza, パンドゥア・インド 西ベンガル州",
+    "map": {
+      "title": "登録事務所",
+      "eyebrow": "Mughal House Manpower Consultancy",
+      "subtitle": "西ベンガル州フーグリー県パンドゥア・インド",
+      "addressLabel": "住所",
+      "openMaps": "Googleマップで開く",
+      "hoursNote": "月〜金 9時〜18時・土曜は予約制。",
+      "close": "閉じる"
+    }
+  },
+  "footer": {
+    "tagline": "2023年以降、マレーシアの雇用主にサービスを提供する政府認可の海外人材派遣コンサルタント。倫理的で、効率的で、信頼されています。",
+    "alias": "<strong>MH Recruiter</strong>・MH Manpower としても知られています。",
+    "registrationCert": "登録証明書",
+    "licenceC": "ライセンスC・マレーシア",
+    "saqStatus": "RBA/SAQ ステータス 2026",
+    "registrationCertAria": "登録証明書を見る（新しいタブで開きます）",
+    "licenceCAria": "マレーシアのライセンスC（Agensi Pekerjaan）を見る、新しいタブで開きます",
+    "saqAria": "RBA SAQ 2026 ステータスのPDFを見る（新しいタブで開きます）",
+    "socialAria": "{label} でフォローする",
+    "sections": {
+      "company": "会社",
+      "services": "サービス",
+      "contact": "お問い合わせ",
+      "hours": "営業時間"
+    },
+    "company": {
+      "about": "会社概要",
+      "team": "私たちのチーム",
+      "careers": "採用情報"
+    },
+    "services": {
+      "medical": "健康診断",
+      "clearance": "人材派遣の許認可",
+      "visa": "e-ビザ申請",
+      "ticketing": "航空券手配",
+      "passport": "パスポート・書類手続き",
+      "orientation": "出発前オリエンテーション"
+    },
+    "contactMeta": {
+      "indiaOffice": "インド・事務所",
+      "myChairman": "マレーシア・会長",
+      "myDirector": "マレーシア・ディレクター"
+    },
+    "addressLabel": "Ahmed Plaza, Pandua Mukul Cinematala G.T. Road,\nPo & PS Pandua, Dist – Hooghly,\nPin – 712149, West Bengal, India",
+    "hours": {
+      "monFri": "月〜金",
+      "saturday": "土曜",
+      "sunday": "日曜",
+      "open9to18": "9:00 – 18:00",
+      "open9to14": "9:00 – 14:00",
+      "closed": "休業",
+      "satNote": "土曜は予約制のみ。"
+    },
+    "copyright": "© {year} Mughal House Manpower Consultancy. All rights reserved.",
+    "indiaLicense": "インド政府ライセンス"
+  },
+  "bookingModal": {
+    "eyebrow": "Mughal House Manpower Consultancy",
+    "title": "予約する",
+    "subtitle": "1営業日以内にご予約の時間を確定いたします。",
+    "close": "閉じる",
+    "successTitle": "ご依頼を受け付けました。",
+    "successBody": "ご入力いただいた情報を受け取りました。1営業日以内に担当者がご連絡し、ご予約の時間を確定いたします。",
+    "done": "完了",
+    "nameLabel": "氏名",
+    "namePlaceholder": "お名前（フルネーム）",
+    "emailLabel": "メール",
+    "emailPlaceholder": "you@example.com",
+    "phoneLabel": "電話番号",
+    "phonePlaceholder": "+91 78119 65514",
+    "dateLabel": "ご希望の日付",
+    "timeLabel": "ご希望の時間",
+    "anyTime": "いつでも可",
+    "messageLabel": "メッセージ / ご用件",
+    "messagePlaceholder": "ご相談されたい内容を簡単にご記入ください…",
+    "submit": "予約を依頼する",
+    "sending": "送信中…",
+    "footnote": "ご予約は空き状況によります。月〜金 9時〜18時、土 9時〜14時。",
+    "errors": {
+      "nameRequired": "氏名を入力してください。",
+      "nameShort": "名前が短すぎるようです。",
+      "emailRequired": "ご予約の確認のためにメールアドレスが必要です。",
+      "emailInvalid": "そのメールアドレスは正しくないようです。",
+      "phoneRequired": "ご連絡可能な電話番号をご記入ください。",
+      "phoneInvalid": "有効な国際形式でご入力ください（例: +91 78119 65514）。",
+      "generic": "問題が発生しました。"
+    }
+  },
+  "liveChat": {
+    "intro1": "こんにちは — **Mughal House Manpower Consultancy** へようこそ。どのようなご用件でしょうか？",
+    "intro2": "下にお名前をご記入ください。担当者がまもなく対応いたします。",
+    "eyebrow": "ライブサポート",
+    "title": "Mughal House",
+    "status": "オンライン・数分で返信",
+    "openChat": "チャットを開く",
+    "closeChat": "チャットを閉じる",
+    "online": "オンライン",
+    "userGreeting": "こんにちは、**{name}** です。",
+    "userGreetingEmail": "こんにちは、**{name}**（{email}）です。",
+    "botGreeting": "**{name}** さん、はじめまして。何をお知りになりたいですか？求人、人材派遣サービス、ビザ申請についてお気軽にお尋ねください。",
+    "received": "メッセージを受け取りました。担当者がまもなく返信いたします。お急ぎの場合は **+91 7811-965514** までお電話ください。",
+    "error": "申し訳ありません、問題が発生しました。もう一度お試しください。",
+    "namePlaceholder": "お名前 *",
+    "emailPlaceholder": "メール（任意）",
+    "startChat": "チャットを開始",
+    "typePlaceholder": "メッセージを入力…",
+    "sendMessage": "メッセージを送信",
+    "whatsappAria": "WhatsApp でチャットする",
+    "telegramAria": "Telegram でメッセージを送る"
+  },
+  "lightbox": {
+    "eyebrow": "Mughal House · 写真",
+    "close": "閉じる",
+    "dismiss": "<kbd>Esc</kbd> キーを押すか、外側をクリックして閉じる"
+  },
+  "common": {
+    "skipToContent": "メインコンテンツへスキップ",
+    "scrollToTop": "トップへ戻る"
+  }
+}

@@ -15,6 +15,7 @@ const FLAGS: Record<Locale, string> = {
   zh: "🇨🇳",
   ru: "🇷🇺",
   es: "🇪🇸",
+  ja: "🇯🇵",
 };
 
 export default function LanguageSwitcher({ tone = "light" }: { tone?: "light" | "dark" }) {

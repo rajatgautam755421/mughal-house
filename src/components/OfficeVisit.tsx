@@ -9,8 +9,9 @@ import {
 import { useTranslations } from "next-intl";
 import ImageLightbox from "./ImageLightbox";
 
+// Exact pin for the Mughal House registered office (23°04'50.6"N 88°16'31.3"E).
 const MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India";
+  "https://www.google.com/maps/search/?api=1&query=23.080721,88.275368";
 
 function MapModal({ onClose }: { onClose: () => void }) {
   const t = useTranslations("officeVisit");

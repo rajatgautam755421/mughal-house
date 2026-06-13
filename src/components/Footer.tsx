@@ -153,7 +153,7 @@ export default function Footer() {
               <p className="text-gold-300 text-[11px] tracking-[0.18em] uppercase font-semibold mb-4">{t("sections.contact")}</p>
               <address className="not-italic flex flex-col gap-3.5">
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Ahmed+Plaza+Pandua+Mukul+Cinematala+GT+Road+Hooghly+West+Bengal+712149+India"
+                  href="https://www.google.com/maps/search/?api=1&query=23.080721,88.275368"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex gap-2.5 text-white/70 text-[13px] leading-[1.55] hover:text-paper transition-colors duration-150"

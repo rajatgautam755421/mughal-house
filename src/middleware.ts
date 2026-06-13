@@ -17,6 +17,9 @@ const ES_COUNTRIES = new Set([
 const ZH_COUNTRIES = new Set([
   "CN", "TW", "HK", "MO", "SG",
 ]);
+const JA_COUNTRIES = new Set([
+  "JP",
+]);
 
 function localeFromCountry(country?: string | null): Locale | null {
   if (!country) return null;
@@ -24,6 +27,7 @@ function localeFromCountry(country?: string | null): Locale | null {
   if (RU_COUNTRIES.has(c)) return "ru";
   if (ES_COUNTRIES.has(c)) return "es";
   if (ZH_COUNTRIES.has(c)) return "zh";
+  if (JA_COUNTRIES.has(c)) return "ja";
   // Don't force "en" here — we still want to fall back to Accept-Language
   // so e.g. a Spanish speaker browsing from the US gets Spanish.
   return null;
@@ -46,6 +50,7 @@ function localeFromAcceptLanguage(header: string | null): Locale | null {
     if (primary === "ru") return "ru";
     if (primary === "es") return "es";
     if (primary === "zh") return "zh";
+    if (primary === "ja") return "ja";
     if (primary === "en") return "en";
   }
   return null;

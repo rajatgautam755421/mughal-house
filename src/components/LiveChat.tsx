@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { X, Send, MessageCircle, Loader2 } from "lucide-react";
 
 type Message = {
@@ -13,28 +14,17 @@ type Message = {
 const now = () =>
   new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" });
 
-const BOT_INTRO: Message[] = [
-  {
-    id: 0,
-    from: "bot",
-    text: "Hello — welcome to **Mughal House Manpower Consultancy**. How can we help?",
-    time: now(),
-  },
-  {
-    id: 1,
-    from: "bot",
-    text: "Please share your name below and a member of our team will be with you shortly.",
-    time: now(),
-  },
-];
-
 function renderText(text: string) {
   return text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 }
 
 export default function LiveChat() {
+  const t = useTranslations("liveChat");
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>(BOT_INTRO);
+  const [messages, setMessages] = useState<Message[]>(() => [
+    { id: 0, from: "bot", text: t("intro1"), time: now() },
+    { id: 1, from: "bot", text: t("intro2"), time: now() },
+  ]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [input, setInput] = useState("");
@@ -56,11 +46,15 @@ export default function LiveChat() {
   const handleInfoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) return;
-    addMessage({ from: "user", text: `Hi, I'm **${name}**${email ? ` (${email})` : ""}.`, time: now() });
+    addMessage({
+      from: "user",
+      text: email ? t("userGreetingEmail", { name, email }) : t("userGreeting", { name }),
+      time: now(),
+    });
     setTimeout(() => {
       addMessage({
         from: "bot",
-        text: `Nice to meet you, **${name}**. What would you like to know? Ask about jobs, recruitment services or visa processing.`,
+        text: t("botGreeting", { name }),
         time: now(),
       });
       setStep("chat");
@@ -86,14 +80,14 @@ export default function LiveChat() {
       setTimeout(() => {
         addMessage({
           from: "bot",
-          text: "Message received. Our team will reply soon. For urgent matters call **+91 7811-965514**.",
+          text: t("received"),
           time: now(),
         });
         setSending(false);
       }, 700);
     } catch {
       setTimeout(() => {
-        addMessage({ from: "bot", text: "Sorry, something went wrong. Please try again.", time: now() });
+        addMessage({ from: "bot", text: t("error"), time: now() });
         setSending(false);
       }, 700);
     }
@@ -123,18 +117,18 @@ export default function LiveChat() {
           {/* Header — mirrors Book-appointment modal */}
           <div className="flex items-start justify-between px-5 pt-5 pb-4 shrink-0 border-b border-rule">
             <div className="min-w-0">
-              <span className="eyebrow">Live support</span>
+              <span className="eyebrow">{t("eyebrow")}</span>
               <h2 className="mt-2 font-display font-semibold text-ink text-[1.05rem] leading-tight tracking-tight">
-                Mughal House
+                {t("title")}
               </h2>
               <p className="text-ink-muted text-[11.5px] mt-1 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold-500" aria-hidden="true" />
-                Online &middot; replies in minutes
+                {t("status")}
               </p>
             </div>
             <button
               onClick={() => setOpen(false)}
-              aria-label="Close chat"
+              aria-label={t("closeChat")}
               className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
             >
               <X className="w-4 h-4" />
@@ -190,20 +184,20 @@ export default function LiveChat() {
                   ref={inputRef as React.RefObject<HTMLInputElement>}
                   type="text"
                   required
-                  placeholder="Your name *"
+                  placeholder={t("namePlaceholder")}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full bg-paper border border-rule px-3 py-2 text-ink text-[13px] placeholder:text-ink-faint focus:outline-none focus:border-ink transition-colors duration-150"
                 />
                 <input
                   type="email"
-                  placeholder="Email (optional)"
+                  placeholder={t("emailPlaceholder")}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-paper border border-rule px-3 py-2 text-ink text-[13px] placeholder:text-ink-faint focus:outline-none focus:border-ink transition-colors duration-150"
                 />
                 <button type="submit" className="btn btn-primary justify-center w-full">
-                  Start chat
+                  {t("startChat")}
                 </button>
               </form>
             ) : (
@@ -211,7 +205,7 @@ export default function LiveChat() {
                 <textarea
                   ref={inputRef as React.RefObject<HTMLTextAreaElement>}
                   rows={1}
-                  placeholder="Type a message…"
+                  placeholder={t("typePlaceholder")}
                   value={input}
                   onChange={(e) => {
                     setInput(e.target.value);
@@ -228,7 +222,7 @@ export default function LiveChat() {
                 <button
                   type="submit"
                   disabled={!input.trim() || sending}
-                  aria-label="Send message"
+                  aria-label={t("sendMessage")}
                   className="w-10 h-10 bg-brand text-paper flex items-center justify-center hover:bg-navy-600 transition-colors duration-150 disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
                 >
                   {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
@@ -244,7 +238,7 @@ export default function LiveChat() {
         href="https://wa.me/917811965514"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
+        aria-label={t("whatsappAria")}
         className="w-11 h-11 flex items-center justify-center bg-paper border border-rule hover:border-ink transition-colors duration-150"
         style={{ color: "#25D366", boxShadow: "0 6px 18px -8px rgba(15,30,61,0.25)" }}
       >
@@ -258,7 +252,7 @@ export default function LiveChat() {
         href="https://t.me/+917811965514"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Message on Telegram"
+        aria-label={t("telegramAria")}
         className="w-11 h-11 flex items-center justify-center bg-paper border border-rule hover:border-ink transition-colors duration-150"
         style={{ color: "#2AABEE", boxShadow: "0 6px 18px -8px rgba(15,30,61,0.25)" }}
       >
@@ -270,14 +264,14 @@ export default function LiveChat() {
       {/* Chat toggle */}
       <button
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close chat" : "Open chat"}
+        aria-label={open ? t("closeChat") : t("openChat")}
         aria-expanded={open}
         className="relative w-12 h-12 flex items-center justify-center bg-brand text-paper hover:bg-navy-600 transition-colors duration-150"
         style={{ boxShadow: "0 8px 24px -8px rgba(30,79,156,0.55)" }}
       >
         {open ? <X className="w-5 h-5" /> : <MessageCircle className="w-5 h-5" />}
         {!open && (
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-gold-500 border-2 border-paper" aria-label="Online" />
+          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-gold-500 border-2 border-paper" aria-label={t("online")} />
         )}
       </button>
     </div>

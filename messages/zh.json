@@ -4,6 +4,7 @@
     "zh": "中文",
     "ru": "俄语",
     "es": "西班牙语",
+    "ja": "日语",
     "switcher": "语言"
   },
   "navbar": {
@@ -354,6 +355,65 @@
     },
     "copyright": "© {year} Mughal House Manpower Consultancy。版权所有。",
     "indiaLicense": "印度政府许可证"
+  },
+  "bookingModal": {
+    "eyebrow": "Mughal House Manpower Consultancy",
+    "title": "预约咨询",
+    "subtitle": "我们将在一个工作日内确认您的预约时间。",
+    "close": "关闭",
+    "successTitle": "已收到您的请求。",
+    "successBody": "我们已收到您的信息。我们的团队成员将在一个工作日内与您联系，确认您的预约时间。",
+    "done": "完成",
+    "nameLabel": "全名",
+    "namePlaceholder": "您的全名",
+    "emailLabel": "电子邮箱",
+    "emailPlaceholder": "you@example.com",
+    "phoneLabel": "电话",
+    "phonePlaceholder": "+91 78119 65514",
+    "dateLabel": "首选日期",
+    "timeLabel": "首选时间",
+    "anyTime": "任意时间",
+    "messageLabel": "留言 / 事由",
+    "messagePlaceholder": "请简要描述您想咨询的内容……",
+    "submit": "提交预约",
+    "sending": "发送中……",
+    "footnote": "预约视空档而定。周一至周五 上午9点–下午6点，周六 上午9点–下午2点。",
+    "errors": {
+      "nameRequired": "请输入您的全名。",
+      "nameShort": "姓名似乎太短了。",
+      "emailRequired": "我们需要电子邮箱以确认您的预约。",
+      "emailInvalid": "该电子邮箱似乎不正确。",
+      "phoneRequired": "请提供一个我们可以联系您的电话号码。",
+      "phoneInvalid": "请使用有效的国际格式，例如 +91 78119 65514。",
+      "generic": "出错了。"
+    }
+  },
+  "liveChat": {
+    "intro1": "您好——欢迎来到 **Mughal House Manpower Consultancy**。我们能为您做些什么？",
+    "intro2": "请在下方留下您的姓名，我们的团队成员将很快为您服务。",
+    "eyebrow": "在线客服",
+    "title": "Mughal House",
+    "status": "在线 · 几分钟内回复",
+    "openChat": "打开聊天",
+    "closeChat": "关闭聊天",
+    "online": "在线",
+    "userGreeting": "您好，我是 **{name}**。",
+    "userGreetingEmail": "您好，我是 **{name}**（{email}）。",
+    "botGreeting": "很高兴认识您，**{name}**。您想了解什么？可以咨询职位、招聘服务或签证办理。",
+    "received": "已收到您的留言。我们的团队将尽快回复。如有紧急事项，请致电 **+91 7811-965514**。",
+    "error": "抱歉，出错了。请重试。",
+    "namePlaceholder": "您的姓名 *",
+    "emailPlaceholder": "电子邮箱（可选）",
+    "startChat": "开始聊天",
+    "typePlaceholder": "输入消息……",
+    "sendMessage": "发送消息",
+    "whatsappAria": "通过 WhatsApp 聊天",
+    "telegramAria": "通过 Telegram 发送消息"
+  },
+  "lightbox": {
+    "eyebrow": "Mughal House · 照片",
+    "close": "关闭",
+    "dismiss": "按 <kbd>Esc</kbd> 键或点击外部关闭"
   },
   "common": {
     "skipToContent": "跳至主要内容",

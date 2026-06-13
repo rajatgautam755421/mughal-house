@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export default function ImageLightbox({ src, alt, caption, subcaption, onClose }: Props) {
+  const t = useTranslations("lightbox");
   useEffect(() => {
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -42,7 +44,7 @@ export default function ImageLightbox({ src, alt, caption, subcaption, onClose }
         {/* Header */}
         <div className="flex items-start justify-between px-6 sm:px-7 pt-6 sm:pt-7 pb-4 border-b border-rule">
           <div className="min-w-0">
-            <span className="eyebrow">Mughal House &middot; Photograph</span>
+            <span className="eyebrow">{t("eyebrow")}</span>
             {caption && (
               <h2 className="mt-2.5 font-display font-semibold text-ink text-[1.35rem] leading-tight tracking-tight">
                 {caption}
@@ -55,7 +57,7 @@ export default function ImageLightbox({ src, alt, caption, subcaption, onClose }
           <button
             onClick={onClose}
             className="shrink-0 w-8 h-8 flex items-center justify-center text-ink-soft hover:text-ink transition-colors duration-150"
-            aria-label="Close"
+            aria-label={t("close")}
           >
             <X className="w-4 h-4" />
           </button>
@@ -72,7 +74,7 @@ export default function ImageLightbox({ src, alt, caption, subcaption, onClose }
         </div>
 
         <p className="text-center text-ink-faint text-[11px] pb-5 px-6">
-          Press <kbd className="font-sans">Esc</kbd> or click outside to close
+          {t.rich("dismiss", { kbd: (chunks) => <kbd className="font-sans">{chunks}</kbd> })}
         </p>
       </div>
     </div>
