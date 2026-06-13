@@ -5,10 +5,16 @@ export const contentType = "image/png";
 export const alt =
   "Mughal House Manpower Consultancy (MH Recruiter) — Government-licensed overseas recruitment, West Bengal to the world";
 
-// Photo-free, flat-colour card. next/og rasterises to PNG, and PNGs of solid
-// fills + text are tiny (~40 KB) versus an embedded photo (~660 KB) — so the
-// share card appears instantly in link previews instead of loading slowly.
+// Minimal, photo-free card. next/og rasterises to PNG, so weight comes almost
+// entirely from glyph count and anti-aliased edges. A centred wordmark, one
+// short tagline and a lightweight inline-SVG globe (a few vector strokes —
+// negligible in PNG) keep this lighter than a busier layout while staying
+// on-brand, so it appears instantly in link previews.
 export default function OGImage() {
+  const ink = "#0a142a";
+  const gold = "#b08830";
+  const muted = "#6b7689";
+
   return new ImageResponse(
     (
       <div
@@ -16,199 +22,124 @@ export default function OGImage() {
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
           background: "#faf8f3",
-          color: "#0a142a",
+          color: ink,
           fontFamily: "serif",
+          padding: "0 90px",
+          textAlign: "center",
         }}
       >
-        {/* ── Left: solid navy brand rail ── */}
+        {/* Top gold hairline */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 8,
+            background: gold,
+            display: "flex",
+          }}
+        />
+
+        {/* Minimal globe mark */}
+        <svg width="92" height="92" viewBox="0 0 96 96" fill="none">
+          <circle cx="48" cy="48" r="44" stroke={ink} strokeWidth="3" />
+          <ellipse cx="48" cy="48" rx="18" ry="44" stroke={gold} strokeWidth="3" />
+          <line x1="4" y1="48" x2="92" y2="48" stroke={ink} strokeWidth="3" />
+          <line x1="11" y1="26" x2="85" y2="26" stroke={ink} strokeWidth="2" />
+          <line x1="11" y1="70" x2="85" y2="70" stroke={ink} strokeWidth="2" />
+        </svg>
+
+        {/* Wordmark */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            width: 430,
-            height: "100%",
-            background: "#0a142a",
-            borderRight: "6px solid #b08830",
-            padding: "56px 48px",
-            color: "#faf8f3",
+            marginTop: 30,
+            fontSize: 64,
+            fontWeight: 700,
+            letterSpacing: 6,
+            color: ink,
+            lineHeight: 1,
           }}
         >
-          {/* Monogram */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 96,
-                fontWeight: 700,
-                lineHeight: 1,
-                letterSpacing: -4,
-                color: "#faf8f3",
-              }}
-            >
-              MH
-            </div>
-            <div
-              style={{
-                display: "flex",
-                marginTop: 14,
-                fontSize: 18,
-                letterSpacing: 4,
-                textTransform: "uppercase",
-                color: "#d6b667",
-                fontFamily: "sans-serif",
-                fontWeight: 700,
-              }}
-            >
-              Mughal House
-            </div>
-            <div
-              style={{
-                display: "flex",
-                marginTop: 4,
-                fontSize: 15,
-                letterSpacing: 2,
-                textTransform: "uppercase",
-                color: "#8b97ab",
-                fontFamily: "sans-serif",
-                fontWeight: 600,
-              }}
-            >
-              Manpower Consultancy
-            </div>
-          </div>
-
-          {/* Headline stat */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 13,
-                letterSpacing: 3,
-                textTransform: "uppercase",
-                color: "#d6b667",
-                fontFamily: "sans-serif",
-                fontWeight: 700,
-              }}
-            >
-              Placed since 2023
-            </div>
-            <div
-              style={{
-                display: "flex",
-                marginTop: 6,
-                fontSize: 72,
-                fontWeight: 700,
-                color: "#faf8f3",
-                lineHeight: 1,
-                letterSpacing: -2,
-              }}
-            >
-              10,000+
-            </div>
-            <div
-              style={{
-                display: "flex",
-                marginTop: 6,
-                fontSize: 18,
-                color: "#aeb7c6",
-                fontFamily: "sans-serif",
-              }}
-            >
-              workers, across the world
-            </div>
-          </div>
+          MUGHAL HOUSE
+        </div>
+        <div
+          style={{
+            display: "flex",
+            marginTop: 12,
+            fontSize: 19,
+            letterSpacing: 6,
+            textTransform: "uppercase",
+            color: muted,
+            fontFamily: "sans-serif",
+            fontWeight: 600,
+          }}
+        >
+          Manpower Consultancy · MH Recruiter
         </div>
 
-        {/* ── Right: editorial typography ── */}
+        {/* Gold rule */}
         <div
           style={{
-            flex: 1,
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            padding: "56px 60px",
+            width: 72,
+            height: 3,
+            marginTop: 34,
+            marginBottom: 34,
+            background: gold,
+          }}
+        />
+
+        {/* Tagline */}
+        <div
+          style={{
+            display: "flex",
+            fontSize: 38,
+            fontWeight: 700,
+            letterSpacing: -1,
+            color: ink,
+            lineHeight: 1.15,
+            maxWidth: 880,
           }}
         >
-          {/* Top meta row */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              fontSize: 16,
-              letterSpacing: 3,
-              textTransform: "uppercase",
-              color: "#6b7689",
-              fontFamily: "sans-serif",
-              fontWeight: 600,
-            }}
-          >
-            <div style={{ display: "flex" }}>MH Recruiter</div>
-            <div style={{ display: "flex", color: "#b08830" }}>
-              EST. 2023 · RAS838225
-            </div>
-          </div>
+          Skilled Indian workers, placed across the world.
+        </div>
 
-          {/* Headline + supporting copy */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                fontSize: 68,
-                fontWeight: 700,
-                lineHeight: 1.06,
-                letterSpacing: -2.5,
-                color: "#0a142a",
-              }}
-            >
-              <span style={{ display: "flex" }}>Skilled Indian workers,</span>
-              <span style={{ display: "flex" }}>placed across the world.</span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                marginTop: 22,
-                fontSize: 24,
-                lineHeight: 1.45,
-                color: "#3b475c",
-                fontFamily: "sans-serif",
-                maxWidth: 560,
-              }}
-            >
-              A government-licensed overseas recruitment agency in Pandua,
-              West Bengal — placing skilled workers across the world.
-            </div>
-          </div>
+        {/* Proof line */}
+        <div
+          style={{
+            display: "flex",
+            marginTop: 26,
+            fontSize: 21,
+            letterSpacing: 1,
+            color: gold,
+            fontFamily: "sans-serif",
+            fontWeight: 600,
+          }}
+        >
+          10,000+ placed · Govt-licensed (RAS838225) · Est. 2023
+        </div>
 
-          {/* Footer */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              borderTop: "1px solid #e6e1d6",
-              paddingTop: 20,
-              fontSize: 18,
-              color: "#0a142a",
-              fontFamily: "sans-serif",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                fontWeight: 700,
-                letterSpacing: 2,
-                textTransform: "uppercase",
-              }}
-            >
-              mhrecruiter.com
-            </div>
-            <div style={{ display: "flex", color: "#6b7689", fontSize: 16 }}>
-              Pandua, West Bengal · Kuala Lumpur, Malaysia
-            </div>
-          </div>
+        {/* Footer url */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 40,
+            display: "flex",
+            fontSize: 18,
+            letterSpacing: 3,
+            textTransform: "uppercase",
+            fontWeight: 700,
+            color: ink,
+            fontFamily: "sans-serif",
+          }}
+        >
+          mhrecruiter.com
         </div>
       </div>
     ),
