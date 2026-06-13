@@ -2,13 +2,6 @@ import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-function FacebookIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  );
-}
 function LinkedInIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -40,7 +33,6 @@ const phoneContacts = [
 ] as const;
 
 const socialLinks = [
-  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/mughalhouse" },
   { icon: LinkedInIcon, label: "LinkedIn", href: "https://www.linkedin.com/company/mughalhouse" },
 ];
 

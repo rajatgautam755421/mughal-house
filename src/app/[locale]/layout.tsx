@@ -194,7 +194,6 @@ const organizationSchema = {
     },
   ],
   sameAs: [
-    "https://www.facebook.com/mughalhouse",
     "https://www.linkedin.com/company/mughalhouse",
   ],
 };
