@@ -5,15 +5,14 @@ export const contentType = "image/png";
 export const alt =
   "Mughal House Manpower Consultancy (MH Recruiter) — Government-licensed overseas recruitment, West Bengal to the world";
 
-// Minimal, photo-free card. next/og rasterises to PNG, so weight comes almost
-// entirely from glyph count and anti-aliased edges. A centred wordmark, one
-// short tagline and a lightweight inline-SVG globe (a few vector strokes —
-// negligible in PNG) keep this lighter than a busier layout while staying
-// on-brand, so it appears instantly in link previews.
+// Minimal brand card on solid navy. next/og rasterises to PNG, so weight is
+// driven by glyph count — a solid fill is near-free and there is no photo or
+// globe, so this stays light (~50 KB) and appears instantly in link previews.
 export default function OGImage() {
-  const ink = "#0a142a";
-  const gold = "#b08830";
-  const muted = "#6b7689";
+  const navy = "#0a142a";
+  const cream = "#faf8f3";
+  const gold = "#d6b667";
+  const muted = "#94a0b4";
 
   return new ImageResponse(
     (
@@ -25,8 +24,8 @@ export default function OGImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#faf8f3",
-          color: ink,
+          background: navy,
+          color: cream,
           fontFamily: "serif",
           padding: "0 90px",
           textAlign: "center",
@@ -45,24 +44,14 @@ export default function OGImage() {
           }}
         />
 
-        {/* Minimal globe mark */}
-        <svg width="92" height="92" viewBox="0 0 96 96" fill="none">
-          <circle cx="48" cy="48" r="44" stroke={ink} strokeWidth="3" />
-          <ellipse cx="48" cy="48" rx="18" ry="44" stroke={gold} strokeWidth="3" />
-          <line x1="4" y1="48" x2="92" y2="48" stroke={ink} strokeWidth="3" />
-          <line x1="11" y1="26" x2="85" y2="26" stroke={ink} strokeWidth="2" />
-          <line x1="11" y1="70" x2="85" y2="70" stroke={ink} strokeWidth="2" />
-        </svg>
-
         {/* Wordmark */}
         <div
           style={{
             display: "flex",
-            marginTop: 30,
-            fontSize: 64,
+            fontSize: 72,
             fontWeight: 700,
             letterSpacing: 6,
-            color: ink,
+            color: cream,
             lineHeight: 1,
           }}
         >
@@ -71,7 +60,7 @@ export default function OGImage() {
         <div
           style={{
             display: "flex",
-            marginTop: 12,
+            marginTop: 14,
             fontSize: 19,
             letterSpacing: 6,
             textTransform: "uppercase",
@@ -89,8 +78,8 @@ export default function OGImage() {
             display: "flex",
             width: 72,
             height: 3,
-            marginTop: 34,
-            marginBottom: 34,
+            marginTop: 36,
+            marginBottom: 36,
             background: gold,
           }}
         />
@@ -99,12 +88,12 @@ export default function OGImage() {
         <div
           style={{
             display: "flex",
-            fontSize: 38,
+            fontSize: 40,
             fontWeight: 700,
             letterSpacing: -1,
-            color: ink,
+            color: cream,
             lineHeight: 1.15,
-            maxWidth: 880,
+            maxWidth: 900,
           }}
         >
           Skilled Indian workers, placed across the world.
@@ -114,7 +103,7 @@ export default function OGImage() {
         <div
           style={{
             display: "flex",
-            marginTop: 26,
+            marginTop: 28,
             fontSize: 21,
             letterSpacing: 1,
             color: gold,
@@ -135,7 +124,7 @@ export default function OGImage() {
             letterSpacing: 3,
             textTransform: "uppercase",
             fontWeight: 700,
-            color: ink,
+            color: muted,
             fontFamily: "sans-serif",
           }}
         >
