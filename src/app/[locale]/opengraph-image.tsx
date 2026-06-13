@@ -1,26 +1,14 @@
 import { ImageResponse } from "next/og";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
   "Mughal House Manpower Consultancy (MH Recruiter) — Government-licensed overseas recruitment, West Bengal to the world";
 
-export default async function OGImage() {
-  // Embed the team portrait so the share card carries a real photo, not
-  // just typography. Falls back to the typographic side alone if the
-  // file can't be read.
-  let heroDataUri: string | null = null;
-  try {
-    const buf = await readFile(
-      join(process.cwd(), "public/images/mughal-house-hero.jpeg"),
-    );
-    heroDataUri = `data:image/jpeg;base64,${buf.toString("base64")}`;
-  } catch {
-    heroDataUri = null;
-  }
-
+// Photo-free, flat-colour card. next/og rasterises to PNG, and PNGs of solid
+// fills + text are tiny (~40 KB) versus an embedded photo (~660 KB) — so the
+// share card appears instantly in link previews instead of loading slowly.
+export default function OGImage() {
   return new ImageResponse(
     (
       <div
@@ -33,67 +21,75 @@ export default async function OGImage() {
           fontFamily: "serif",
         }}
       >
-        {/* ── Left: portrait photo ── */}
+        {/* ── Left: solid navy brand rail ── */}
         <div
           style={{
             display: "flex",
-            width: 480,
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: 430,
             height: "100%",
-            position: "relative",
             background: "#0a142a",
+            borderRight: "6px solid #b08830",
+            padding: "56px 48px",
+            color: "#faf8f3",
           }}
         >
-          {heroDataUri && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={heroDataUri}
-              alt=""
-              width={480}
-              height={630}
+          {/* Monogram */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
               style={{
-                width: 480,
-                height: 630,
-                objectFit: "cover",
-                objectPosition: "center top",
+                display: "flex",
+                fontSize: 96,
+                fontWeight: 700,
+                lineHeight: 1,
+                letterSpacing: -4,
+                color: "#faf8f3",
               }}
-            />
-          )}
-          {/* Bottom gradient for badge legibility */}
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              bottom: 0,
-              height: 220,
-              background:
-                "linear-gradient(to top, rgba(10,20,42,0.85) 0%, rgba(10,20,42,0) 100%)",
-              display: "flex",
-            }}
-          />
-          {/* Floating stat */}
-          <div
-            style={{
-              position: "absolute",
-              left: 28,
-              bottom: 28,
-              display: "flex",
-              flexDirection: "column",
-              background: "#faf8f3",
-              border: "1px solid #d9d3c6",
-              padding: "16px 22px",
-              boxShadow: "0 12px 32px -12px rgba(15,30,61,0.45)",
-            }}
-          >
+            >
+              MH
+            </div>
+            <div
+              style={{
+                display: "flex",
+                marginTop: 14,
+                fontSize: 18,
+                letterSpacing: 4,
+                textTransform: "uppercase",
+                color: "#d6b667",
+                fontFamily: "sans-serif",
+                fontWeight: 700,
+              }}
+            >
+              Mughal House
+            </div>
+            <div
+              style={{
+                display: "flex",
+                marginTop: 4,
+                fontSize: 15,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                color: "#8b97ab",
+                fontFamily: "sans-serif",
+                fontWeight: 600,
+              }}
+            >
+              Manpower Consultancy
+            </div>
+          </div>
+
+          {/* Headline stat */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
                 display: "flex",
                 fontSize: 13,
                 letterSpacing: 3,
                 textTransform: "uppercase",
-                color: "#b08830",
-                fontWeight: 700,
+                color: "#d6b667",
                 fontFamily: "sans-serif",
+                fontWeight: 700,
               }}
             >
               Placed since 2023
@@ -101,11 +97,12 @@ export default async function OGImage() {
             <div
               style={{
                 display: "flex",
-                marginTop: 4,
-                fontSize: 44,
+                marginTop: 6,
+                fontSize: 72,
                 fontWeight: 700,
-                color: "#0a142a",
+                color: "#faf8f3",
                 lineHeight: 1,
+                letterSpacing: -2,
               }}
             >
               10,000+
@@ -113,9 +110,9 @@ export default async function OGImage() {
             <div
               style={{
                 display: "flex",
-                marginTop: 4,
-                fontSize: 16,
-                color: "#3b475c",
+                marginTop: 6,
+                fontSize: 18,
+                color: "#aeb7c6",
                 fontFamily: "sans-serif",
               }}
             >
@@ -167,10 +164,7 @@ export default async function OGImage() {
               }}
             >
               <span style={{ display: "flex" }}>Skilled Indian workers,</span>
-              <span style={{ display: "flex" }}>
-                placed across the world
-                <span style={{ color: "#b08830" }}>.</span>
-              </span>
+              <span style={{ display: "flex" }}>placed across the world.</span>
             </div>
             <div
               style={{
